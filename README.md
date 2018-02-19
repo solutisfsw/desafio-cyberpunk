@@ -2,7 +2,7 @@
 
 # NOSSO DESAFIO
 Bem vindo. Estamos interessados em ver como você desenvolve com as tecnologias que domina. Que jeito melhor do que apresentando um projeto feito por você?
-Queremos que você nos aprensente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras.
+Queremos que você nos apresente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras.
 ## REGRAS GERAIS
 - Faça a [cópia](https://help.github.com/articles/fork-a-repo/) do repositório (fork), desenvolva e submeta uma [solicitação de mudança](https://help.github.com/articles/creating-a-pull-request/) (pull request) no branch master.
 - A aplicação deve ser composta por Backend e/ou Frontend. Caso ache que so vai conseguir fazer um dos dois no tempo disponível, foque nele.
