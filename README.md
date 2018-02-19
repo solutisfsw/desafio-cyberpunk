@@ -56,7 +56,7 @@ O frontend pode ser Web ou Mobile. Sugerimos as seguintes tecnologias:
 - Caso utilize um banco de dados na nuvem (e.g. Firebase), a aplicação já deve ter o acesso ao banco configurado. (+)
 
 ### BUILD E EXECUÇÃO
-- Envie as instruções para o build/execução da sua aplicação, disponibilizamos um [exemplo](exemplo.md) para ajudar você. Cuidado com dependências externas que inviabilizem ou dificultem essas atividades.
+- Envie as instruções para o build/execução da sua aplicação, disponibilizamos um [exemplo](README.template.md) para ajudar você. Cuidado com dependências externas que inviabilizem ou dificultem essas atividades.
 - De preferência utilize um ferramenta como Gradle, Maven, npm para realizar as tarefas necessárias de build.
 - Caso deseje, envie um Dockerfile que monte o ambiente já em execução da sua aplicação (+)
 
