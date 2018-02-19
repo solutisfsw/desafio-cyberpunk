@@ -1,9 +1,8 @@
 [![N|Solid](http://solutis.com.br/images/logo.png)](http://solutis.com.br)
 
 # NOSSO DESAFIO
-Bem vindo. Estamos interessados em ver como você desenvolve com as tecnologias que domina. Que jeito melhor do que apresentando um projeto feito por você memso?
-Queremos que você nos aprensente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras
-
+Bem vindo. Estamos interessados em ver como você desenvolve com as tecnologias que domina. Que jeito melhor do que apresentando um projeto feito por você?
+Queremos que você nos aprensente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras.
 ## REGRAS GERAIS
 - Faça a [cópia](https://help.github.com/articles/fork-a-repo/) do repositório (fork), desenvolva e submeta uma [solicitação de mudança](https://help.github.com/articles/creating-a-pull-request/) (pull request) no branch master.
 - A aplicação deve ser composta por Backend e/ou Frontend. Caso ache que so vai conseguir fazer um dos dois no tempo disponível, foque nele.
@@ -25,7 +24,7 @@ A interface + backend da aplicação deverão permitir recuperação da lista de
 Considere que só um usuário vai usar a aplicação e que este usuário não precisa de login. Considere também que nós sabemos como relacionar um clone aos nossos clientes, não é preciso programar essa relação.
 
 ## LINGUAGENS
-  - JAVA 8
+  - Java 8/9
   - Kotlin (+)
   - C#
   - JavaScript/Typescript
@@ -36,7 +35,7 @@ Considere que só um usuário vai usar a aplicação e que este usuário não pr
 ### BACKEND
 São válidos para o backend os seguintes frameworks:
 
-- JavaEE 7
+- JavaEE 7 ou superior
 - Node 8.9.4+ (+)
 - Springboot (+)
 - .NET WebApi
