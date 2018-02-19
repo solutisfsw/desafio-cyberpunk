@@ -13,6 +13,6 @@ npm buid
 Descreva aqui as configurações necessárias para o seu projeto funcionar.
 
 ## Meta
-Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
+Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
 
-Distribuído sob a licença XYZ. Veja `LICENSE` para mais informações.
+Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
