@@ -1,18 +1,19 @@
 # Nome do projeto
 
-Descrição resumida sobre o projeto.
+Api simples com nodejs, simulando um crud de clones.
 
 ## Instalação
 Linux & Windows
 
 ```sh
-npm install
-npm buid
+npm install - para adicionar as dependências do projeto
+
 ```
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+npm start - para rodar a aplicação (endereço: http://localhost:3000)
+npm test - para rodar os testes
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+[Tarssito Pereira de Araujo](https://www.linkedin.com/in/tarssito-pereira-b180a8130/) – tarssito@hotmail.com
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+Distribuído sob a licença Copyright (c) 2018 solutisfsw.

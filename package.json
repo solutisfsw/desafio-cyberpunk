@@ -1,0 +1,31 @@
+{
+  "name": "desafio-cyberpunk",
+  "version": "1.0.0",
+  "description": "Api desafio cyber punk",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarssito/desafio-cyberpunk.git"
+  },
+  "author": "Tarssito Pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarssito/desafio-cyberpunk/issues"
+  },
+  "homepage": "https://github.com/tarssito/desafio-cyberpunk#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "express": "^4.16.2",
+    "express-validator": "^5.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^5.0.1"
+  }
+}
