@@ -13,7 +13,7 @@ function salvar(clone) {
 
 function excluir(id) {
     const clone = clones[id]
-    delete clone[id]
+    delete clones[id]
     return clone
 }
 

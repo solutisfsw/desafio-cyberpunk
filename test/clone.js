@@ -28,13 +28,32 @@ describe('Clones', () => {
     describe('/POST clone', function () {
         it('Deve cadastrar um clone sem erros', function (done) {
             var clone = {
+                nome: 'TOZ0099',
+                idade: 20,
+                dataCriacao: new Date(),
+                adicionais: ['braço mecânico', 'esqueleto', 'sentidos aguçados', 'pele adaptativa', 'raio laser']
+            }
+            chai.request(server)
+                .post('/clone')
+                .send(clone)
+                .end( function(error, res) {
+                    res.should.have.status(200)
+                    res.body.should.be.a('object')
+                    done()
+                })
+        })
+    })
+
+    describe('/POST clone', function () {
+        it('NÃO Deve cadastrar um clone, nome inválido', function (done) {
+            var clone = {
                 nome: 'Maria Silva',
                 idade: 20,
                 dataCriacao: new Date(),
                 adicionais: ['braço mecânico', 'esqueleto', 'sentidos aguçados', 'pele adaptativa', 'raio laser']
             }
             chai.request(server)
-                .post('/clone/salvar')
+                .post('/clone')
                 .send(clone)
                 .end( function(error, res) {
                     res.should.have.status(200)
