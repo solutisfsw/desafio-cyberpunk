@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "255270604279",
+    "firebase_url": "https://desafio-cyberpunk.firebaseio.com",
+    "project_id": "desafio-cyberpunk",
+    "storage_bucket": "desafio-cyberpunk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255270604279:android:f395d4ae10ecf0c5",
+        "android_client_info": {
+          "package_name": "br.com.luisferreira.desafio_cyberpunk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255270604279-0197lvi504n2cejpp34g0pqtvdfinb21.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.luisferreira.desafio_cyberpunk",
+            "certificate_hash": "24a477186fc75d3e6b73d2b934c25882cdea1347"
+          }
+        },
+        {
+          "client_id": "255270604279-klmsnb3tp92brv87dms87t2k2tur733d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7PWK-A1aMeGAwxZAmwb5unXPwZq77wtE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255270604279-klmsnb3tp92brv87dms87t2k2tur733d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
