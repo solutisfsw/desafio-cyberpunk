@@ -1,6 +1,6 @@
 # Nome do projeto
 
-Api simples, simulando um crud de clones.
+Api simples com nodejs, simulando um crud de clones.
 
 ## Instalação
 Linux & Windows
@@ -16,4 +16,4 @@ npm test - para rodar os testes
 ## Meta
 [Tarssito Pereira de Araujo](https://www.linkedin.com/in/tarssito-pereira-b180a8130/) – tarssito@hotmail.com
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+Distribuído sob a licença Copyright (c) 2018 solutisfsw.
