@@ -1,0 +1,28 @@
+{
+  "name": "cyber-api",
+  "version": "1.0.0",
+  "description": "Api Rest Desafio Cyberpunk",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciosmelo/desafio-cyberpunk.git"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "server"
+  ],
+  "author": "@marciosmelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marciosmelo/desafio-cyberpunk/issues"
+  },
+  "homepage": "https://github.com/marciosmelo/desafio-cyberpunk#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
