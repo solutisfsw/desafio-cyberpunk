@@ -1,33 +1,35 @@
 package com.clones.desafios.model;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Membro {
+public class Membro implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id_membro;
 	
 	private String descricao;
 	
-	@JoinColumn(foreignKey = @ForeignKey(name = "fk_clone"))
-	@ManyToOne(fetch=FetchType.EAGER)
-	private Clone clone;
+	@OneToMany(mappedBy="membro", fetch = FetchType.LAZY)
+	private List<ClonesMembros> clonesMembros;
 
-	public Long getId() {
-		return id;
+	public Long getId_membro() {
+		return id_membro;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId_membro(Long id_membro) {
+		this.id_membro = id_membro;
 	}
 
 	public String getDescricao() {
@@ -38,19 +40,19 @@ public class Membro {
 		this.descricao = descricao;
 	}
 
-	public Clone getClone() {
-		return clone;
+	public List<ClonesMembros> getClonesMembros() {
+		return clonesMembros;
 	}
 
-	public void setClone(Clone clone) {
-		this.clone = clone;
+	public void setClonesMembros(List<ClonesMembros> clonesMembros) {
+		this.clonesMembros = clonesMembros;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((id_membro == null) ? 0 : id_membro.hashCode());
 		return result;
 	}
 
@@ -63,14 +65,15 @@ public class Membro {
 		if (getClass() != obj.getClass())
 			return false;
 		Membro other = (Membro) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (id_membro == null) {
+			if (other.id_membro != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!id_membro.equals(other.id_membro))
 			return false;
 		return true;
 	}
 	
+	 
 	
 	
 }

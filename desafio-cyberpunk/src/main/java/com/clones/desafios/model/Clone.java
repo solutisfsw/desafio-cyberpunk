@@ -1,5 +1,6 @@
 package com.clones.desafios.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,11 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Clone {
+public class Clone implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id_clone;
 	
 	private String nome;
 	
@@ -23,17 +26,15 @@ public class Clone {
 	
 	private LocalDate data_criacao;
 	
-	@OneToMany(mappedBy = "clone", fetch = FetchType.EAGER)
-	private List<Membro> membros;
-	
-	
-	
-	public Long getId() {
-		return id;
+	@OneToMany(mappedBy="clone", fetch = FetchType.LAZY)
+	private List<ClonesMembros> clonesMembros;
+
+	public Long getId_clone() {
+		return id_clone;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId_clone(Long id_clone) {
+		this.id_clone = id_clone;
 	}
 
 	public String getNome() {
@@ -52,8 +53,6 @@ public class Clone {
 		this.idade = idade;
 	}
 
-	
-
 	public LocalDate getData_criacao() {
 		return data_criacao;
 	}
@@ -62,23 +61,19 @@ public class Clone {
 		this.data_criacao = data_criacao;
 	}
 
-	
-
-
-	public List<Membro> getMembros() {
-		return membros;
+	public List<ClonesMembros> getClonesMembros() {
+		return clonesMembros;
 	}
 
-	public void setMembros(List<Membro> membros) {
-		this.membros = membros;
+	public void setClonesMembros(List<ClonesMembros> clonesMembros) {
+		this.clonesMembros = clonesMembros;
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((id_clone == null) ? 0 : id_clone.hashCode());
 		return result;
 	}
 
@@ -91,16 +86,14 @@ public class Clone {
 		if (getClass() != obj.getClass())
 			return false;
 		Clone other = (Clone) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (id_clone == null) {
+			if (other.id_clone != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!id_clone.equals(other.id_clone))
 			return false;
 		return true;
 	}
-
 	
-
 	
 	
 	
