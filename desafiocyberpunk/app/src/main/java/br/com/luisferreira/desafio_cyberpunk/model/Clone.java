@@ -1,7 +1,7 @@
 package br.com.luisferreira.desafio_cyberpunk.model;
 
 /**
- * Created by Luis Ferreira on 24/02/2018.
+ * Created by Luis Ferreira on 23/02/2018.
  */
 
 public class Clone {

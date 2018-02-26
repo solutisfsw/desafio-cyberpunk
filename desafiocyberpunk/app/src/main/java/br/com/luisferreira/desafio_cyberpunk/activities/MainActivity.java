@@ -1,6 +1,7 @@
 package br.com.luisferreira.desafio_cyberpunk.activities;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerAdapter recyclerAdapter;
+
+    protected ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +59,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapter);
 
         recyclerAdapter.notifyDataSetChanged();
+
+        progressBar = findViewById(R.id.main_progress);
     }
 
     private void fetchData() {
+        openProgressBar();
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         databaseReference.child("clones").addValueEventListener(new ValueEventListener() {
@@ -64,16 +73,23 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 clones.removeAll(clones);
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Clone clone = snapshot.getValue(Clone.class);
-                    clones.add(clone);
+                if(!dataSnapshot.exists()){
+                    showSnackbar("Não existem clones cadastrados!");
+                } else {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Clone clone = snapshot.getValue(Clone.class);
+                        clones.add(clone);
+                    }
+                    recyclerAdapter.notifyDataSetChanged();
                 }
-                recyclerAdapter.notifyDataSetChanged();
+
+                closeProgressBar();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                showSnackbar("Não foi possível buscar os dados!");
+                closeProgressBar();
             }
         });
     }
@@ -81,6 +97,22 @@ public class MainActivity extends AppCompatActivity {
     public void chamarCadastro() {
         Intent intent = new Intent(this, InsertActivity.class);
         startActivity(intent);
+    }
+
+    protected void openProgressBar(){
+        progressBar.setFocusable(true);
+        progressBar.setVisibility( View.VISIBLE );
+    }
+
+    protected void closeProgressBar(){
+        progressBar.setVisibility( View.GONE );
+    }
+
+    protected void showSnackbar( String message ){
+        Snackbar.make(progressBar,
+                message,
+                Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 
     // MENU

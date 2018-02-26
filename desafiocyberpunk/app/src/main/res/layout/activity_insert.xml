@@ -50,7 +50,8 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
 
                     <AutoCompleteTextView
                         android:id="@+id/textNomeClone"
@@ -63,27 +64,28 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
 
                     <AutoCompleteTextView
                         android:id="@+id/textIdadeClone"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="Idade"
-                        android:imeOptions="actionNext"
+                        android:imeOptions="actionDone"
                         android:inputType="number" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
 
                     <AutoCompleteTextView
                         android:id="@+id/textDataCriacao"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="Data de Criação"
-                        android:imeOptions="actionNext"
                         android:inputType="date" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -148,7 +150,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Pele Adaptativa"
-                            android:layout_marginLeft="22dp"
+                            android:layout_marginLeft="23dp"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="#000000"
                             android:textSize="12sp"/>
