@@ -21,7 +21,7 @@ public class Membro implements Serializable{
 	
 	private String descricao;
 	
-	@OneToMany(mappedBy="membro", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="membro", fetch = FetchType.EAGER)
 	private List<ClonesMembros> clonesMembros;
 
 	public Long getId_membro() {

@@ -1,9 +1,11 @@
 package com.clones.desafios.model;
 
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,25 +19,18 @@ public class Clone implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_clone;
 	
+	@Column(unique=true)
 	private String nome;
 	
 	private Integer idade;
 	
 	private LocalDate data_criacao;
 	
-	@OneToMany(mappedBy="clone", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="clone", fetch = FetchType.EAGER)
 	private List<ClonesMembros> clonesMembros;
-
-	public Long getId_clone() {
-		return id_clone;
-	}
-
-	public void setId_clone(Long id_clone) {
-		this.id_clone = id_clone;
-	}
 
 	public String getNome() {
 		return nome;
@@ -51,6 +46,16 @@ public class Clone implements Serializable{
 
 	public void setIdade(Integer idade) {
 		this.idade = idade;
+	}
+
+	
+
+	public Long getId_clone() {
+		return id_clone;
+	}
+
+	public void setId_clone(Long id_clone) {
+		this.id_clone = id_clone;
 	}
 
 	public LocalDate getData_criacao() {
@@ -93,7 +98,7 @@ public class Clone implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 	
 	
 	
