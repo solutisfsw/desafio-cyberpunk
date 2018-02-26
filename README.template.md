@@ -1,6 +1,6 @@
 # Nome do projeto
 
-Descrição resumida sobre o projeto.
+Projeto desafio-dyberpunk com springboot, rest e angular
 
 ## Instalação
 Linux & Windows
@@ -10,9 +10,9 @@ npm install
 npm buid
 ```
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+Springboot, JPA, REST, Angular
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Railson da Silva Martins [Linkendin](https://www.linkedin.com/in/railson-silva-834a25aa) – railson170@hotmail.com
 
 Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
