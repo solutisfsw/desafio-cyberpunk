@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -14,7 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,8 +35,13 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
     private AutoCompleteTextView textNomeClone;
     private AutoCompleteTextView textIdadeClone;
     private AutoCompleteTextView textDataCriacao;
-
+    private Toolbar toolbar;
     private FloatingActionButton fabEnviarDadosCadastro;
+    private CheckBox chkBracoMecanico;
+    private CheckBox chkEsqueletoReforcado;
+    private CheckBox chkSentidosAgucados;
+    private CheckBox chkPeleAdaptativa;
+    private CheckBox chkRaioLaser;
 
     protected ProgressBar progressBar;
 
@@ -42,6 +50,8 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
     private Pattern pattern;
     private Matcher matcher;
 
+    private List<String> adicionais = new ArrayList<>();
+
     private static final String NOME_PATTERN = "[A-Z]{3}[0-9]{4}";
 
     @Override
@@ -49,13 +59,13 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        pattern = Pattern.compile(NOME_PATTERN);
+
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Cadastro de Clones");
-
-        pattern = Pattern.compile(NOME_PATTERN);
 
         fabEnviarDadosCadastro = findViewById(R.id.fabEnviarDadosCadastro);
         fabEnviarDadosCadastro.setOnClickListener(this);
@@ -71,57 +81,77 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
         textDataCriacao = findViewById(R.id.textDataCriacao);
         progressBar = findViewById(R.id.sign_up_progress);
 
+        chkBracoMecanico = findViewById(R.id.chkBracoMecanico);
+        chkEsqueletoReforcado = findViewById(R.id.chkEsqueletoReforcado);
+        chkSentidosAgucados = findViewById(R.id.chkSentidosAgucados);
+        chkPeleAdaptativa = findViewById(R.id.chkPeleAdaptativa);
+        chkRaioLaser = findViewById(R.id.chkRaioLaser);
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         textDataCriacao.setText(simpleDateFormat.format(new Date()));
         textDataCriacao.setEnabled(false);
     }
 
-    protected void initUsuario() {
+    protected void initClone() {
         clone = new Clone();
         clone.setNome(textNomeClone.getText().toString().trim());
 
         String idade = textIdadeClone.getText().toString();
-
         if (!idade.isEmpty()) {
             clone.setIdade(Long.parseLong(idade));
         }
 
         clone.setDataCriacao(textDataCriacao.getText().toString());
+
+        if(chkBracoMecanico.isChecked()) {
+            adicionais.add("Braço Mecânico");
+        }
+
+        if(chkEsqueletoReforcado.isChecked()) {
+            adicionais.add("Esqueleto Reforçado");
+        }
+
+        if(chkSentidosAgucados.isChecked()) {
+            adicionais.add("Sentidos Aguçados");
+        }
+
+        if(chkPeleAdaptativa.isChecked()) {
+            adicionais.add("Pele Adaptativa");
+        }
+
+        if(chkRaioLaser.isChecked()) {
+            adicionais.add("Raio Laser");
+        }
+
+        clone.setAdicionais(adicionais);
     }
 
     @Override
     public void onClick(View v) {
-        initUsuario();
+        initClone();
 
-        String nome = textNomeClone.getText().toString().trim();
-        String idade = textIdadeClone.getText().toString();
+        String NOME = textNomeClone.getText().toString().trim();
+        String IDADE = textIdadeClone.getText().toString();
 
-        matcher = pattern.matcher(nome);
+        matcher = pattern.matcher(NOME);
 
         boolean ok = true;
 
-        if (nome.isEmpty()) {
+        if (NOME.isEmpty()) {
             textNomeClone.setError(getString(R.string.msg_erro_nome_empty));
             ok = false;
         } else {
             if (!matcher.matches()) {
                 textNomeClone.setError(getString(R.string.msg_erro_nome_pattern));
                 ok = false;
-            } /*else {
-                Query query = databaseReference.child("clones").orderByChild("nome").equalTo(nome);
-
-                if (query != null) {
-                    textNomeClone.setError(getString(R.string.msg_erro_nome_exist));
-                    ok = false;
-                }
-            }*/
+            }
         }
 
-        if (idade.isEmpty()) {
+        if (IDADE.isEmpty()) {
             textIdadeClone.setError(getString(R.string.msg_erro_idade_empty));
             ok = false;
         } else {
-            Long nIdade = Long.parseLong(idade);
+            Long nIdade = Long.parseLong(IDADE);
 
             if (nIdade < 10 || nIdade > 20) {
                 textIdadeClone.setError(getString(R.string.msg_erro_idade_invalida));
@@ -143,7 +173,6 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
             finish();
         } else {
             closeProgressBar();
-            textNomeClone.setFocusable(true);
             fabEnviarDadosCadastro.setEnabled(true);
         }
     }

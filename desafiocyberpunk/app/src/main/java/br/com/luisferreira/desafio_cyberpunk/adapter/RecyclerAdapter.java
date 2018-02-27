@@ -37,6 +37,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.textViewNomeClone.setText(clone.getNome());
         holder.textViewIdadeClone.setText(String.valueOf(clone.getIdade()));
         holder.textViewDataCriacao.setText(clone.getDataCriacao());
+
+        if (clone.getAdicionais() == null){
+            holder.textViewAdicionais.setText("Este clone não possui itens adicionais!");
+        } else {
+            holder.textViewAdicionais.setText(clone.getAdicionais().toString());
+        }
     }
 
     @Override
@@ -46,13 +52,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewNomeClone, textViewIdadeClone, textViewDataCriacao;
+        TextView textViewNomeClone, textViewIdadeClone, textViewDataCriacao, textViewAdicionais;
 
         public ViewHolder(View view) {
             super(view);
             textViewNomeClone = view.findViewById(R.id.textViewNomeClone);
             textViewIdadeClone = view.findViewById(R.id.textViewIdadeClone);
             textViewDataCriacao = view.findViewById(R.id.textViewDataCriacao);
+            textViewAdicionais = view.findViewById(R.id.textViewAdicionais);
         }
     }
 }
