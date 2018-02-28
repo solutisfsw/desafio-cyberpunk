@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.bg-1 {
+    background-color: #1abc9c;
+    color: #ffffff;
+    background-image: url("assets/images/myLab3.jpg");
+    background-size: 100%;
+}
+
+.bg-2 {
+    background-color: #474e5d;
+    color: #ffffff;
+}
+
+.bg-3 {
+    background-color: #ffffff;
+    color: #555555;
+    padding: 128px;
+}
+
+.navbar.navbar-default {
+    margin-bottom: 0px;
+    background-color: #36c05b;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-size: 27px !important;
+    font-weight: bold;
+}
+
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.bg-1 h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 80, 76, 1);
+}
+
+.bg-1 h3 {
+    text-shadow: 1px 1px 2px rgba(0, 80, 76, 1);
+    font-size: 40px;
+}
+
+.bg-1 p {
+    text-shadow: 1px 1px 2px rgba(0, 80, 76, 1);
+    font-size: 20px;
+}
+
+.bg-3 h3 {
+    font-size: 55px;
+}
+
+.bg-2 h3 {
+    font-size: 55px;
+}
+
+.input {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
