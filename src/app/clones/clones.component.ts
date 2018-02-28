@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Clone } from '../clone';
-import { CLONES } from '../mock-clones';
+import { CloneService } from '../clone.service';
 
 @Component({
   selector: 'app-clones',
@@ -16,11 +16,17 @@ export class ClonesComponent implements OnInit {
     this.selectedClone = clone;
   }
 
-  clones = CLONES;
+  clones: Clone[];
 
-  constructor() { }
+  constructor(private cloneService: CloneService) { }
 
   ngOnInit() {
+    this.getClones();
+  }
+
+  getClones(): void {
+    this.cloneService.getClones()
+      .subscribe(clones => this.clones = clones);
   }
 
 }

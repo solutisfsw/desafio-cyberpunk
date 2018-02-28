@@ -1,7 +1,7 @@
 <div *ngIf="clone">
  
-  <h2>{{ selectedClone.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedClone.id}}</div>
+  <h2>{{ clone.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{clone.id}}</div>
   <div>
     <label>name:
       <input [(ngModel)]="clone.name" placeholder="name">
