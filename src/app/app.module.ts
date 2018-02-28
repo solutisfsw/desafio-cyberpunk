@@ -6,20 +6,28 @@ import { AppComponent } from './app.component';
 import { ClonesComponent } from './clones/clones.component';
 import { CloneDetailComponent } from './clone-detail/clone-detail.component';
 import { CloneService } from './clone.service';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ClonesComponent,
-    CloneDetailComponent
+    CloneDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
-    CloneService
+    CloneService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
