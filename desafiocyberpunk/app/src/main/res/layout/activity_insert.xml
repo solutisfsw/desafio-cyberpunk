@@ -85,16 +85,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="Data de Criação"
-                        android:visibility="gone"
-                        android:inputType="date" />
+                        android:inputType="date"
+                        android:visibility="gone" />
                 </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:id="@+id/lblAdicionais"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Adicionais:"
                     android:layout_marginLeft="5dp"
+                    android:text="Adicionais:"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#787777"
                     android:textSize="14sp" />
@@ -123,11 +123,11 @@
                             android:id="@+id/chkEsqueletoReforcado"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Esqueleto Reforçado"
                             android:layout_marginLeft="40dp"
+                            android:text="Esqueleto Reforçado"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="#000000"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -142,17 +142,17 @@
                             android:text="Sentidos Aguçados"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="#000000"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
 
                         <CheckBox
                             android:id="@+id/chkPeleAdaptativa"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Pele Adaptativa"
                             android:layout_marginLeft="23dp"
+                            android:text="Pele Adaptativa"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="#000000"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -167,7 +167,7 @@
                             android:text="Raio Laser"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="#000000"
-                            android:textSize="12sp"/>
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -180,12 +180,13 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fabEnviarDadosCadastro"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/ic_action_salvar" />
+                <Button
+                    android:id="@+id/btnCadastrar"
+                    style="@style/styleButton"
+                    android:layout_width="@dimen/btn_width"
+                    android:layout_height="@dimen/btn_height"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:text="Cadastrar" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

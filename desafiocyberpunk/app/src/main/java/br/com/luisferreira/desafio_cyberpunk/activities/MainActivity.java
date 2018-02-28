@@ -1,6 +1,7 @@
 package br.com.luisferreira.desafio_cyberpunk.activities;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,14 +28,13 @@ import br.com.luisferreira.desafio_cyberpunk.model.Clone;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Clone> clones = new ArrayList<>();
-
-    private DatabaseReference databaseReference;
-
     private RecyclerView recyclerView;
     private RecyclerAdapter recyclerAdapter;
-
+    private FloatingActionButton fabNovoClone;
     protected ProgressBar progressBar;
+
+    private List<Clone> clones = new ArrayList<>();
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_clones);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         recyclerAdapter = new RecyclerAdapter(clones);
         recyclerView.setAdapter(recyclerAdapter);
-
         recyclerAdapter.notifyDataSetChanged();
+
+        fabNovoClone = findViewById(R.id.fabNovoClone);
 
         progressBar = findViewById(R.id.main_progress);
     }
@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         openProgressBar();
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         databaseReference.child("clones").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void chamarCadastro() {
+    public void chamarCadastro(View view) {
         Intent intent = new Intent(this, InsertActivity.class);
         startActivity(intent);
     }
@@ -127,9 +126,6 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
-                return true;
-            case R.id.action_add:
-                chamarCadastro();
                 return true;
         }
 

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.MainActivity">
 
-    <item
+    <!--<item
         android:id="@+id/action_add"
         android:orderInCategory="100"
         android:icon="@drawable/ic_plus_white_24dp"
         android:title="Add"
-        app:showAsAction="always" />
+        app:showAsAction="always" />-->
 </menu>

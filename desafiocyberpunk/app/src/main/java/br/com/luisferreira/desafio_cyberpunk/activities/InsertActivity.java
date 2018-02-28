@@ -7,12 +7,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,28 +35,23 @@ import br.com.luisferreira.desafio_cyberpunk.R;
 
 public class InsertActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Clone clone;
-
     private AutoCompleteTextView textNomeClone;
     private AutoCompleteTextView textIdadeClone;
     private AutoCompleteTextView textDataCriacao;
     private Toolbar toolbar;
-    private FloatingActionButton fabEnviarDadosCadastro;
+    private Button btnCadastrar;
     private CheckBox chkBracoMecanico;
     private CheckBox chkEsqueletoReforcado;
     private CheckBox chkSentidosAgucados;
     private CheckBox chkPeleAdaptativa;
     private CheckBox chkRaioLaser;
-
     protected ProgressBar progressBar;
 
     private DatabaseReference databaseReference;
-
     private Pattern pattern;
     private Matcher matcher;
-
+    private Clone clone;
     private List<String> adicionais = new ArrayList<>();
-
     private static final String NOME_PATTERN = "[A-Z]{3}[0-9]{4}";
 
     @Override
@@ -59,16 +59,16 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        pattern = Pattern.compile(NOME_PATTERN);
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Cadastro de Clones");
 
-        fabEnviarDadosCadastro = findViewById(R.id.fabEnviarDadosCadastro);
-        fabEnviarDadosCadastro.setOnClickListener(this);
+        btnCadastrar = findViewById(R.id.btnCadastrar);
+        btnCadastrar.setOnClickListener(this);
+
+        pattern = Pattern.compile(NOME_PATTERN);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -94,6 +94,7 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
 
     protected void initClone() {
         clone = new Clone();
+
         clone.setNome(textNomeClone.getText().toString().trim());
 
         String idade = textIdadeClone.getText().toString();
@@ -101,28 +102,27 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
             clone.setIdade(Long.parseLong(idade));
         }
 
-        clone.setDataCriacao(textDataCriacao.getText().toString());
-
-        if(chkBracoMecanico.isChecked()) {
+        if (chkBracoMecanico.isChecked()) {
             adicionais.add("Braço Mecânico");
         }
 
-        if(chkEsqueletoReforcado.isChecked()) {
+        if (chkEsqueletoReforcado.isChecked()) {
             adicionais.add("Esqueleto Reforçado");
         }
 
-        if(chkSentidosAgucados.isChecked()) {
+        if (chkSentidosAgucados.isChecked()) {
             adicionais.add("Sentidos Aguçados");
         }
 
-        if(chkPeleAdaptativa.isChecked()) {
+        if (chkPeleAdaptativa.isChecked()) {
             adicionais.add("Pele Adaptativa");
         }
 
-        if(chkRaioLaser.isChecked()) {
+        if (chkRaioLaser.isChecked()) {
             adicionais.add("Raio Laser");
         }
 
+        clone.setDataCriacao(textDataCriacao.getText().toString());
         clone.setAdicionais(adicionais);
     }
 
@@ -130,14 +130,14 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         initClone();
 
-        String NOME = textNomeClone.getText().toString().trim();
-        String IDADE = textIdadeClone.getText().toString();
+        String nome = textNomeClone.getText().toString().trim();
+        String idade = textIdadeClone.getText().toString();
 
-        matcher = pattern.matcher(NOME);
+        matcher = pattern.matcher(nome);
 
         boolean ok = true;
 
-        if (NOME.isEmpty()) {
+        if (nome.isEmpty()) {
             textNomeClone.setError(getString(R.string.msg_erro_nome_empty));
             ok = false;
         } else {
@@ -147,11 +147,11 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
 
-        if (IDADE.isEmpty()) {
+        if (idade.isEmpty()) {
             textIdadeClone.setError(getString(R.string.msg_erro_idade_empty));
             ok = false;
         } else {
-            Long nIdade = Long.parseLong(IDADE);
+            Long nIdade = Long.parseLong(idade);
 
             if (nIdade < 10 || nIdade > 20) {
                 textIdadeClone.setError(getString(R.string.msg_erro_idade_invalida));
@@ -160,20 +160,40 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if (ok) {
-            fabEnviarDadosCadastro.setEnabled(false);
+            btnCadastrar.setEnabled(false);
 
             openProgressBar();
 
-            databaseReference.child("clones").push().setValue(clone);
+            Query query = databaseReference.child("clones").orderByChild("nome").equalTo(nome);
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue() != null) {
+                        textNomeClone.setError(getString(R.string.msg_erro_nome_exist));
 
-            showToast("Clone cadastrado com sucesso!");
+                        adicionais.clear();
+
+                        btnCadastrar.setEnabled(true);
+                    } else {
+                        databaseReference.child("clones").push().setValue(clone);
+
+                        showToast("Clone cadastrado com sucesso!");
+
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
             closeProgressBar();
-
-            finish();
         } else {
+            adicionais.clear();
             closeProgressBar();
-            fabEnviarDadosCadastro.setEnabled(true);
+            btnCadastrar.setEnabled(true);
         }
     }
 
