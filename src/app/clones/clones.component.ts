@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Clone } from '../clone';
+import { CLONES } from '../mock-clones';
 
 @Component({
   selector: 'app-clones',
@@ -9,10 +10,14 @@ import { Clone } from '../clone';
 
 export class ClonesComponent implements OnInit {
 
-  clone: Clone = {
-    id: 1,
-    name: 'Cyber01A'
+  selectedClone: Clone;
+
+  onSelect(clone, Clone): void {
+    this.selectedClone = clone;
   }
+
+  clones = CLONES;
+
   constructor() { }
 
   ngOnInit() {
