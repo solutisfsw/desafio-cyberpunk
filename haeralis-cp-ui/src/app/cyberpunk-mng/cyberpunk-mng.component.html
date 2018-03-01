@@ -1,0 +1,183 @@
+<div class="container myDiv" *ngIf="selCyberModel.id||cyberModel.id"> <!---->
+  <h3><i class="fa fa-clone" style="padding-right: 10px;"> </i>Cyberpunk Clone Informations</h3>
+  <form (ngSubmit)="validateClone()" #cyberForm="ngForm">
+      <div class="form-group row" style="padding-top: 20px;" *ngIf="!isEdition">
+          <div class="col-md-4">
+        <label for="parentName">Parent Name</label>
+        <input type="text" class="form-control" id="parentName"               
+               [(ngModel)]="selCyberModel.name" name="parentName"
+               #parentName="ngModel" disabled>        
+        </div>
+        <div class="col-md-2">
+            <label for="parentVersion"> Parent Version</label>
+            <input type="text" class="form-control" id="parentVersion"                   
+                   [(ngModel)]="selCyberModel.version" name="parentVersion"
+                   #parentVersion="ngModel" disabled>            
+        </div>
+        <div class="col-md-4">
+  
+        </div>
+      </div>
+    <div class="form-group row" style="padding-top: 20px;">
+        <div class="col-md-4">
+      <label for="name">Clone Name</label>
+      <input type="text" class="form-control" id="name"
+             required pattern="[A-Z]{3}[0-9]{4}" maxlength="7"
+             [(ngModel)]="cyberModel.name" name="name"
+             #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required to be in the pattern [A-Z]&#123;3&#125;[0-9]&#123;4&#125;
+      </div>
+      </div>
+      <div class="col-md-2">
+          <label for="age">Clone Age</label>
+          <input type="text" class="form-control" id="age"
+                 required pattern="[0-9]+" maxlength="2"
+                 [(ngModel)]="cyberModel.age" name="age"
+                 #age="ngModel">
+          <div [hidden]="age.valid || age.pristine"
+               class="alert alert-danger">
+            Age is required
+          </div>
+      </div>      
+    </div>
+         
+    <div class="form-group row">
+        <div class="col-md-4" *ngIf="!isEdition">
+            <label for="name">Parent Attributes to be Cloned</label>
+            <table class="table table-striped" disabled style="font-size: 12px;">
+                <thead>                  
+                  <th>Name</th>
+                  <th>Type</th>                 
+                </thead>
+                <tbody>
+                  <tr *ngFor="let additional of selCyberModel.additional">
+                    <td>{{additional.attribute.name}}</td>
+                    <td>{{additional.attribute.attributeType.name}}</td>                    
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-md-4">
+          <label for="attr">Additional Attributes</label>
+          <div style="display: flex;">
+          <select class="form-control" id="attr"
+              [(ngModel)]="attrModel.code" name="attr" #attr="ngModel">
+              <option *ngFor="let attr of attributes" [value]="attr.code">{{attr.name}}</option>
+          </select>
+          <button type="button" class="btn btn-success fa fa-plus" 
+                      style="margin-left: 5px;" (click)="addAtribute(attrModel)"></button>
+          </div>
+          <div style="display: flex;">
+              <table class="table table-striped" disabled style="font-size: 12px;">
+                  <thead>                  
+                    <th>Name</th>
+                    <th>Type</th>                 
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let cbAdditional of cyberModel.additional">
+                      <td>{{cbAdditional.attribute.name}}</td>
+                      <td>{{cbAdditional.attribute.attributeType.name}}</td>                    
+                    </tr>
+                  </tbody>
+                </table>
+          </div>        
+      </div>      
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!cyberForm.form.valid">Save</button> 
+    <button type="button" class="btn btn-secondary" (click)="cancelClone()">Cancel</button>     
+  </form>
+  <br>  
+</div>
+
+<div class="container myDiv">
+    <a data-toggle="collapse" data-parent="#acc" href="#models" aria-expanded="true" aria-controls="models" class="card card-header">
+  <h3> <i class="fa fa-list"></i> List of Default Models</h3>
+  </a>
+  <div id="models" class="collapse show" role="tabcard" >
+   <p class="hint"><i class="fa fa-info" style="padding-right: 10px;"></i>You can create any clone from a Default Model by clicking on the 'Clone' icon</p>
+  <table class="table table-striped">
+    <thead>
+      <th>Identity</th>
+      <th>Version</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Energy Percent</th>
+      <th>Damage Percent</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cyberpunk of models">
+        <td>{{cyberpunk.id}}</td>
+        <td>{{cyberpunk.version+'.0'}}</td>
+        <td>{{cyberpunk.name}}</td>
+        <td>{{cyberpunk.age}}</td>        
+        <td>
+           <div class="progress">
+            <div class="progress-bar bg-success" [ngStyle]="{'width':cyberpunk.percentEnergy+'%'}">{{cyberpunk.percentEnergy|number:'.0-2'}}%</div>
+          </div>
+        </td>
+        <td>
+            <div class="progress">
+             <div class="progress-bar bg-danger" [ngStyle]="{'width':cyberpunk.percentDamage+'%'}">{{cyberpunk.percentDamage|number:'.0-2'}}%</div>
+           </div>
+        </td>
+        <td style="width: 30px; text-align: center">
+          <div style="display: flex;">
+          <a class="btn fa fa-clone" (click)="fillClone(cyberpunk)" data-tip="Clone"></a>          
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <a data-toggle="collapse" data-parent="#acc" href="#clones" aria-expanded="true" aria-controls="clones" class="card card-header">
+      <h3> <i class="fa fa-list"></i> List of Clones</h3>
+      </a>
+      <div id="clones" class="collapse show" role="tabcard" >
+          <p class="hint"><i class="fa fa-info" style="padding-right: 10px;"></i>You can also create a new Clone from a existent one, as well as edit and delete</p>
+      <table class="table table-striped">
+        <thead>
+          <th>Identity</th>
+          <th>Parent Identity</th>
+          <th>Version</th>
+          <th>Name</th>
+          <th>Creation Date</th>
+          <th>Age</th>
+          <th>Energy Percent</th>
+          <th>Damage Percent</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cyberpunk of cyberpunks">
+            <td>{{cyberpunk.id}}</td>
+            <td>{{cyberpunk.parentId}}</td>
+            <td>{{cyberpunk.version}}</td>
+            <td>{{cyberpunk.name}}</td>
+            <td>{{cyberpunk.creationDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{cyberpunk.age}}</td>
+            <td>
+                <div class="progress">
+                 <div class="progress-bar bg-success" [ngStyle]="{'width':cyberpunk.percentEnergy+'%'}">{{cyberpunk.percentEnergy|number:'.0-2'}}%</div>
+               </div>
+             </td>
+             <td>
+                 <div class="progress">
+                  <div class="progress-bar bg-danger" [ngStyle]="{'width':cyberpunk.percentDamage+'%'}">{{cyberpunk.percentDamage|number:'.0-2'}}%</div>
+                </div>
+             </td>
+            <td style="width: 30px; text-align: center">
+              <div style="display: flex;">
+              <a class="btn fa fa-clone" (click)="fillClone(cyberpunk)" data-tip="Clone"></a>
+              <a class="btn fa fa-edit" (click)="editClone(cyberpunk)"></a>
+              <a class="btn fa fa-trash" *ngIf="cyberpunk.parentId" (click)="deleteClone(cyberpunk)"></a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+</div>
+
