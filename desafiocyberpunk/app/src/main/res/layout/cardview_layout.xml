@@ -1,129 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="8dp">
+    android:layout_margin="10dp"
+    app:cardElevation="5dp">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="false"
-        android:orientation="vertical">
+        android:padding="15dp">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/card_view"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/lblNomeClone"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:text="Nome do clone"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#787777"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:orientation="vertical">
+        <TextView
+            android:id="@+id/textViewNomeClone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agente Smith"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblNomeClone" />
 
-                <TextView
-                    android:id="@+id/lblNomeClone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nome do clone"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#787777"
-                    android:textSize="14sp" />
+        <TextView
+            android:id="@+id/lblIdadeClone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Idade: "
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#787777"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNomeClone" />
 
-                <TextView
-                    android:id="@+id/textViewNomeClone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Agente Smith"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="24sp" />
+        <TextView
+            android:id="@+id/textViewIdadeClone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:text="10 Anos"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblIdadeClone"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNomeClone" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lblDataCriacaoClone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Data de criação: "
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#787777"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewIdadeClone" />
 
-                    <TextView
-                        android:id="@+id/lblIdadeClone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Idade: "
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#787777"
-                        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/textViewDataCriacao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:text="00/00/00"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lblDataCriacaoClone"
+            app:layout_constraintTop_toBottomOf="@+id/textViewIdadeClone" />
 
-                    <TextView
-                        android:id="@+id/textViewIdadeClone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="10 Anos"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-                </LinearLayout>
+        <TextView
+            android:id="@+id/lblAdicionais"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:text="Adicionais:"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#787777"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblDataCriacaoClone" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewAdicionais"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            android:text="Adicionais do clone"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblAdicionais" />
 
-                    <TextView
-                        android:id="@+id/lblDataCriacaoClone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Data de criação: "
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#787777"
-                        android:textSize="16sp" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAdicionais" />
 
-                    <TextView
-                        android:id="@+id/textViewDataCriacao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="00/00/00"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-                </LinearLayout>
+        <ImageButton
+            android:id="@+id/btnEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="15dp"
+            android:background="#ffffff"
+            android:contentDescription="Botão de edição do clone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:srcCompat="@drawable/ic_mode_edit_black_24dp" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:src="@drawable/linha_divisoria" />
+        <TextView
+            android:id="@+id/lblEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Editar clone"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEditar" />
 
-                <TextView
-                    android:id="@+id/lblAdicionais"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Adicionais:"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#787777"
-                    android:textSize="14sp" />
+        <ImageButton
+            android:id="@+id/btnExcluir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="90dp"
+            android:layout_marginRight="90dp"
+            android:layout_marginTop="15dp"
+            android:background="#ffffff"
+            android:contentDescription="Botão de exclusão do clone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:srcCompat="@drawable/ic_delete_black_24dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textViewAdicionais"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Adicionais do clone"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-</LinearLayout>
+        <TextView
+            android:id="@+id/lblExcluir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Excluir clone"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnExcluir" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

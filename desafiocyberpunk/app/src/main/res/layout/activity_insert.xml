@@ -1,193 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:orientation="vertical"
-    tools:context=".activities.InsertActivity">
+    tools:context=".activities.InsertActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:elevation="8dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <!-- progress -->
+    <ProgressBar
+        android:id="@+id/sign_up_progress"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal">
+        android:visibility="gone"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="56dp" />
 
-        <!-- progress -->
-        <ProgressBar
-            android:id="@+id/sign_up_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/textNomeClone"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fillViewport="false">
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:imeOptions="actionNext"
+        android:inputType="text|textCapCharacters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <EditText
+        android:id="@+id/textIdadeClone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Idade"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNomeClone" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
+    <EditText
+        android:id="@+id/textDataCriacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Data de Criação"
+        android:inputType="date"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textIdadeClone" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp">
+    <TextView
+        android:id="@+id/lblAdicionais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="Adicionais:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#787777"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDataCriacao" />
 
-                    <AutoCompleteTextView
-                        android:id="@+id/textNomeClone"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Nome"
-                        android:imeOptions="actionNext"
-                        android:inputType="textPersonName|textCapWords" />
-                </android.support.design.widget.TextInputLayout>
+    <CheckBox
+        android:id="@+id/chkBracoMecanico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="Braço Mecânico"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAdicionais" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp">
+    <CheckBox
+        android:id="@+id/chkEsqueletoReforcado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="32dp"
+        android:text="Esqueleto Reforçado"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chkBracoMecanico"
+        app:layout_constraintTop_toBottomOf="@+id/textDataCriacao"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="8dp" />
 
-                    <AutoCompleteTextView
-                        android:id="@+id/textIdadeClone"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Idade"
-                        android:imeOptions="actionDone"
-                        android:inputType="number" />
-                </android.support.design.widget.TextInputLayout>
+    <CheckBox
+        android:id="@+id/chkSentidosAgucados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Sentidos Aguçados"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkBracoMecanico" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+    <CheckBox
+        android:id="@+id/chkPeleAdaptativa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Pele Adaptativa"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chkSentidosAgucados"
+        app:layout_constraintTop_toBottomOf="@+id/chkEsqueletoReforcado" />
 
-                    <AutoCompleteTextView
-                        android:id="@+id/textDataCriacao"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Data de Criação"
-                        android:inputType="date"
-                        android:visibility="gone" />
-                </android.support.design.widget.TextInputLayout>
+    <CheckBox
+        android:id="@+id/chkRaioLaser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Raio Laser"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkSentidosAgucados" />
 
-                <TextView
-                    android:id="@+id/lblAdicionais"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:text="Adicionais:"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#787777"
-                    android:textSize="14sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/chkBracoMecanico"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Braço Mecânico"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-
-                        <CheckBox
-                            android:id="@+id/chkEsqueletoReforcado"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
-                            android:text="Esqueleto Reforçado"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/chkSentidosAgucados"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sentidos Aguçados"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-
-                        <CheckBox
-                            android:id="@+id/chkPeleAdaptativa"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="23dp"
-                            android:text="Pele Adaptativa"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/chkRaioLaser"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Raio Laser"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnCadastrar"
-                    style="@style/styleButton"
-                    android:layout_width="@dimen/btn_width"
-                    android:layout_height="@dimen/btn_height"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:text="Cadastrar" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    <Button
+        android:id="@+id/btnCadastrar"
+        style="@style/styleButton"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="Cadastrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkRaioLaser"
+        app:layout_constraintVertical_bias="0.157" />
+</android.support.constraint.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -52,11 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         recyclerView = findViewById(R.id.rv_clones);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerAdapter = new RecyclerAdapter(clones);
         recyclerView.setAdapter(recyclerAdapter);
         recyclerAdapter.notifyDataSetChanged();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         fabNovoClone = findViewById(R.id.fabNovoClone);
 
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 clones.removeAll(clones);
 
-                if(!dataSnapshot.exists()){
+                if (!dataSnapshot.exists()) {
                     showSnackbar("Não existem clones cadastrados!");
                 } else {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -98,16 +100,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    protected void openProgressBar(){
+    protected void openProgressBar() {
         progressBar.setFocusable(true);
-        progressBar.setVisibility( View.VISIBLE );
+        progressBar.setVisibility(View.VISIBLE);
     }
 
-    protected void closeProgressBar(){
-        progressBar.setVisibility( View.GONE );
+    protected void closeProgressBar() {
+        progressBar.setVisibility(View.GONE);
     }
 
-    protected void showSnackbar( String message ){
+    protected void showSnackbar(String message) {
         Snackbar.make(progressBar,
                 message,
                 Snackbar.LENGTH_LONG)
