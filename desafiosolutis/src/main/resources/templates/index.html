@@ -1,0 +1,38 @@
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Exercito de Clones</title>
+	
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+	<h3>Lista de Clones</h3>
+	
+	<a href="/criarClone" class="waves-effect waves-light btn"><i class="material-icons left">person_add</i>Criar Clone</a>
+	
+	<div th:if="${clones != null}">
+		<table class="container">
+			<thead>
+				<th>Nome</th>
+				<th>Idade</th>
+				<th>Data de Criação</th>
+				<th>Apagar</th>
+			</thead>
+			<tbody>
+				<tr th:each="clone: ${clones}">
+					<td><a th:href="${(#mvc.url('CC#editarClone').arg(0, clone.id)).build()}"><span th:text="${clone.nome}"></span></a></td>
+					<td><span th:text="${clone.idade}"></span></td>
+					<td><span th:text="${clone.dataCriacao}"></span></td>
+					<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('CC#apagarClone').arg(0, clone.id)).build()}"><i class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
