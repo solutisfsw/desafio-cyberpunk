@@ -11,4 +11,5 @@ public interface CloneRepository extends CrudRepository<Clone, Long> {
 	
 	List<Clone> findAll();
 	
+	Clone findById(Long id);
 }
