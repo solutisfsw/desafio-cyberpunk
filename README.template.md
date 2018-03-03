@@ -18,6 +18,6 @@ A API REST provê as seguintes urls e metodos:
 Não há configuração extra para rodar a aplicação. Apenas dar RUN na Classe 'DesafiosolutisApplication'.
 
 ## Meta
-Pedro Henrique Vieira de Oliveira (https://www.linkedin.com/in/...) – pedrohvo@gmail.com
+Pedro Henrique Vieira de Oliveira (https://www.linkedin.com/in/pedro-henrique-vieira-de-oliveira-97265a6b/) – pedrohvo@gmail.com
 
 Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
