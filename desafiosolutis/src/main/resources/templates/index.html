@@ -19,6 +19,7 @@
 				<th>Nome</th>
 				<th>Idade</th>
 				<th>Data de Criação</th>
+				<th>Partes Adicionais</th>
 				<th>Apagar</th>
 			</thead>
 			<tbody>
@@ -26,6 +27,13 @@
 					<td><a th:href="${(#mvc.url('CC#editarClone').arg(0, clone.id)).build()}"><span th:text="${clone.nome}"></span></a></td>
 					<td><span th:text="${clone.idade}"></span></td>
 					<td><span th:text="${clone.dataCriacao}"></span></td>
+					<td>
+						<ul> 
+							<th:block th:each="parteAdicional : ${clone.adicionais}">
+						       <li  th:text="${parteAdicional.parteAdicional}"></li>
+						    </th:block>
+						</ul>
+					</td>
 					<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('CC#apagarClone').arg(0, clone.id)).build()}"><i class="material-icons left">delete</i></a></td>
 				</tr>
 			</tbody>

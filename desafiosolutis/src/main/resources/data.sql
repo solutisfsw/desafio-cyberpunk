@@ -1,0 +1,1 @@
+INSERT INTO adicionais (parte_adicional) VALUES ('Braço Mecânico'), ('Esqueleto reforçado'), ('Sentidos aguçados'), ('Pele adaptativa'), ('Raio Laser');

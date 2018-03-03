@@ -2,6 +2,7 @@ package br.com.solutis.desafio.desafiosolutis.controllers;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.solutis.desafio.desafiosolutis.models.Adicionais;
 import br.com.solutis.desafio.desafiosolutis.models.Clone;
+import br.com.solutis.desafio.desafiosolutis.repository.AdicionaisRepository;
 import br.com.solutis.desafio.desafiosolutis.repository.CloneRepository;
 
 @Controller
@@ -18,21 +21,27 @@ public class CloneController {
 	
 	@Autowired
 	private CloneRepository cr;
+	@Autowired
+	private AdicionaisRepository ar;
 
 	@RequestMapping(value="/criarClone", method=RequestMethod.GET)
-	public String form() {
-		return "clone/formClone";
+	public ModelAndView form() {
+		ModelAndView mv = new ModelAndView("clone/formClone");
+		List<Adicionais> allAdicionais = ar.findAll();
+		mv.addObject("allAdicionais", allAdicionais);
+		
+		return mv;
 	}
 	
 	@RequestMapping(value="/criarClone", method=RequestMethod.POST)
-	public String form(Clone clone) {
+	public String form(Clone clone,  Adicionais adicionais) {
 		LocalDate dataAtual = LocalDate.now();
 		
 		clone.setDataCriacao(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(dataAtual));
 		try {
 			cr.save(clone);
 		} catch (Exception e) {
-			System.out.println("Não é possível salvar dois nomes iguais.");
+			System.out.println(e.getMessage());
 		}
 		
 		
@@ -55,16 +64,24 @@ public class CloneController {
 		Clone clone = cr.findOne(id);
 		mv.addObject("clone", clone);
 		
+		List<Adicionais> allAdicionais = ar.findAll();
+		mv.addObject("allAdicionais", allAdicionais);
+		
 		return mv;
 	}
 	
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.POST)
-	public String editarClones(@PathVariable("id") Integer id, Clone cloneEdit) {
+	public String editarClonePost(@PathVariable("id") Integer id, Clone cloneEdit) {
 		Clone copyClone = cr.findOne(id);
 		
 		cloneEdit.setDataCriacao(copyClone.getDataCriacao());
-		cr.save(cloneEdit);
+		try {
+			cr.save(cloneEdit);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		
 		return "redirect:listaClones";
 	}

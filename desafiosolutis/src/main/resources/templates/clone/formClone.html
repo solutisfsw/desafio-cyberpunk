@@ -27,11 +27,10 @@
 		
 		Partes adicionais:<br/> 
 		<select multiple="multiple" name="adicionais" style="display: block; width: 250px; height: 130px">
-			<option value="1">Braço mecânico</option>
-			<option value="2">Esqueleto reforçado</option>
-			<option value="3">Sentidos aguçados</option>
-			<option value="4">Pele adaptativa</option>
-			<option value="5">Raio laser</option>
+				<option th:each="adicional : ${allAdicionais}" 
+		               th:value="${adicional.id}" 
+		               th:text="${adicional.parteAdicional}"> 
+		       </option>
 		</select>
 		<button type="submit" class="waves-effect waves-light btn">Criar</button>
 		
