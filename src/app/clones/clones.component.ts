@@ -9,13 +9,6 @@ import { CloneService } from '../clone.service';
 })
 
 export class ClonesComponent implements OnInit {
-
-  selectedClone: Clone;
-
-  onSelect(clone, Clone): void {
-    this.selectedClone = clone;
-  }
-
   clones: Clone[];
 
   constructor(private cloneService: CloneService) { }

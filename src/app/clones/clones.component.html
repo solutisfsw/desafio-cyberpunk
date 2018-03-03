@@ -1,10 +1,9 @@
 <h2>My clones</h2>
 <ul class="clones">
-  <li *ngFor="let clone of clones"
-    [class.selected]="clone === selectedClone"
-    (click)="onSelect(clone)">
-    <span class="badge">{{clone.id}}</span> {{clone.name}}
+  <li *ngFor="let clone of clones">
+    <a routerLink="/detail/{{clone.id}}">
+      <span class="badge">{{clone.id}}</span>{{clone.name}}
+    </a>
   </li>
 </ul>
  
-<app-clone-detail [clone]="selectedClone"></app-clone-detail>

@@ -11,9 +11,15 @@ export class CloneService {
   constructor(private messageService: MessageService) { }
 
   getClones(): Observable<Clone[]> {
-    // Todo: send the message _after_ fetching the heroes
-    this.messageService.add('CloneService: fetched heroes');
+    // Todo: send the message _after_ fetching the clones
+    this.messageService.add('CloneService: fetched clones');
     return of (CLONES);
+  }
+
+  getClone(id: number): Observable<Clone> {
+    // Todo: send the message _after_ fetching the clone
+    this.messageService.add(`CloneService: fetched clone id=${id}`);
+    return of(CLONES.find(clone => clone.id === id));
   }
 
 }
