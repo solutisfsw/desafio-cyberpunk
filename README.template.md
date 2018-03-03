@@ -11,8 +11,9 @@ Abra o console, navegue ate o projeto e execute com ng serve. Acesse por http://
 
 ## Instalação
  Linux & Windows
- 
-@@ -12,7 +21,7 @@ npm buid
+npm install
+npm buid
+
 ## Configuração
 Springboot, JPA, REST, Angular
  
