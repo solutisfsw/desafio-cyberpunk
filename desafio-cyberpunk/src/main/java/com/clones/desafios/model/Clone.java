@@ -3,6 +3,7 @@ package com.clones.desafios.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,7 +12,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class Clone implements Serializable{
@@ -28,10 +32,35 @@ public class Clone implements Serializable{
 	private Integer idade;
 	
 	private LocalDate data_criacao;
-	
-	@OneToMany(mappedBy="clone", fetch = FetchType.EAGER)
-	private List<ClonesMembros> clonesMembros;
 
+	@ManyToMany(fetch=FetchType.LAZY)
+	 @JoinTable(name = "clone_elementos",
+     joinColumns = { @JoinColumn(name = "id_clone") },
+     inverseJoinColumns = { @JoinColumn(name = "id_elemento") })
+	private List<Elemento> elementos = new ArrayList<>();	
+	
+	public List<Elemento> getElementos() {
+		return elementos;
+	}
+
+	public void setElementos(List<Elemento> elementos) {
+		this.elementos = elementos;
+	}
+
+	
+	public void addElemento(Elemento elemento) {
+		this.elementos.add(elemento);
+	}
+	
+	
+	public void removeElemento(Elemento elemento) {
+		System.out.println(elemento.getDescricao());
+		this.elementos.remove(elemento);
+	}
+	
+	
+	
+	
 	public String getNome() {
 		return nome;
 	}
@@ -66,13 +95,6 @@ public class Clone implements Serializable{
 		this.data_criacao = data_criacao;
 	}
 
-	public List<ClonesMembros> getClonesMembros() {
-		return clonesMembros;
-	}
-
-	public void setClonesMembros(List<ClonesMembros> clonesMembros) {
-		this.clonesMembros = clonesMembros;
-	}
 
 	@Override
 	public int hashCode() {
