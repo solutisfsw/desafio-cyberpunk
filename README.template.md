@@ -1,6 +1,6 @@
 # Nome do projeto
 
-Descrição resumida sobre o projeto.
+CRUD Clones em JAVA
 
 ## Instalação
 Linux & Windows
@@ -13,6 +13,6 @@ npm buid
 Descreva aqui as configurações necessárias para o seu projeto funcionar.
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Seu Nome – João Victor Rocha da Costa– victoorj2013@gmail.com
 
 Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
