@@ -2,7 +2,7 @@
 
 Decidi fazer o CRUD com SpringBoot + H2 (banco embedded) + Thymeleaf (sei que não era o recomendado, mas não consegui desenvolver em Angular 5, que era o que eu desejava.).
 
-A API REST provê pode ser acessada com os seguintes urls e metodos: 
+A API REST provê as seguintes urls e metodos: 
  - Listagem : localhost:8080/apiclones/listarTodos
  - Listar por ID: localhost:8080/apliclones/{id}
  - Cadastar* (POST)
