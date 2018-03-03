@@ -3,16 +3,18 @@
 Descrição resumida sobre o projeto.
 
 ## Instalação
-Linux & Windows
 
-```sh
-npm install
-npm buid
-```
+Windows
+
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+Projeto Tipo: Backend
+Linguagem: C# .NET Core 2
+IDE: VS 2017
+Banco de dados: Firebase
+
+Docker Windows: https://hub.docker.com/r/satriopus/cyberpunk/
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Almar Alves Sant Ana (https://www.linkedin.com/in/almar-sant-ana-27748932/) – almaralcy@gmail.com
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+Distribuído sob a licença `Publica`.
