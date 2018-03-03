@@ -1,6 +1,7 @@
 # Nome do projeto
 
-Descrição resumida sobre o projeto.
+Projeto feito em JAVA (Spring Boot, SPRING DATA JPA, SPRING MVC) no back-end, usando o Spring Tool Suite.
+Front em Android, com classes de teste, usando o AndroidStudio
 
 ## Instalação
 Linux & Windows
@@ -10,9 +11,9 @@ npm install
 npm buid
 ```
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+Necessário a instalação da H2DATABASE, java (sdk/jre) 1.8.131 
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Seu Nome – [Ulisses Pereira Gomes](https://www.linkedin.com/in/ulisses-gomes-a41406128/) – ulisses67@hotmail.com
 
 Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
