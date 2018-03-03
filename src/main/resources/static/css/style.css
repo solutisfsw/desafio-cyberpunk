@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+button {
+		width: 80px
+	}
+	
+.tam1 {
+		width: 32px;
+		height: 32px;	
+	}
+input.ng-touched.ng-invalid, select.ng-touched.ng-invalid{
+	border-color: #F99;
+}
+
+	
