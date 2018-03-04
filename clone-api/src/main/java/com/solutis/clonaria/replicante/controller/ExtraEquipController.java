@@ -1,9 +1,7 @@
 package com.solutis.clonaria.replicante.controller;
 
-import java.util.List;
-
+import com.solutis.clonaria.replicante.exception.CloneExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,18 +17,16 @@ import com.solutis.clonaria.replicante.model.ExtraEquip;
 @Controller
 @RequestMapping("extraEquip")
 public class ExtraEquipController {
-	@Autowired
+ @Autowired
     private ExtraEquipService extraEquipService;
 
     @GetMapping("{id}")
-    public ResponseEntity<ExtraEquip> getCloneById(@PathVariable("id") Long id) {
-        ExtraEquip extraEquip = extraEquipService.getExtraEquipById(id);
-        return new ResponseEntity<>(extraEquip, HttpStatus.OK);
+    public ResponseEntity<ExtraEquip> getExtraEquipById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok( extraEquipService.getExtraEquipById(id).orElseThrow(CloneExceptions::new));
     }
-    @GetMapping("todos")
-    public ResponseEntity<List<ExtraEquip>> getAllArticles() {
-        List<ExtraEquip> list = extraEquipService.getAllExtraEquip();
-        return new ResponseEntity<>(list, HttpStatus.OK);
+    @GetMapping
+    public ResponseEntity<Iterable<ExtraEquip>> getAllArticles() {
+        return ResponseEntity.ok(extraEquipService.getAllExtraEquip());
     }
 
 }

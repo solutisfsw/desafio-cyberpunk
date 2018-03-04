@@ -36,7 +36,6 @@ public class CloneController {
         return ResponseEntity.ok(cloneService.getCloneById(id).orElseThrow(CloneExceptions::new));
     }
 
-    
  
 	@GetMapping
     public ResponseEntity<Iterable<Clone>> getAllClones() {

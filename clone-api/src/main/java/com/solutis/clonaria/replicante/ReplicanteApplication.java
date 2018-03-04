@@ -36,22 +36,4 @@ public class ReplicanteApplication {
 			});
         };
     }
-
-	/*InitializingBean init() {
-		return () -> {
-			Stream.of("braço mecânico", "esqueleto reforçado", "sentidos aguçados", "pele adaptativa", "raio laser").forEach(nome -> {
-                ExtraEquip extraEquip = new ExtraEquip();
-                extraEquip.setNome(nome);
-                com.solutis.clonaria.replicante.repository.save(extraEquip);
-            });
-		};
-	}
-	*/
-	
-    //(ExtraEquipRepository com.solutis.clonaria.replicante.repository) {
-     //   return args -> {
-      //      
-       //     com.solutis.clonaria.replicante.repository.findAll().forEach(System.out::println);
-	//       // };
-   // }
 }
