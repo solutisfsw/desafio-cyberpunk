@@ -1,0 +1,58 @@
+<div class="jumbotron mt-3">
+  <h1>Desafio - Solutis</h1>
+      <p class="lead">Frontend</p>
+</div>
+<div class="row btn-add">
+  <div class="col-md-3 offset-md-9">
+    <a routerLink="/novo" class="btn btn-primary btn-block">
+      Adicionar
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      Total de registros: <b>{{ page?.numberOfElements }}</b>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <form [formGroup]="searchForm">
+      <input type="search" class="form-control search" placeholder="Busca por nome..."
+        formControlName="searchControl">
+    </form>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th class="text-center">Idade</th>
+        <th>Adicionais</th>
+        <th class="text-center"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let clone of page?.content">
+        <td class="align-middle">{{ clone.nome }}</td>
+        <td class="text-center align-middle">{{ clone.idade }}</td>
+        <td class="align-middle">
+          <ul *ngIf="clone.adicionais.length > 0">
+            <li *ngFor="let adicional of clone.adicionais">{{ getTextoDoAdicional(adicional) }}</li>
+          </ul>
+        </td>
+        <td class="text-center align-middle">
+          <a class="btn btn-primary" [routerLink]="['/edita', clone.id]">Editar</a>
+          <button class="btn btn-danger" (click)="cloneRemove = clone"
+            data-toggle="modal" data-target="#deleteModal">
+            Remover
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-paginacao [page]="page" (mudancaDePagina)="mudaPagina($event)"></app-paginacao>
+</div>
+
+<app-modal-delete [message]="'Deseja realmente remover o clone: '+cloneRemove?.nome+'?'" 
+      (confirm)="remove(cloneRemove.id)"></app-modal-delete>

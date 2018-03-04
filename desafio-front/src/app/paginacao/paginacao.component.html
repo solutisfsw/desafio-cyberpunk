@@ -1,0 +1,20 @@
+<nav aria-label="Paginação de dados" class="col-md-8 offset-md-4">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="page?.first" (click)="mudaParaAnterior()">
+      <button class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Anterior</span>
+      </button>
+    </li>
+    <li class="page-item" *ngFor="let i of geraIndices(page?.totalPages)" 
+      [class.active]="page?.number == i" (click)="mudaPagina(i)">
+      <button class="page-link">{{ i + 1 }}</button>
+    </li>
+    <li class="page-item" [class.disabled]="page?.last" (click)="mudaParaProxima()">
+      <button class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Próxima</span>
+      </button>
+    </li>
+  </ul>
+</nav>

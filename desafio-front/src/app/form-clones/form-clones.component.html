@@ -1,0 +1,42 @@
+<div class="card">
+  <h5 class="card-header">Formulário de Clone</h5>
+  <div class="card-body">
+    <form [formGroup]="cloneForm" novalidate>
+      <app-input label="Nome">
+        <input type="text" class="form-control" formControlName="nome" autocomplete="off"
+          [class.is-invalid]="cloneForm.get('nome').invalid && campoUtilizado(cloneForm.get('nome'))"
+          [class.is-valid]="cloneForm.get('nome').status === 'VALID' && campoUtilizado(cloneForm.get('nome'))">
+        <div *ngIf="temErros(cloneForm.get('nome'), 'required')" class="invalid-feedback">
+            O campo nome é obrigatório
+        </div>
+        <div *ngIf="temErros(cloneForm.get('nome'), 'pattern')" class="invalid-feedback">
+            O campo nome deve ser composto por 03 letras maiúsculas seguidas por 04 dígitos (ex: AUQ0000)
+        </div>
+        <div *ngIf="temErros(cloneForm.get('nome'), 'nomeRepetido')" class="invalid-feedback">
+            Já existe um clone com este nome
+        </div>
+      </app-input>
+      <app-input label="Idade">
+        <input type="number" formControlName="idade" class="form-control" min="10" max="20"
+          [class.is-invalid]="cloneForm.get('idade').invalid && campoUtilizado(cloneForm.get('idade'))"
+          [class.is-valid]="cloneForm.get('idade').valid && campoUtilizado(cloneForm.get('idade'))">
+          <div *ngIf="temErros(cloneForm.get('idade'), 'required')" class="invalid-feedback">
+              O campo idade é obrigatório
+          </div>
+          <div *ngIf="temErros(cloneForm.get('idade'), 'min', 'max')" class="invalid-feedback">
+              O campo idade deve ser um valor entre 10 e 20
+          </div>
+      </app-input>
+      <app-input label="Adicionais">
+        <select formControlName="adicionais" class="form-control" multiple>
+          <option *ngFor="let adicional of listaDeAdicionais" 
+            [value]="adicional.key">{{ adicional.val }}</option>
+        </select>
+      </app-input>
+      <a routerLink="/" class="btn btn-default">Voltar</a>
+      <button class="btn btn-primary" (click)="salva(cloneForm.value)" [disabled]="cloneForm.invalid">
+        Salvar
+      </button>
+    </form>
+  </div>
+</div>

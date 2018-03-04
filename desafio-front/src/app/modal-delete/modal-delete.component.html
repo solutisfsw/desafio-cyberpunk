@@ -1,0 +1,20 @@
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="smallModalLabel">Confirmar Remoção</h4>
+          </div>
+          <div class="modal-body">
+              {{ message }}
+          </div>
+          <div class="modal-footer">
+              <button (click)="emitConfirmEvent()" type="button" class="btn btn-link waves-effect">
+                CONFIRMAR
+              </button>
+              <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">
+                CANCELAR
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
