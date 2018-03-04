@@ -1,0 +1,65 @@
+<form #frm="ngForm" (ngSubmit)="adicionar(frm)" autocomplete="off">
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <h1>Cadastro de Elementos</h1>
+    </div>
+
+    <div>
+      <input type="hidden" name="elemento.id_elemento">
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+      <label>Descricao</label>
+      <input pInputText [(ngModel)]="novoElemento.descricao" name="descricao" [required]="true" #descricao="ngModel" maxlength="7">
+    </div>
+
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Adicionar" [disabled]="frm.invalid"></button>
+    </div>
+
+  </div>
+</form>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-dataTable [value]="elementos" selectionMode="single" [(selection)]="elementoSelecionado" (dblclick)="dBClick($event)"
+      [paginator]="true" rows="15">
+      <p-column field="descricao" header="Descrição" sortable="true"></p-column>
+      <p-footerColumnGroup>
+        <p-row>
+          <p-column footer="Clique duas vezes em um elemento" colspan="1"></p-column>
+        </p-row>
+      </p-footerColumnGroup>
+    </p-dataTable>
+  </div>
+</div>
+
+
+<p-dialog header="Elemento Detalhes" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="500">
+  <div class="ui-g ui-fluid" *ngIf="elemento">
+    <div class="ui-g-6 ui-fluid">
+      <input type="hidden" pInputText name="elemento.id_elemento">
+    </div>
+    <div class="ui-g-12">
+      <div>
+        <label for="descricao">Descrição</label>
+      </div>
+      <div>
+        <input pInputText id="descricao" [(ngModel)]="elemento.descricao" />
+      </div>
+    </div>
+
+  </div>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-6">
+          <button type="button" pButton icon="fa-close" (click)="deletar(elemento.id_elemento)" label="Deletar"></button>
+        </div>
+        <div class="ui-g-6">
+          <button type="button" pButton icon="fa-check" (click)="atualizar()" label="Salvar"></button>
+        </div>
+      </div>
+    </div>
+  </p-footer>
+</p-dialog>
