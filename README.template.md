@@ -1,7 +1,6 @@
 # Nome do projeto
 
-Projeto feito em JAVA (Spring Boot, SPRING DATA JPA, SPRING MVC) no back-end, usando o Spring Tool Suite.
-Front em Android, com classes de teste, usando o AndroidStudio
+Cadastro de Clones
 
 ## Instalação
 Linux & Windows
