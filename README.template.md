@@ -1,18 +1,38 @@
-# Nome do projeto
+# Clone Project
 
-Descrição resumida sobre o projeto.
+Esta é uma aplicação que utiliza os frameworks: Angular e Spring Boot de forma a criar um CRUD de clones. A aplicação dispõe da parte frontend e backend. 
 
 ## Instalação
 Linux & Windows
+   Instalar NPM:
+     apt install build-essential libssl-dev
+     npm install express
+     npm install
+     npm buid
 
-```sh
-npm install
-npm buid
-```
+   Inicializador do Spring Boot:
+     https://start.spring.io/
+
+   Instalar Angular:
+     sudo npm install -g @angular/cli
+
+   Banco de dados:
+     apt-get update && apt-get upgrade -y
+     apt-get install mongodb
+     systemctl start mongodb
+
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+ - CRUD com nome e idade do Clone;
+ - "+" Adiciona um novo clone;
+ - "Show detail": Mostra detalhes do clone, tem Opção de editar e deletar o clone;
+ - Tecnologias: Angular 5, REST, SpringBoot, MongoDB
 
-## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+## Execução
+  Dentro da pasta do projeto Clone, através da linha de comando do terminal, executar da seguinte forma:
+    ./gradlew bootRun
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+  O projeto pode ser acessado através da seguinte url:
+    http://localhost:8080/
+
+## Author
+Thiago – Thiago Neri Ramos – thiagoneriramos79@gmail.com
