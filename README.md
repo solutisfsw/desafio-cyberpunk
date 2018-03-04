@@ -6,11 +6,11 @@ O [CyberPunk](/#) é o melhor sistema para gerenciar clones de modo agradável e
 Linux & Windows
 - Mova o arquivo DockerFile para o diretório docker e execute o build
 ```sh
-docker build --rm=true -t ezequiassam/postgresql:9.3 .
+docker build --rm=true -t ubuntu/postgresql:9.3 .
 ```
 - Inicie o container configurando a porta do host local
 ```sh
-docker run -i -t -p 5432:5432 ezequiassam/postgresql:9.3
+docker run -i -t -p 5432:5432 ubuntu/postgresql:9.3
 ```
 - Após fazer o build e resolver todas as depencias no projeto, execute a class CyberPunkApplication.java
 - Digite em um navegador o seguinte caminho: 
