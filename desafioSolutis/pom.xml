@@ -22,17 +22,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<start-class>desafioSolutis.DesafioSolutisApplication</start-class>
+        <docker.image.prefix>ehcoo</docker.image.prefix>
 	</properties>
 
 	<dependencies>
-		<dependency>
+		 <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency>
+		 
+		 <!-- <dependency>
    			<groupId>com.h2database</groupId>
    			<artifactId>h2</artifactId>
-		</dependency>
+		</dependency> --> 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -45,31 +48,65 @@
 		</dependency>
 	
 		
-		<dependency>
+		 <!-- <dependency>
     		<groupId>org.hibernate</groupId>
     		<artifactId>hibernate-core</artifactId>
-		</dependency>
+		</dependency> -->
 		
-		<dependency>
+		<!-- <dependency>
     		<groupId>org.hibernate</groupId>
-    		<artifactId>hibernate-entitymanager</artifactId>
-    		<version>5.0.12.Final</version>
-		</dependency>
+    		<artifactId>hibernate-entitymanager</artifactId>    		
+		</dependency> -->
 	
-		<dependency>
+		<!-- <dependency>
     		<groupId>javax.xml.bind</groupId>
     		<artifactId>jaxb-api</artifactId>
     		<version>2.3.0</version>
-		</dependency>
+		</dependency> --> 
+		
+		  
+		<!--  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency> -->
+        
+        <dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>  
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 	
 	</dependencies>
 
 	<build>
+		<finalName>desafio</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+		
+			<plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/spring-boot-docker-mysql</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+		
 		</plugins>
 	</build>
 

@@ -1,17 +1,15 @@
 package desafioSolutis;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"controllers"})
-@EntityScan("model")
-@EnableJpaRepositories("repositories")
-
+@ComponentScan(basePackages={"desafioSolutis.controllers", "desafioSolutis.services"})
+@EntityScan("desafioSolutis.model")
+@EnableJpaRepositories("desafioSolutis.repositories")
 
 public class DesafioSolutisApplication {
 

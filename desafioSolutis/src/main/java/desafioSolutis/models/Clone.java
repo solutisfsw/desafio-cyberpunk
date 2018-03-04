@@ -1,21 +1,28 @@
-package model;
+package desafioSolutis.models;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
+@Table(name="clone")
 public class Clone {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	@Column(name = "nome",unique=true)
@@ -29,6 +36,17 @@ public class Clone {
 	
 	private Date dataCriacao;
 	
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy="clone", optional = true)
+    private Adicional adicional;
+	
+	@JsonIgnore
+	public Adicional getAdicional() {
+		return adicional;
+	}
+	public void setAdicional(Adicional adicional) {
+		this.adicional = adicional;
+	}
 	public Long getId() {
 		return id;
 	}
