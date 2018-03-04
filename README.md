@@ -1,18 +1,28 @@
-# Nome do projeto
+# iClones
 
-Descrição resumida sobre o projeto.
+Protótipo do app para o Desafio Cyberpunk Solutis
 
 ## Instalação
-Linux & Windows
 
 ```sh
 npm install
-npm buid
+npm start
+
+Depois basta acessar http://localhost:3000 em seu browser
 ```
+
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+
+- Node
+- npm
+
+## Faltou implementar
+
+- A Rota para Remover Clones
+- Mais validações no Form de Criação
+- Exibir todos os campos no Form de Edição
 
 ## Meta
-Seu Nome – [Marcio Saraiva Melo](https://www.linkedin.com/in/marciosmelo) – marciomelo@gmail.com
+[Marcio Saraiva Melo](https://www.linkedin.com/in/marciosmelo) – marciomelo@gmail.com
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+Distribuído sob a licença `Creative Commons`. 
