@@ -28,19 +28,6 @@
 			<version>1.0.10</version>
 		</dependency>
 
-
-
-		<!-- Usado para geração de arquivos Excel xls -->
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.13</version>
-		</dependency>
-
-
-
-
 		<!-- Implementacao do Bean Validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -54,8 +41,6 @@
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>5.0.0.Final</version>
 		</dependency>
-
-
 
 		<!-- Nucleo do Hibernate -->
 		<dependency>
@@ -153,67 +138,11 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Abstração para envio de e-mails -->
-		<dependency>
-			<groupId>com.outjected</groupId>
-			<artifactId>simple-email</artifactId>
-			<version>0.2.1</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Requerido para envio de e-mails -->
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Usamos para templates de emails -->
-		<dependency>
-			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity</artifactId>
-			<version>1.7</version>
-			<scope>compile</scope>
-		</dependency>
-
 		<!-- Usamos para formatar números em templates -->
 		<dependency>
 			<groupId>velocity-tools</groupId>
 			<artifactId>velocity-tools-generic</artifactId>
 			<version>1.1</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Spring Security (autenticação e autorização) -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>3.2.5.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>3.2.5.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>3.2.5.RELEASE</version>
-		</dependency>
-
-		<!-- Relatorios -->
-		<dependency>
-			<groupId>net.sf.jasperreports</groupId>
-			<artifactId>jasperreports</artifactId>
-			<version>6.1.0</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>net.sf.jasperreports</groupId>
-			<artifactId>jasperreports-fonts</artifactId>
-			<version>6.0.0</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -225,6 +154,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 

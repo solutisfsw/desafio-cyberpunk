@@ -68,5 +68,4 @@ public class PesquisaClonesBean implements Serializable {
 	public void setCloneSelecionado(Clone cloneSelecionado) {
 		this.cloneSelecionado = cloneSelecionado;
 	}
-
 }

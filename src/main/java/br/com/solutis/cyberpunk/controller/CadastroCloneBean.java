@@ -101,7 +101,6 @@ public class CadastroCloneBean implements Serializable {
 	public void setclone(Clone clone) {
 		this.clone = clone;
 	}
-
 	
 	public List<Adicional> getAdicionais() {
 		return adicionais;
