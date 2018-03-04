@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Exercito de Clones</title>
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+    	.nav {
+		  background-color: #5a5a5a !important;
+		}
+    </style>
+</head>
+<body>
+	<header>
+		<nav class="nav">
+		   <div class="nav-wrapper">
+		     <a href="#" class="brand-logo left">Crie seu Clone</a>
+		     <ul id="nav-mobile" class="right hide-on-med-and-down">
+		       <li><a href="/listaClones" class="waves-effect waves-light btn"><i class="material-icons left">people</i>Lista de Clones</a></li>
+		     </ul>
+		   </div>
+	 	</nav>
+	</header>
+	
+	<form method="post" class="container">
+		
+		<div class="row" >
+			<div class="input-field col s3">
+				Nome: <input type="text" name="nome" pattern="[A-Z]{3}[0-9]{4}" placeholder="ABC1234" 
+						     title="Adicione um nome que contenha três letras maiúsculas e quatro números" required="required" maxlength="7"/> <br/>
+			</div>
+			<div class="input-field col s3">
+				Idade: <input type="number" name="idade" placeholder="10-20" 
+						     title="Adicione um número entre 10 e 20" required="required" min="10" max="20"/> <br/>
+	     	</div>
+		</div>
+		
+		Partes adicionais:<br/> 
+		<select multiple="multiple" name="adicionais" style="display: block; width: 250px; height: 130px">
+				<option th:each="adicional : ${allAdicionais}" 
+		               th:value="${adicional.id}" 
+		               th:text="${adicional.parteAdicional}"> 
+		       </option>
+		</select>
+		<button type="submit" class="waves-effect waves-light btn">Criar</button>
+		
+	</form>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
