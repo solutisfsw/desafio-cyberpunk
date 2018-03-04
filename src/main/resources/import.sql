@@ -1,0 +1,1 @@
+insert into clone (nome, idade, data_criacao) values ('Ulisses', 10, sysdate());

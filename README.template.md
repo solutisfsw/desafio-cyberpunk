@@ -1,18 +1,28 @@
 # Nome do projeto
 
-Descrição resumida sobre o projeto.
+Cadastro de Clones
 
 ## Instalação
 Linux & Windows
 
 ```sh
-npm install
-npm buid
+Instalação ambiente linux/ubuntu
+
+$ sudo apt-get install default-jdk
+$ sudo apt-get install maven
+(Baixar h2 database em http://www.h2database.com/html/download.html)
+java -jar h2-1.4.196.jar
+(Baixar android studio em https://developer.android.com/studio/install.html?hl=pt-br)
+(ir até o dirretório onde foi baixado o android studio e acessar a pasta bin)
+cd ~/Downloads/android-studio-ide-171.4443003-linux/android-studio/bin$ ./studio.sh
 ```
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+- Java SDK
+- Apache MAVEN
+- H2 database
+- Android Studio
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Seu Nome – [Ulisses Pereira Gomes](https://www.linkedin.com/in/ulisses-gomes-a41406128/) – ulisses67@hotmail.com
 
 Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
