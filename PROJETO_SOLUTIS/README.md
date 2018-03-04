@@ -18,6 +18,9 @@ necessário que clique nas propriedades - java build patch - Libraries, nessa op
 a versão instalada no pc de teste. O arquivo javax.servlet-api.jar está no seguinte caminho - WEB CONTENT/lib. após adicionar o projeto estará quase funcionando.
 ```
 ```sh
+se arquivos como por exemplo mysql-connector-java-5.1.27-bin estiverem dando erro ou jstl, eles estarão na pasta WEB-INF/lib
+```
+```sh
 Eu fiz questão de adicionar ao projeto o Apache Tomcat 9, para auxiliar quem for testar. Caso precise quebrar um galho :v.
 ```
 ```sh
