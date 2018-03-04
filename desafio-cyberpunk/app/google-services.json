@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "255270604279",
+    "firebase_url": "https://desafio-cyberpunk.firebaseio.com",
+    "project_id": "desafio-cyberpunk",
+    "storage_bucket": "desafio-cyberpunk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255270604279:android:892c3e06edb68a62",
+        "android_client_info": {
+          "package_name": "br.com.luisferreira.desafiocyberpunk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255270604279-klmsnb3tp92brv87dms87t2k2tur733d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7PWK-A1aMeGAwxZAmwb5unXPwZq77wtE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
