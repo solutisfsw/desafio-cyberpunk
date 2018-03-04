@@ -44,30 +44,20 @@ public class CloneController {
     
     @RequestMapping("/teste")
     public String teste() {
-        return "teste";        
+        return "servico disponível";        
     }
      
     @RequestMapping("/clones/{id}")
     public Adicional clone(@PathVariable @Pattern(regexp = "[\\s]*[0-9]*[1-9]+",message="deve ser  um número") long id) {
-        return this.adicionalRepository.findByIdClone(id);
-    	//return this.cloneRepository.findById(id);        
+        return this.adicionalRepository.findByIdClone(id);    	       
     }
     
     @RequestMapping(value = "/clones/add", method = RequestMethod.POST)
-    public Adicional criar( @Valid  @RequestBody Adicional inputAdicional) {
-        System.out.println("teste =>>>>"+ inputAdicional.isBracoMecanico() );
-        System.out.println("teste do clone =>>>>"+ inputAdicional.getClone().getIdade() );
-            	    	
-        Adicional adicional = this.adicionalService.save( inputAdicional, adicionalRepository, cloneRepository, cloneService);
-       
+    public Adicional criar( @Valid  @RequestBody Adicional inputAdicional) {        
+        Adicional adicional = this.adicionalService.save( inputAdicional, adicionalRepository, cloneRepository, cloneService);       
     	return adicional;
     }
-    
-    @RequestMapping(value = "/clones/teste", method = RequestMethod.POST)    
-    public String teste( @ModelAttribute Clone input) {
-        //return this.cloneRepository.save(input);        
-    	return "Servico disponivel";
-    }
+        
     
     @RequestMapping(value = "/clones/{id}", method = RequestMethod.DELETE )
     public void delete(@PathVariable @Pattern(regexp = "[\\s]*[0-9]*[1-9]+",message="deve ser  um número") Long id) {
