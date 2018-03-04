@@ -1,67 +1,97 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 body {
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
-.bg-1 {
-    background-color: #1abc9c;
-    color: #ffffff;
-    background-image: url("assets/images/myLab3.jpg");
-    background-size: 100%;
-}
-
-.bg-2 {
-    background-color: #474e5d;
-    color: #ffffff;
-}
-
-.bg-3 {
-    background-color: #ffffff;
-    color: #555555;
-    padding: 128px;
-}
-
-.navbar.navbar-default {
-    margin-bottom: 0px;
-    background-color: #36c05b;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar-brand {
-    color: #ffffff !important;
-    font-size: 27px !important;
-    font-weight: bold;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+.navbar-brand img {
+    margin-right: 0.4em;
 }
 
-.bg-1 h1 {
-    font-size: 50px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 80, 76, 1);
+.navbar a:hover {
+    color: #2da650;
 }
 
-.bg-1 h3 {
-    text-shadow: 1px 1px 2px rgba(0, 80, 76, 1);
-    font-size: 40px;
+.jumbotron.inicial {
+    height: 85vh;
+    text-align: center;
+    color: #fff;
+    background-attachment: scroll;
+    background-image: url(/assets/images/background.png);
+    background-position: top center;
+    background-repeat: none;
+    background-size: cover;
+    -o-background-size: cover;
+    text-shadow: 2px -1px 0px rgba(0, 0, 0, 0.4);
+    padding-top: 0;
+    margin: 0;
 }
 
-.bg-1 p {
-    text-shadow: 1px 1px 2px rgba(0, 80, 76, 1);
-    font-size: 20px;
+.jumbotron h1 {
+    margin-bottom: 0;
+    font-size: 3.5em;
+    font-family: "Open Sans", "Microsoft YaHei New", "Microsoft Yahei", "Jeju Gothic", sans-serif;
+    font-weight: 300;
+    line-height: 1.15em;
+    color: #FFF;
+    text-align: center;
+    position: relative;
+    padding-top: 32%;
 }
 
-.bg-3 h3 {
-    font-size: 55px;
+.primeiros-passos {
+    background-color: #2da650;
+    width: 11em;
+    height: 2em !important;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    margin-top: -4em;
+    margin-left: 2em;
+    font-size: x-large;
+    color: white;
 }
 
-.bg-2 h3 {
-    font-size: 55px;
+.primeiros-passos img {
+    margin-top: 0.25em;
 }
 
-.input {
-    padding-top: 20px;
-    padding-bottom: 20px;
+@media (max-width: 500px) {
+    .primeiros-passos {
+        margin-top: -17%;
+    }
+}
+
+.lista {
+    margin: 2em;
+}
+
+hr {
+    border-color: #c6e0d1;
+}
+
+.albieri {
+    border-radius: 100%;
+    width: 141px;
+}
+
+.lista img:hover {
+    width: 150px;
+    border: 3px solid #2da650;
+}
+
+.doutores {
+    height: 85vh;
+    text-align: center;
+    color: #fff;
+    background-attachment: scroll;
+    background-image: url(/assets/images/doctors.jpg);
+    background-position: top center;
+    background-repeat: none;
+    background-size: cover;
+    -o-background-size: cover;
+    text-shadow: 2px -1px 0px rgba(0, 0, 0, 0.4);
 }

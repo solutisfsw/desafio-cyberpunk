@@ -1,98 +1,58 @@
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-togle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Dr. Albieri - Clinica Fertilidade</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#criaClone">Criar Clone</a></li>
-                <li><a href="#listaClone">Listar Clones</a></li>
-            </ul>
-        </div>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">Clínica de Clonagem <b>Dr. Albieri</b>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto my-2 my-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Listar Clones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Criar Clone</a>
+            </li>
+        </ul>
     </div>
 </nav>
-
-<div class="container-fluid bg-1 text-center">
-    <h1>Clínica de Clones do Dr. Albieri</h1>
-    <img src="assets/images/dralbieri2.jpg" class="img-circle" alt="Dr.Albieri">
-    <h3>Quer um clone? veio ao lugar certo!</h3>
-    <p>Desde 2001, quando meus serviços ficaram mundialmente famosos graças à novela O Clone, todos querem um Murilo Benício para chamar de seu.</p>
+<div class="jumbotron inicial jumbotron-fluid">
+    <div class="container">
+        <h1>Nós criamos milagres, todos os dias.</h1>
+        <h2>Clínica de Clonagem Dr. Albieri</h2>
+    </div>
 </div>
-<!--
-<div class="container-fluid bg-3 text-center">
-    <h3>Onde me Encontrar?</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
--->
-
-<div class="container-fluid bg-3 text-center" id="criaClone">
-    <h3>Criar Clone</h3>
-    <img src="assets/images/muriloBenicio-Diogo2.jpg" class="img-circle" alt="Dr.Albieri">
-    <div class="row input">
-        <div class="col-lg-4">
-            <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
+<div class="jumbotron bg-light jumbotron-fluid" style="margin-bottom: 0;">
+    <div class="container">
+        <div class="primeiros-passos text-center">
+            <img src="/assets/images/arrow.png" width="30" height="30" class="d-inline-block align-top" alt="">Primeiros Passos
         </div>
-        <div class="col-lg-4">
-            <select class="custom-select" multiple>
-                <option selected>Escolha o Equipamento:</option>
-                
-                <option value="0">braço mecânico</option>
-                <option value="1">11</option>
-                <option value="2">12</option>
-                <option value="3">13</option>
-                <option value="4">14</option>
-
-              </select>
-        </div>
-        <div class="col-lg-4">
-            <input type="text" class="form-control" placeholder="Idade" aria-label="Idade" aria-describedby="basic-addon2">
+        <div class="row lista text-center">
+            <div class="col-sm-4">
+                <img src="/assets/images/dralbieri.jpg" class="albieri d-inline-block align-top" alt="">
+                <h2>Equipe</h2>
+                <hr/>
+                <h4>Os estudos do Dr. Albieri serviram de pilar para a nossa maravilhosa equipe médica.</h4>
+            </div>
+            <div class="col-sm-4">
+                <img src="/assets/images/add.png" class="albieri d-inline-block align-top" alt="">
+                <h2>Crie o seu clone</h2>
+                <hr/>
+                <h4>Aqui você configura tudo o que precisa para que o seu clone seja gerado.</h4>
+            </div>
+            <div class="col-sm-4">
+                <img src="/assets/images/list.png" class="albieri d-inline-block align-top" alt="">
+                <h2>Lista de Clones</h2>
+                <hr/>
+                <h4>Veja e edite os nossos clones, admire a nossa coleção.</h4>
+            </div>
         </div>
     </div>
-    <a href="#" class="btn btn-default btn-lg">Salvar</a>
-    <a href="#" class="btn btn-default btn-lg">Cancelar</a>
 </div>
-
-<div class="container-fluid bg-2 text-center" id="listaClone">
-    <h3>Listar Clone</h3>
-    <a href="#" class="btn btn-default btn-lg">Botão1</a>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Data de Criação</th>
-                    <th>Equipamentos</th>
-                </tr>
-            </thead>
-            <tr>
-                <th>Luc6474</th>
-                <th>16</th>
-                <th>16/07/3831</th>
-                <th>Figado Blindado, Pele Adaptativa, Juliana Paes</th>
-                <th><button type="button" class="btn btn-primary">Editar</button></th>
-                <th><button type="button" class="btn btn-primary">Deletar</button></th>
-            </tr>
-            <tr>
-                <th>Dio6389</th>
-                <th>11</th>
-                <th>11/07/3441</th>
-                <th>Bola de Fogo, Olho de Tandera, Caneta Tinteiro</th>
-                <th><button type="button" class="btn btn-primary">Editar</button></th>
-                <th><button type="button" class="btn btn-primary">Deletar</button></th>
-            </tr>
-            <tbody>
-
-            </tbody>
-        </table>
+<div class="jumbotron doutores jumbotron-fluid">
+    <div class="container">
+        <h1>Nós criamos milagres, todos os dias.</h1>
+        <h2>Clínica de Clonagem Dr. Albieri</h2>
     </div>
-
-
 </div>

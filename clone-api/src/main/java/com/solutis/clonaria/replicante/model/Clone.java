@@ -9,6 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Clone {
@@ -17,7 +21,13 @@ public class Clone {
 	@GeneratedValue
 	private Long id;
 	
+	@NotNull(message = "Não é possivel criar um clone sem nome.")
+	@Pattern(regexp = "[A-Z]{3}[0-9]{4}",message = "Nome não está dentro dos padrões")
 	private String nome;
+	
+	@NotNull(message = "Não é possivel criar um clone sem idade.")
+	@Max(value = 20,message = "Idade deve ser até 20")
+	@Min(value = 10, message = "Idade deve ser pelo menos 10")
 	private int idade;
 	
 	@Column(updatable = false)
