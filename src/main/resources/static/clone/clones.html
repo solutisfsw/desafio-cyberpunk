@@ -1,0 +1,100 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+	<h2>Gerador de Clones</h2>
+	
+	
+	<form name="formulario" novalidate id="formulario"  >
+	
+	<div>
+		<label for="identifier">Identificador:</label>
+			<input type="text" ng-model="clone.identifier" readonly="readonly" class="form-control" id="identifier" placeholder="Identificador">
+		
+		
+		<label for="nome">Nome do Clone:</label>
+			<input type="text" name="nome"  ng-model="clone.nome" class="form-control" id="nome" placeholder="Nome" ng-pattern="/^[A-Z]{3}\d{4}$/"  required>
+		<div ng-if="formulario.nome.$touched || formulario.$submitted && formulario.nome.$invalid" >
+			<span ng-if="formulario.nome.$error.required" >Este Campo é Obrigatório</span>
+			<span ng-if="formulario.nome.$error.pattern" >O campo Nome deve ter o padão ex: ABC1234</span>
+		</div>
+			
+		<label for="idade">Idade:</label>
+			<input type="number" name="idade" ng-model="clone.idade" class="form-control" id="idade" placeholder="Idade"  ng-min="10" ng-max="20" ng-maxlength="2" required>
+		<div ng-if="formulario.idade.$touched || formulario.$submitted && formulario.idade.$invalid" >
+			<span ng-if="formulario.idade.$error.min"  >A IDADE deve ser Número inteiro entre 10 e 20.</span>
+			<span ng-if="formulario.idade.$error.max"  >A IDADE deve ser Número inteiro entre 10 e 20.</span>
+			<span ng-if="formulario.idade.$error.required" >Este Campo é Obrigatório</span>		
+		</div>
+		
+		<label for="dataCriacao">Data Criação:</label>
+			<input type="date" name="dataCriacao" ng-model="clone.dataCriacao" class="form-control" id="dataCriacao" placeholder="DataCriacao" required><br/>
+		<div ng-if="formulario.dataCriacao.$touched || formulario.$submitted && formulario.dataCriacao.$invalid" >
+			<span ng-if="formulario.dataCriacao.$error.required" >Este Campo é Obrigatório</span>
+		</div>
+		
+		<label > Adicionais: </label><br>
+    	<select name="adicionaisDescricao"  ng-model="clone.adicionaisDescricao"  required >
+      			<option value="Não Possui">Não Possui</option required >
+      			<option value="Braço Mecânico">Braço Mecânico</option required >
+     			<option value="Esqueleto Reforçado">Esqueleto Reforçado</option required >
+     			<option value="Sentidos Aguçados">Sentidos Aguçados</option required >
+     			<option value="Pele Adaptativa">Pele Adaptativa</option required >
+     			<option value="Raio Laser">Raio Laser</option required >
+    	</select><br>
+    	<div ng-if="formulario.adicionaisDescricao.$touched || formulario.$submitted && formulario.adicionaisDescricao.$invalid" >
+			<span ng-if="formulario.adicionaisDescricao.$error.required" >Este Campo é Obrigatório</span>		
+		</div>
+   		 
+   	
+ 	</div>
+	<br/>
+	
+		<div>
+			<button class="btn btn-primary" ng-click="novo();">Novo</button>
+			<button class="btn btn-success" ng-click="salvar();">Savar</button>
+		</div>
+		
+	</form>
+	<br/>
+	
+		<div>
+			<label for="filtro">Buscar</label>
+			<input type="text" ng-model="filtro" placeholder="Digite sua Busca" class="form-control" id="filtro">
+		</div>
+		<br/>
+	
+		<div class="table-responsive">
+			<table class="table table-striped table-hover table-bordered table-condensed ">
+		
+				<thead>
+					<tr>
+						<th style="cursor:pointer" ng-click="orderByMe('identifier')">Identificador</th>
+						<th style="cursor:pointer" ng-click="orderByMe('nome')">Nome</th>
+						<th style="cursor:pointer" ng-click="orderByMe('idade')">Idade</th>
+						<th style="cursor:pointer" ng-click="orderByMe('dataCriacao')">Data Criação</th>
+						<th>Descrições Adicionais</th>
+						<th>Editar</th>
+						<th>Excluir</th>
+					</tr>
+		
+				</thead>
+				<tbody>
+					<tr  dir-paginate="clone in clones  | filter:filtro | itemsPerPage:4 " >
+						<td>{{clone.identifier}}</td>
+						<td>{{clone.nome}}</td>
+						<td>{{clone.idade}}</td>
+						<td>{{clone.dataCriacao | date:'dd/MM/yyyy'}}</td>
+						<td>{{clone.adicionaisDescricao}}</td>
+						<td><button class="btn btn-primary" ng-click="editar(clone);">Editar</button></td>
+						<td><button class="btn btn-danger"  ng-click="excluir(clone);">Excluir</button></td>
+					</tr>
+				</tbody>
+				</table>
+				<dir-pagination-controls max-size="10" boundary-links="true"></dir-pagination-controls>
+			
+			</div>
+
+
+
+
+
