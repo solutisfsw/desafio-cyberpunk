@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Clone } from '../clone';
 import { CloneService } from '../clone.service';
 import { PARTS } from '../mock-parts';
 import { AppComponent } from '../app.component';
+
+
 
 @Component({
   selector: 'app-clone-create',
@@ -23,7 +25,8 @@ export class CloneCreateComponent implements OnInit {
     private route: ActivatedRoute,
     private cloneService: CloneService,
     private location: Location,
-    private appComponent: AppComponent) { }
+    private appComponent: AppComponent,
+    private router: Router) { }
 
 
   ngOnInit() {
@@ -39,6 +42,7 @@ export class CloneCreateComponent implements OnInit {
     this.cloneService.createClone(this.clone)
       .subscribe(clone => this.clone = clone);
     this.appComponent.countClones = this.cloneService.getTotal();  
+    this.router.navigate(['dashboard']);
   }
 
   addPart(): void {

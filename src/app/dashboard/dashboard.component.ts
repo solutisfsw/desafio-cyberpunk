@@ -17,7 +17,8 @@ export class DashboardComponent implements OnInit {
   }
 
   getClones(): void {
+    console.log('getclones');
     this.cloneService.getClones()
-      .subscribe(clones => this.clones = clones.slice(1, 5));
+      .subscribe(clones => this.clones = clones.slice(0, 4));
   }
 }

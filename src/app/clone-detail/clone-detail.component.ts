@@ -28,7 +28,6 @@ export class CloneDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.cloneService.getClone(id)
       .subscribe( clone => this.clone = clone);
-
   }
 
   goBack(): void {

@@ -13,7 +13,7 @@ export class CloneService {
   getClones(): Observable<Clone[]> {
     // Todo: send the message _after_ fetching the clones
     this.messageService.add('CloneService: fetched clones');
-    return of (CLONES);
+    return of (CLONES.sort((function(a,b) {return (a.date > b.date) ? -1 : ((b.date > a.date) ? 1 : 0);} )));
   }
 
   getClone(id: number): Observable<Clone> {
