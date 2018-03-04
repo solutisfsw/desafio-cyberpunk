@@ -22,4 +22,22 @@ export class CloneService {
     return of(CLONES.find(clone => clone.id === id));
   }
 
+  createClone(clone: Clone): Observable<Clone> {
+    this.messageService.add(`CloneService: added new clone `);
+    const newId = this.getNextId();
+    clone.id = newId;
+    console.log('clone no service ' + clone);
+    CLONES.push(clone);
+    console.log(CLONES);
+    return of(clone);
+  }
+
+  getNextId(): number {
+    return CLONES.reduce((max, c) => Math.max(max, c.id), CLONES[0].id) + 1;
+  }
+
+  getTotal(): number {
+    return CLONES.length;
+  }
+
 }

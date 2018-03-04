@@ -1,6 +1,6 @@
 /* AppComponent's private CSS styles */
 h1 {
-    font-size: 1.2em;
+    font-size: 2em;
     color: #999;
     margin-bottom: 0;
   }
@@ -26,4 +26,14 @@ h1 {
   }
   nav a.active {
     color: #039be5;
+  }
+  .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    background-color: #607D8B;
+    position: relative;
+    min-width: 16px;
+    text-align: center;
+    border-radius: 4px;
   }

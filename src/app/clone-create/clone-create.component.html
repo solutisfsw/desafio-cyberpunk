@@ -1,3 +1,49 @@
-<p>
-  clone-create works!
-</p>
+<div class="container">
+  <h2>Criar Clone</h2>
+  <form  #cloneForm="ngForm">
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" id="name" pattern="[A-Z]{3}[0-9]{4}" required placeholder="Nome (3 Letras Maiúsculas + 4 números. Ex: CLO1234."
+          ng-maxlength="7" ng-minlength="7" [(ngModel)]="cloneName" name="name" #name="ngModel" >
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          O campo nome é obrigatório e deve conter 3 Letras Maiúsculas e 4 Números (Ex: CLO1234).
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="age">Idade</label>
+        <input type="text"  class="form-control" 
+        id="idade" required placeholder="Valor entre 10 a 20" pattern="(1[0-9]|20)" [(ngModel)]="clone.age"
+          name="age" #age="ngModel">
+      </div>
+      <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+        A idade deve ser entre 10 a 20 anos.
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label for="parts">Partes Adicionais</label>
+        <select class="form-control" id="part" [(ngModel)]="selectedPart" name="part">
+          <option *ngFor="let part of parts" [value]="part">{{part}}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <button type="button" class="btn btn-primary add-part" (click)="addPart()">
+          <span id="addParts" class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <button type="button" class="btn btn-secondary" (click)="goBack()">Voltar</button>
+
+        <button type="submit" class="btn btn-success" [disabled]="!cloneForm.form.valid" (click)="addClone(); cloneForm.reset()">Adicionar</button>
+      </div>
+
+    </div>
+  </form>
+
+</div>

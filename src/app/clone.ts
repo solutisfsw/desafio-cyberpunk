@@ -4,4 +4,5 @@ export class Clone {
     age: number;
     date: Date;
     parts: string[];
+   
 }
