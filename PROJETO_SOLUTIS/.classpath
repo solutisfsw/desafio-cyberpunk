@@ -13,6 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/jelln/Desktop/Projeto_Solutis_Wallace_Nery-master(1)/Projeto_Solutis_Wallace_Nery-master/WebContent/lib/javax.servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jelln/Desktop/QUALITÉ/PROJETO_SOLUTIS/WebContent/lib/javax.servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jelln/Desktop/QUALITÉ/PROJETO_SOLUTIS/WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jelln/Desktop/QUALITÉ/PROJETO_SOLUTIS/WebContent/WEB-INF/lib/mysql-connector-java-5.1.27-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jelln/Desktop/QUALITÉ/PROJETO_SOLUTIS/WebContent/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
