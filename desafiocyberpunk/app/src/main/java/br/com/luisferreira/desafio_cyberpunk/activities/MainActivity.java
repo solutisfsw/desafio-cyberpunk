@@ -1,6 +1,13 @@
 package br.com.luisferreira.desafio_cyberpunk.activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,16 +16,22 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +42,20 @@ import br.com.luisferreira.desafio_cyberpunk.model.Clone;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     private RecyclerView recyclerView;
     private RecyclerAdapter recyclerAdapter;
+
     private FloatingActionButton fabNovoClone;
     protected ProgressBar progressBar;
 
-    private List<Clone> clones = new ArrayList<>();
-    private DatabaseReference databaseReference;
+    private List<Clone> clonesList = new ArrayList<>();
+
+    private FirebaseFirestore firebaseFirestore;
+    private ListenerRegistration listenerRegistration;
+
+    private Paint paint = new Paint();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,56 +67,144 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Clones Cadastrados");
 
+        recyclerView = findViewById(R.id.rv_clones);
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+
         initViews();
         fetchData();
+
+        listenerRegistration = firebaseFirestore.collection("clones")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.e(TAG, "Listen failed!", e);
+                            return;
+                        }
+
+                        for (DocumentSnapshot documentSnapshot : documentSnapshots) {
+                            Clone clone = documentSnapshot.toObject(Clone.class);
+                            clone.setId(documentSnapshot.getId());
+                            clonesList.add(clone);
+                        }
+
+                        recyclerView.setAdapter(recyclerAdapter);
+                        recyclerAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     private void initViews() {
-        recyclerView = findViewById(R.id.rv_clones);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerAdapter = new RecyclerAdapter(clones);
-        recyclerView.setAdapter(recyclerAdapter);
-        recyclerAdapter.notifyDataSetChanged();
-        recyclerView.setHasFixedSize(true);
+        recyclerAdapter = new RecyclerAdapter(clonesList, getApplicationContext(), firebaseFirestore);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         fabNovoClone = findViewById(R.id.fabNovoClone);
 
         progressBar = findViewById(R.id.main_progress);
+
+        initSwipe();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        fetchData();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        listenerRegistration.remove();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        listenerRegistration.remove();
     }
 
     private void fetchData() {
         openProgressBar();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("clones").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                clones.removeAll(clones);
+        firebaseFirestore.collection("clones")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            clonesList.removeAll(clonesList);
 
-                if (!dataSnapshot.exists()) {
-                    showSnackbar("Não existem clones cadastrados!");
-                } else {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Clone clone = snapshot.getValue(Clone.class);
-                        clones.add(clone);
+                            for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                Clone clone = documentSnapshot.toObject(Clone.class);
+                                clone.setId(documentSnapshot.getId());
+                                clonesList.add(clone);
+                            }
+
+                            recyclerView.setAdapter(recyclerAdapter);
+                            recyclerAdapter.notifyDataSetChanged();
+                        } else {
+                            showSnackbar("Erro ao buscar os dados: " + task.getException());
+                        }
+
+                        closeProgressBar();
                     }
-                    recyclerAdapter.notifyDataSetChanged();
-                }
-
-                closeProgressBar();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                showSnackbar("Não foi possível buscar os dados!");
-                closeProgressBar();
-            }
-        });
+                });
     }
 
-    public void chamarCadastro(View view) {
-        Intent intent = new Intent(this, InsertActivity.class);
+    private void initSwipe() {
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+
+                if (direction == ItemTouchHelper.LEFT) {
+                    recyclerAdapter.deleteClone(clonesList.get(position).getId(), position);
+                    recyclerAdapter.notifyDataSetChanged();
+                } else {
+                    recyclerAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+                Bitmap icon;
+                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+
+                    View itemView = viewHolder.itemView;
+                    float height = (float) itemView.getBottom() - (float) itemView.getTop();
+                    float width = height / 3;
+
+                    if (dX < 0) {
+                        paint.setColor(Color.parseColor("#D32F2F"));
+                        RectF background = new RectF((float) itemView.getRight() + dX, (float) itemView.getTop(), (float) itemView.getRight(), (float) itemView.getBottom());
+                        c.drawRect(background, paint);
+                        icon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_delete_sweep_white_24dp);
+                        RectF icon_dest = new RectF((float) itemView.getRight() - 2 * width, (float) itemView.getTop() + width, (float) itemView.getRight() - width, (float) itemView.getBottom() - width);
+                        c.drawBitmap(icon, null, icon_dest, paint);
+                    }
+                }
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
+    public void callCloneActivity (View view) {
+        Intent intent = new Intent(this, CloneActivity.class);
         startActivity(intent);
     }
 
