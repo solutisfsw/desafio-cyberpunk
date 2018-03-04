@@ -1,0 +1,31 @@
+BEGIN;
+ALTER TABLE adicionais DISABLE TRIGGER ALL;
+ALTER TABLE clone DISABLE TRIGGER ALL;
+
+INSERT INTO adicionais (braco_mecanico, esqueleto_reforcado, pele_adaptativa, raio_laser, sentidos_agucados)
+VALUES
+  (TRUE, TRUE, TRUE, TRUE, TRUE),
+  (FALSE, TRUE, FALSE, TRUE, TRUE),
+  (TRUE, TRUE, TRUE, FALSE, TRUE),
+  (TRUE, FALSE, TRUE, TRUE, FALSE),
+  (FALSE, TRUE, TRUE, FALSE, TRUE),
+  (TRUE, TRUE, TRUE, FALSE, TRUE),
+  (FALSE, FALSE, FALSE, FALSE, FALSE),
+  (FALSE, TRUE, FALSE, TRUE, TRUE),
+  (TRUE, TRUE, TRUE, FALSE, TRUE),
+  ( TRUE, FALSE, TRUE, TRUE, FALSE);
+INSERT INTO clone (data_criacao, idade, nome, adicionais_id)
+VALUES
+  ('2018-02-27', 20, 'AGE3047', 1),
+  ('2015-03-11', 19, 'LEH3047', 2),
+  ('2015-02-14', 10, 'LKH3047', 3),
+  ('2018-07-01', 12, 'LJH3047', 4),
+  ('2011-09-09', 16, 'BGI5247', 5),
+  ('2012-04-30', 17, 'HDN9015', 5),
+  ('2013-08-04', 14, 'KMJ3748', 7),
+  ('2016-04-25', 13, 'PLS7962', 8),
+  ('2014-10-21', 17, 'FYR3251', 9),
+  ( '2013-12-20', 11, 'WXD3427',10);
+COMMIT;
+ALTER TABLE adicionais ENABLE TRIGGER ALL;
+ALTER TABLE clone ENABLE TRIGGER ALL;

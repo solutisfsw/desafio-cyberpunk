@@ -1,18 +1,27 @@
-# Nome do projeto
+# CyberPunk
 
-Descrição resumida sobre o projeto.
+O [CyberPunk](/#) é o melhor sistema para gerenciar clones de modo agradável e intuitivo. Nesses tempos desafiadores, a nossa ferramenta avança em velocidade implacável. Se o mundo precisa de mais clones, o mundo precisa do CyberPunk.
 
 ## Instalação
 Linux & Windows
-
+- Mova o arquivo DockerFile para o diretório docker e execute o build
 ```sh
-npm install
-npm buid
+docker build --rm=true -t ezequiassam/postgresql:9.3 .
+```
+- Inicie o container configurando a porta do host local
+```sh
+docker run -i -t -p 5432:5432 ezequiassam/postgresql:9.3
+```
+- Após fazer o build e resolver todas as depencias no projeto, execute a class CyberPunkApplication.java
+- Digite em um navegador o seguinte caminho: 
+```sh
+http://localhost:8080/
 ```
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+- JDK 8 ou superior
+- Docker (testado na versão 17)
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Ezequias Sampaio – ezequiassam@gmail.com
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+Distribuído sob a licença `Apache License 2.0`. Veja `LICENSE` para mais informações.

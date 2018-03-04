@@ -17,7 +17,7 @@ Tempos desafiadores. A tecnologia avança em velocidade implacável. O mundo pre
 
 - nome : Deve atender a seguinte expressão regular [A-Z]{3}[0-9]{4}. O nome de um clone deverá ser único no nosso sistema.
 - idade: Número inteiro entre 10 e 20.
-- data de criacao: Data na qual o clone foi cadastrado no sistema. 
+- dataCriacao de criacao: Data na qual o clone foi cadastrado no sistema. 
 - adicionais: Lista contendo zero ou mais dos elementos a seguir: [ braço mecânico, esqueleto reforçado, sentidos aguçados, pele adaptativa, raio laser]
 
 A interface + backend da aplicação deverão permitir recuperação da lista de clones, remoção / atualização dos clones cadastrados e cadastro de clones.
