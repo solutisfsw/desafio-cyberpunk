@@ -1,0 +1,11 @@
+spring:
+    jpa:
+        database: MYSQL
+        hibernate:
+            ddl-auto: validate
+
+    datasource:
+        url: jdbc:mysql://mysql:3306/desafio_solutis
+        username: desafio_solutis
+        password: desafio
+        driver-class-name: com.mysql.jdbc.Driver
