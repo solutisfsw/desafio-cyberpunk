@@ -1,65 +1,84 @@
-[![N|Solid](http://solutis.com.br/images/logo.png)](http://solutis.com.br)
-
-# NOSSO DESAFIO
-Bem vindo. Estamos interessados em ver como você desenvolve com as tecnologias que domina. Que jeito melhor do que apresentando um projeto feito por você?
-Queremos que você nos apresente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras.
-## REGRAS GERAIS
-- Faça a [cópia](https://help.github.com/articles/fork-a-repo/) do repositório (fork), desenvolva e submeta uma [solicitação de mudança](https://help.github.com/articles/creating-a-pull-request/) (pull request) no branch master.
-- A aplicação deve ser composta por Backend e/ou Frontend. Caso ache que so vai conseguir fazer um dos dois no tempo disponível, foque nele.
-- O Backend deve prover uma [API REST](https://pt.wikipedia.org/wiki/REST)
-- Você deve cumprir no mínimo os requisitos abaixo.
-- Items marcados com (+) não são obrigatórios, mas servem como diferencial.
-- Nas instruções para execução da aplicação é essêncial conter o seu nome e email utilizado no cadastro [Gupy](https://gupy.io/)
-
-## REQUISITOS
-
-Tempos desafiadores. A tecnologia avança em velocidade implacável. O mundo precisa de mais clones. Nossos clientes encomendam seus clones conosco e esperam um serviço de alta qualidade. Os atributos de um clone são:
-
-- nome : Deve atender a seguinte expressão regular [A-Z]{3}[0-9]{4}. O nome de um clone deverá ser único no nosso sistema.
-- idade: Número inteiro entre 10 e 20.
-- data de criacao: Data na qual o clone foi cadastrado no sistema. 
-- adicionais: Lista contendo zero ou mais dos elementos a seguir: [ braço mecânico, esqueleto reforçado, sentidos aguçados, pele adaptativa, raio laser]
-
-A interface + backend da aplicação deverão permitir recuperação da lista de clones, remoção / atualização dos clones cadastrados e cadastro de clones.
-Considere que só um usuário vai usar a aplicação e que este usuário não precisa de login. Considere também que nós sabemos como relacionar um clone aos nossos clientes, não é preciso programar essa relação.
-
-## LINGUAGENS
-  - Java 8/9
-  - Kotlin (+)
-  - C#
-  - JavaScript/Typescript
-  - Swift 4
-  
-## FRAMEWORKS
-
-### BACKEND
-São válidos para o backend os seguintes frameworks:
-
-- JavaEE 7 ou superior
-- Node 8.9.4+ (+)
-- Springboot (+)
-- .NET WebApi
-
-### FRONTEND
-O frontend pode ser Web ou Mobile. Sugerimos as seguintes tecnologias:
-
-- Angular 5
-- Android (+)
-- iOS (+)
-
-### TESTES
-- Sua aplicaçao deve conter arquivos de testes unitários
-- Sua aplicação deve conter arquivos de testes de integração (+)
-
-### BANCO DE DADOS
-- Não é obrigatório o uso de um SGBD. Caso deseje, pode salvar os dados na memória.
-- Caso utilize um banco de dados (e.g. MySQL, PostgreSQL, MongoDB, Redis), você deve fornecer um Dockerfile que rode o ambiente já configurado com o seu banco. (+)
-- Caso utilize um banco de dados na nuvem (e.g. Firebase), a aplicação já deve ter o acesso ao banco configurado. (+)
-
-### BUILD E EXECUÇÃO
-- Envie as instruções para o build/execução da sua aplicação, disponibilizamos um [exemplo](README.template.md) para ajudar você. Cuidado com dependências externas que inviabilizem ou dificultem essas atividades.
-- De preferência utilize um ferramenta como Gradle, Maven, npm para realizar as tarefas necessárias de build.
-- Caso deseje, envie um Dockerfile que monte o ambiente já em execução da sua aplicação (+)
+# Sistema para encomenda de clones Web API com NodeJS
 
 
-# BOA SORTE!
+## Projeto NodeJs v8
+
+* NodeJS v8.9.4
+* body-parser v1.18.2
+* consign v0.1.6
+* express v4.16.2,
+* express-validator v5.0.2
+* mocha v5.0.1
+* supertest v3.0.0
+
+
+## Executando o Projeto
+
+* NodeJs.
+
+Navege entre as pastas pelo terminal e entre na pasta do projeto, depois instale todas as dependencias com o comando:
+
+```
+npm install
+```
+
+Inicie o projeto com o comando:
+
+```
+node index
+```
+## Cadastrando
+Faça uma requisição post para http://localhost:3000/clones/clone passando os dados com um JSON,exemplo:
+
+```
+{
+    "nome":"alisson",
+    "idade":"25",
+    "adicionais":["braço mecanico","raio laser"]
+}
+```
+
+# Listando
+Faça uma requisição get para http://localhost:3000/clones
+
+# Alterando
+Faça uma requisição put para http://localhost:3000/clones/clone/:id passando o id do clone que deseja alterar os dados com um Json,exemplo
+
+```
+{
+    "nome":"alisson27",
+    "idade":"25",
+    "adicionais":["braço mecanico"]
+}
+```
+# Consultando
+
+Faça uma requisição get para  http://localhost:3000/clones/:id passando o id do clone que deseja consultar
+
+# Deletando
+
+Faça uma requisição delete para  http://localhost:3000/clones/:id passando o id do clone que deseja destruir
+
+# Executando o teste do sistema
+Inicie o projeto com o comando:
+
+```
+node index
+```
+Abra outra tela no terminal e navege entre as pastas e entre na pasta do projeto e execute o comando:
+
+```
+node node_modules/mocha/bin/mocha
+```
+
+
+```
+Duvidas? alisonuniversal@hotmail.com 
+```
+
+
+
+
+
+
+
