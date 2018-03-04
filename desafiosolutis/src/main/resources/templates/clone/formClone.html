@@ -8,10 +8,24 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+    	.nav {
+		  background-color: #5a5a5a !important;
+		}
+    </style>
 </head>
 <body>
-	<h3>Crie seu Clone:</h3>
-	<h3><a href="/listaClones" class="waves-effect waves-light btn"><i class="material-icons left">people</i>Lista de Clones</a></h3>
+	<header>
+		<nav class="nav">
+		   <div class="nav-wrapper">
+		     <a href="#" class="brand-logo left">Crie seu Clone</a>
+		     <ul id="nav-mobile" class="right hide-on-med-and-down">
+		       <li><a href="/listaClones" class="waves-effect waves-light btn"><i class="material-icons left">people</i>Lista de Clones</a></li>
+		     </ul>
+		   </div>
+	 	</nav>
+	</header>
+	
 	<form method="post" class="container">
 		
 		<div class="row" >
