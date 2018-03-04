@@ -7,8 +7,11 @@ Front em Android, com classes de teste, usando o AndroidStudio
 Linux & Windows
 
 ```sh
-npm install
-npm buid
+Instalação ambiente linux/ubuntu
+
+$ sudo apt-get install default-jdk
+$ sudo apt-get install maven
+
 ```
 ## Configuração
 Necessário a instalação da H2DATABASE, java (sdk/jre) 1.8.131 
