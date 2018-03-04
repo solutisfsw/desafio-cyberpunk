@@ -1,65 +1,43 @@
-[![N|Solid](http://solutis.com.br/images/logo.png)](http://solutis.com.br)
 
-# NOSSO DESAFIO
-Bem vindo. Estamos interessados em ver como você desenvolve com as tecnologias que domina. Que jeito melhor do que apresentando um projeto feito por você?
-Queremos que você nos apresente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras.
-## REGRAS GERAIS
-- Faça a [cópia](https://help.github.com/articles/fork-a-repo/) do repositório (fork), desenvolva e submeta uma [solicitação de mudança](https://help.github.com/articles/creating-a-pull-request/) (pull request) no branch master.
-- A aplicação deve ser composta por Backend e/ou Frontend. Caso ache que so vai conseguir fazer um dos dois no tempo disponível, foque nele.
-- O Backend deve prover uma [API REST](https://pt.wikipedia.org/wiki/REST)
-- Você deve cumprir no mínimo os requisitos abaixo.
-- Items marcados com (+) não são obrigatórios, mas servem como diferencial.
-- Nas instruções para execução da aplicação é essêncial conter o seu nome e email utilizado no cadastro [Gupy](https://gupy.io/)
+# desafio-cyberpunk
 
-## REQUISITOS
+Projeto utilizado como uma das etapas para a Solutis - Talent Sprint. A estrutura está dividida entre backend (pasta 'desafio') e frontend (pasta 'desafio-front'). As tecnologias utilizadas foram:
 
-Tempos desafiadores. A tecnologia avança em velocidade implacável. O mundo precisa de mais clones. Nossos clientes encomendam seus clones conosco e esperam um serviço de alta qualidade. Os atributos de um clone são:
+ - Spring Boot para o backend. Obs.: foi utilizado um banco de dados em memória, o H2 Database;
+ - Angular 4 para o frontend.
 
-- nome : Deve atender a seguinte expressão regular [A-Z]{3}[0-9]{4}. O nome de um clone deverá ser único no nosso sistema.
-- idade: Número inteiro entre 10 e 20.
-- data de criacao: Data na qual o clone foi cadastrado no sistema. 
-- adicionais: Lista contendo zero ou mais dos elementos a seguir: [ braço mecânico, esqueleto reforçado, sentidos aguçados, pele adaptativa, raio laser]
+## Instalação
+Requisitos básicos:
 
-A interface + backend da aplicação deverão permitir recuperação da lista de clones, remoção / atualização dos clones cadastrados e cadastro de clones.
-Considere que só um usuário vai usar a aplicação e que este usuário não precisa de login. Considere também que nós sabemos como relacionar um clone aos nossos clientes, não é preciso programar essa relação.
+ - JDK 8;
+ - Node.js 8.*;
+ - Maven.
 
-## LINGUAGENS
-  - Java 8/9
-  - Kotlin (+)
-  - C#
-  - JavaScript/Typescript
-  - Swift 4
-  
-## FRAMEWORKS
+Comandos para a instalação de pacotes do node.js utilizados no desenvolvimento: 
+```sh
+npm install -g @angular/cli
+npm install -g http-server
+```
+## Build
+### Backend
+Dentro da pasta 'desafio', execute o seguinte comando:
+```sh
+ mvn install
+```
+### Frontend
+Dentro da pasta 'desafio-front', execute o seguinte comando:
+```sh
+ ng build --prod
+```
+## Executando o Projeto
+Após realizar o build, na pasta raiz do projeto, utilize os seguintes comandos para "subir" os servidores da API REST e do frontend (utilizei o módulo http-server somente para desenvolvimento), respectivamente:
+ ```sh
+ java -jar desafio/target/desafio-0.0.1-SNAPSHOT.jar
+ http-server desafio-front/dist -p 8000
+```
+Com os dois servidores em execução, basta acessar o frontend da aplicação através do endereço: http://localhost:8000
 
-### BACKEND
-São válidos para o backend os seguintes frameworks:
+## Meta
+Seu Nome – [Antonio Carlos dos Santos Costa](linkedin.com/in/tonycosta10/) – tonyblack_si@yahoo.com.br
 
-- JavaEE 7 ou superior
-- Node 8.9.4+ (+)
-- Springboot (+)
-- .NET WebApi
-
-### FRONTEND
-O frontend pode ser Web ou Mobile. Sugerimos as seguintes tecnologias:
-
-- Angular 5
-- Android (+)
-- iOS (+)
-
-### TESTES
-- Sua aplicaçao deve conter arquivos de testes unitários
-- Sua aplicação deve conter arquivos de testes de integração (+)
-
-### BANCO DE DADOS
-- Não é obrigatório o uso de um SGBD. Caso deseje, pode salvar os dados na memória.
-- Caso utilize um banco de dados (e.g. MySQL, PostgreSQL, MongoDB, Redis), você deve fornecer um Dockerfile que rode o ambiente já configurado com o seu banco. (+)
-- Caso utilize um banco de dados na nuvem (e.g. Firebase), a aplicação já deve ter o acesso ao banco configurado. (+)
-
-### BUILD E EXECUÇÃO
-- Envie as instruções para o build/execução da sua aplicação, disponibilizamos um [exemplo](README.template.md) para ajudar você. Cuidado com dependências externas que inviabilizem ou dificultem essas atividades.
-- De preferência utilize um ferramenta como Gradle, Maven, npm para realizar as tarefas necessárias de build.
-- Caso deseje, envie um Dockerfile que monte o ambiente já em execução da sua aplicação (+)
-
-
-# BOA SORTE!
+Distribuído sob a licença `MIT License`.
