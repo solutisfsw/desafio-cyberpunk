@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CloneCreateComponent } from './clone-create/clone-create.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ClonesComponent,
     CloneDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    CloneCreateComponent
   ],
   imports: [
     BrowserModule,
