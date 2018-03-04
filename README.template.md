@@ -11,6 +11,9 @@ Instalação ambiente linux/ubuntu
 
 $ sudo apt-get install default-jdk
 $ sudo apt-get install maven
+(Baixar h2 database em http://www.h2database.com/html/download.html)
+java -jar h2-1.4.196.jar
+
 
 ```
 ## Configuração
