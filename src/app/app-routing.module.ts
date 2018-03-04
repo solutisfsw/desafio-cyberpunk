@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'add', component: CloneCreateComponent },
   { path: 'detail/:id', component: CloneDetailComponent }
+  
 ];
 
 @NgModule({

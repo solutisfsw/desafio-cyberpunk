@@ -10,7 +10,7 @@
   background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
-  height: 1.6em;
+  height: 2em;
   border-radius: 4px;
 }
  
@@ -42,9 +42,16 @@
   position: relative;
   left: -1px;
   top: -4px;
-  height: 1.8em;
+  height: 2em;
   min-width: 16px;
   text-align: right;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
+}
+
+.clones .remove{
+  position: absolute;
+  left: 170px;
+  top: -22px;
+  color: salmon;
 }
