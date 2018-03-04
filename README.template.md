@@ -1,7 +1,7 @@
 # Projeto Cyber Punk
 
 Construção de uma api Rest para a realização de crud de clones.
-
+Apenas Back-End
 ## Instalação
 Linux & Windows
 
