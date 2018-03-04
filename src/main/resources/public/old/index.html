@@ -1,0 +1,190 @@
+<!doctype html>
+<html ng-app="agenda">
+<head>
+<title>Api Clone</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="hello.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container" ng-controller="portalController">
+		<div class="row">
+
+
+			<div class="col-md-12">
+				<h4>Clone de Eventos</h4>
+				<div class="col text-right">
+					<button type="button" class="btn btn-sm btn-primary btn-create"
+						dataCriacao-title="New" dataCriacao-toggle="modal" dataCriacao-target="#edit"
+						dataCriacao-placement="top" rel="tooltip" ng-click="novaLinha();">+Novo</button>
+				</div>
+				<div class="clearfix"></div>
+				<br>
+				<div class="table-responsive">
+					<table id="mytable" class="table table-bordred table-striped">
+						<thead>
+							<th><input type="checkbox" id="checkall" /></th>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Telefone</th>
+							<th>Data</th>
+							<th>Local</th>
+							<th>Editar</th>
+							<th>Deletar</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="row in agendas">
+								<td><input type="checkbox" class="checkthis" /></td>
+								<td>{{row.id}}</td>
+								<td>{{row.nome}}</td>
+								<td>{{row.idade}}</td>
+								<td>{{row.dataCriacao}}</td>
+								<td>{{row.local}}</td>
+								<td><p>
+										<button class="btn btn-primary btn-xs" dataCriacao-title="Edit"
+											dataCriacao-toggle="modal" dataCriacao-target="#edit" dataCriacao-placement="top"
+											rel="tooltip" ng-click="selectLinha(row);">
+											<span class="glyphicon glyphicon-pencil"></span>
+										</button>
+									</p></td>
+								<td><p>
+										<button class="btn btn-danger btn-xs" dataCriacao-title="Delete"
+											dataCriacao-toggle="modal" dataCriacao-target="#delete"
+											dataCriacao-placement="top" rel="tooltip"
+											ng-click="selectLinha(row);">
+											<span class="glyphicon glyphicon-trash"></span>
+										</button>
+									</p></td>
+
+							</tr>
+
+						</tbody>
+					</table>
+
+					<div class="clearfix"></div>
+					<ul class="pagination pull-right">
+						<li class="disabled"><a href="#"><span
+								class="glyphicon glyphicon-chevron-left"></span></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#"><span
+								class="glyphicon glyphicon-chevron-right"></span></a></li>
+					</ul>
+
+					<div class="modal fade" id="edit" tabindex="-1" role="dialog"
+						aria-labelledby="edit" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" dataCriacao-dismiss="modal"
+										aria-hidden="true">�</button>
+									<h4 class="modal-title custom_align" id="Heading">Editando
+										Sua Clone</h4>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										Nome:<input class="form-control " type="text"
+											placeholder="Nome" ng-value="linha.nome"
+											ng-model="linha.nome">
+									</div>
+									<div class="form-group">
+										Telefone: <input class="form-control " type="text"
+											placeholder="Telefone" ng-value="linha.idade"
+											ng-model="linha.idade">
+									</div>
+									<div class="form-group">
+										Data: <input class="form-control" type="text"
+											placeholder="Data" ng-value="linha.dataCriacao"
+											ng-model="linha.dataCriacao"></input>
+									</div>
+									<div class="form-group">
+										Local: <input class="form-control " type="text"
+											placeholder="Local" ng-value="linha.local"
+											ng-model="linha.local">
+									</div>
+								</div>
+								<div class="modal-footer " ng-if="novo">
+									<button type="button" class="btn btn-warning btn-lg"
+										style="width: 100%;" ng-click="createAgenda(linha);" dataCriacao-dismiss="modal">
+										<span class="glyphicon glyphicon-ok-sign"> Criar</span>
+									</button>
+								</div>
+								<div class="modal-footer " ng-if="!novo">
+									<button type="button" class="btn btn-warning btn-lg"
+										style="width: 100%;" ng-click="updateAgenda(linha);" dataCriacao-dismiss="modal">
+										<span class="glyphicon glyphicon-ok-sign"> Atualizar</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="modal fade" id="delete" tabindex="-1" role="dialog"
+						aria-labelledby="edit" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" dataCriacao-dismiss="modal"
+										aria-hidden="true" ng-click="clearLinha();">�</button>
+									<h4 class="modal-title custom_align" id="Heading">Deletar
+										Sua Clone</h4>
+								</div>
+								<div class="modal-body">
+
+									<div class="alert alert-warning">
+										<span class="glyphicon glyphicon-warning-sign"></span> Voc�
+										tem certeza que quer deletar <span ng-bind="linha.nome"></span>?
+									</div>
+
+								</div>
+								<div class="modal-footer ">
+									<button type="button" class="btn btn-warning"
+										ng-click="deleteAgenda(linha);" dataCriacao-dismiss="modal">
+										<span class="glyphicon glyphicon-ok-sign"></span>�Sim
+									</button>
+									<button type="button" class="btn btn-warning" dataCriacao-dismiss="modal">
+										<span class="glyphicon glyphicon-remove"></span>�N�o
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#mytable #checkall").click(function() {
+			if ($("#mytable #checkall").is(':checked')) {
+				$("#mytable input[type=checkbox]").each(function() {
+					$(this).prop("checked", true);
+				});
+
+			} else {
+				$("#mytable input[type=checkbox]").each(function() {
+					$(this).prop("checked", false);
+				});
+			}
+		});
+	});
+
+	$(function() {
+		$("[rel='tooltip']").tooltip();
+	});
+</script>
+</html>
