@@ -1,0 +1,12 @@
+<div *ngIf="clone">
+ 
+  <h2>{{ clone.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{clone.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="clone.name" placeholder="name">
+    </label>
+  </div>
+ 
+</div>
+<button (click)="goBack()">go back</button>

@@ -1,0 +1,9 @@
+<h3>Últimos Clones adicionados</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let clone of clones" class="col-1-4"
+      routerLink="/detail/{{clone.id}}">
+    <div class="module clone">
+      <h4>{{clone.name}}</h4>
+    </div>
+  </a>
+</div>
