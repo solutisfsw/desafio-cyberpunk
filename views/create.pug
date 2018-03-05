@@ -1,0 +1,66 @@
+//- create.pug
+doctype html
+html
+	include partials/head.pug
+	body
+		div(class="jumbotron")
+			h1(class="display-4 text-center") CRONES - CRud de clONES
+			p(class="lead text-center") Uma aplicação para o desafio tecnico da Solutis
+		div(class="container")
+			div(class="row my-3")
+				div(class="col-5")
+					h3 Operação Disponivel:
+				div(class="col-7")
+					div(class="col-8 justify-content-center")
+						a(class="btn btn-primary btn-block rounded" href='../clones' role="button") Listar Clones
+			div(class="row")
+				if errors 
+					ul
+						for error in errors
+							li!= error.msg
+			div(class="row justify-content-center my-3")
+				if title
+					h3 #{title}
+				else
+					h3 Criar um novo Clone
+			form(method="post" action="")
+				div(class="form-group row")
+					div(class="col-5")
+						label(class="col-form-label" for="name") Nome
+						input(type="text" class="form-control" id="name" name="name" placeholder="ex: ABC1234" value=(undefined===clone ? '' : clone.name) required)
+						small(id="nameHelp" class="form-text text-muted") Seu nome tem q começar com 3 letras maisculas e terminar com 4 numeros
+					div(class="col-3")
+						label(class="col-form-label" for="age") Idade
+						input(type="number" class="form-control" id="age" name="age" placeholder="Idade do Clone" value=(undefined===clone ? '' : clone.age) required)
+				div(class="form-group row")
+					div(class="col-8")
+						label(class="col-form-label" for="arms") Nº de Braços mecânicos
+					div(class="col-4")
+						input(type="number" class="form-control" id="arms" name="arms" placeholder="Braços Mecânicos do Clone" value=(undefined===clone ? '0' : clone.arms))
+				div(class="form-group row")
+					div(class="col-9")
+						label(class="col-form-label" for="skeleton") Nº de Esqueletos Reforçados 
+					div(class="col-3")
+						input(type="number" class="form-control" id="skeleton" name="skeleton" placeholder="Esqueletos Reforçados do Clone" value=(undefined===clone ? '0' : clone.skeleton))
+				div(class="form-group row")
+					div(class="col-8")
+						label(class="col-form-label" for="senses") Nº de Sentidos Aguçados 
+					div(class="col-4")
+						input(type="number" class="form-control" id="senses" name="senses" placeholder="Sentidos Aguçados do Clone" value=(undefined===clone ? '0' : clone.senses))
+				div(class="form-group row")
+					div(class="col-8")
+						label(for="skin" class="col-form-label") Nº de Peles Adaptativas
+					div(class="col-4")
+						input(type="number" class="form-control" id="skin" name="skin" placeholder="Peles Adaptativas do Clone" value=(undefined===clone ? '0' : clone.skin))
+				div(class="form-group row")
+					div(class="col-6")
+						label(class="col-form-label" for="laser") Nº de Raios Laser
+					div(class="col-6")
+						input(type="number" class="form-control" id="laser" name="laser" placeholder="Raios Laser do Clone" value=(undefined===clone ? '0' : clone.laser))
+				div(class="form-group row justify-content-center my-3")
+					div(class="col-8")
+						if btnText
+							button(type="submit" class="btn btn-primary btn-block") #{btnText}
+						else
+							button(type="submit" class="btn btn-primary btn-block") Criar Clone
+		include partials/footer.pug

@@ -1,0 +1,23 @@
+//- index.pug
+doctype html
+html
+	include partials/head.pug
+	body
+		div(class="jumbotron")
+					h1(class="display-4 text-center") CRONES - CRud de clONES
+					p(class="lead text-center") Uma aplicação para o desafio tecnico da Solutis
+		//-
+			h1(class="display-4") CRONES
+			p(class="lead") CRud de clONES
+			hr(class="my-4")
+			p Uma aplicação para o desafio tecnico da Solutis
+		div(class="container")
+			div(class="row justify-content-center my-3")
+				h3 Operações Disponiveis:
+			div(class="row justify-content-center my-3")
+				div(class="col-8")
+					a(class="btn btn-primary btn-block rounded" href='clones' role="button") Listar Clones
+			div(class="row justify-content-center my-3")
+				div(class="col-8")
+					a(class="btn btn-primary btn-block rounded" href='create' role="button") Criar Clone
+		include partials/footer.pug

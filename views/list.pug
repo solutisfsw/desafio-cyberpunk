@@ -1,0 +1,50 @@
+//- list.pug
+doctype html
+html
+	include partials/head.pug
+	body
+		div(class="jumbotron")
+				h1(class="display-4 text-center") CRONES - CRud de clONES
+				p(class="lead text-center") Uma aplicação para o desafio tecnico da Solutis
+		div(class="container")
+			div(class="row my-3")
+				div(class="col-5")
+					h3 Operação Disponivel:
+				div(class="col-7")
+					div(class="col-8 justify-content-center")
+						a(class="btn btn-primary btn-block rounded" href='../create' role="button") Criar Clone			
+			div(class="row justify-content-center my-3")
+				h3 Lista de Clones
+			table(class="table table-striped")
+				thead
+					tr
+						//-
+							th(scope="col") #
+						th(scope="col") Nome
+						th(scope="col") Idade
+						th(scope="col") Data de Criação
+						th(scope="col") Braco mec&atildenico
+						th(scope="col") Esqueleto reforçado
+						th(scope="col") Sentidos aguçados
+						th(scope="col") Pele adaptativa
+						th(scope="col") Raio laser
+						th(scope="col") Editar
+						th(scope="col") Remover
+				tbody
+					for clone in clones
+						tr
+							//-
+								th(scope="row") #{clone.id}
+							td #{clone.name}
+							td #{clone.age}
+							td #{moment(clone.creationDate).format("DD/MM/YYYY")}
+							td #{clone.arms}
+							td #{clone.skeleton}
+							td #{clone.senses}
+							td #{clone.skin}
+							td #{clone.laser}
+							td 
+								a(href=clone.editURL) Editar
+							td 
+								a(href=clone.deleteURL) Remover		
+		include partials/footer.pug
