@@ -5,5 +5,6 @@ export class Clone {
     nome: string;
     data_criacao: Date;
     extraEquipSet: ExtraEquip[];
+    idade:number;
 
-}
+} 

@@ -30,7 +30,7 @@ getCloneById(id : number) : Observable<any>{
 }
 
 deleteClone(cloneId: number){ 
- // this.http.delete(this.urlDelete + '/' + cloneId);
+ return this.http.delete(this.urlClone + '/' + cloneId);
 }
 
 }

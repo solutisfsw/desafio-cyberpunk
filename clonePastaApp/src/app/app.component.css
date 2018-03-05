@@ -9,6 +9,10 @@ body {
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
+.jumbotron {
+    margin-bottom: 0;
+}
+
 .navbar-brand img {
     margin-right: 0.4em;
 }
@@ -40,7 +44,7 @@ body {
     color: #FFF;
     text-align: center;
     position: relative;
-    padding-top: 32%;
+    padding-top: 25%;
 }
 
 .inicial {
@@ -88,7 +92,6 @@ hr {
 }
 
 .doutores {
-    height: 85vh;
     text-align: center;
     color: #fff;
     background-attachment: scroll;
@@ -98,4 +101,59 @@ hr {
     background-size: cover;
     -o-background-size: cover;
     text-shadow: 2px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.doutores h1,
+.doutores h2 {
+    padding-top: 0%;
+    font-weight: 200;
+}
+
+.icone {
+    width: 15rem;
+}
+
+.clone {
+    text-align: center;
+    background-color: #FFF;
+    padding: 15px;
+    border: 1px solid #e7e4df;
+    font-size: 13px;
+    line-height: 1.7em;
+    letter-spacing: 0.125em;
+    display: inline-block;
+    margin: 0px;
+    width: 100%;
+}
+
+.clone img {
+    width: 100%;
+}
+
+.titulo-card {
+    letter-spacing: 0.200em;
+    color: #2da650;
+    text-transform: uppercase;
+}
+
+.criar {
+    text-align: center;
+    color: #fff;
+    background-attachment: scroll;
+    background-image: url(/assets/images/operation.jpg);
+    background-position: top center;
+    background-repeat: none;
+    background-size: cover;
+    -o-background-size: cover;
+    /* text-shadow: 2px -1px 0px rgba(0, 0, 0, 0.4); */
+}
+
+.criar .clone {
+    text-align: center;
+    background-color: #FFF;
+    padding: 15px;
+    border: 1px solid #e7e4df;
+    margin: auto;
+    margin-top: 30px;
+    max-width: 360px;
 }
