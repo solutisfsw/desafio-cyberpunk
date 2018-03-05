@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Clones List</h1><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let clone of clones">
+        <td>{{ clone.name }}</td>
+        <td><a [routerLink]="['/clones-details', clone._id]">Show Detail</a></td>
+      </tr>
+    </tbody>
+  </table><br><br><br>
+  <a [routerLink]="['/clones-create']" class="btn btn-primary">Create new Clone</a>
+</div>
