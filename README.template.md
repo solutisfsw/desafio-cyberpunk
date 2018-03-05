@@ -1,6 +1,6 @@
 # Nome do projeto
 
-Descrição resumida sobre o projeto.
+Realização da API REST usando Spring Boot, não esta completa devida a falta de tempo para realizar todo o projeto.
 
 ## Instalação
 Linux & Windows
@@ -13,6 +13,6 @@ npm buid
 Descreva aqui as configurações necessárias para o seu projeto funcionar.
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Juan Villalba – [Juan Felipe Siquara da Rocha Villalba](https://www.linkedin.com/in/juan-felipe-siquara-da-rocha-villalba-050510140/) – juan_srvillalba@hotmail.com
 
 Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.

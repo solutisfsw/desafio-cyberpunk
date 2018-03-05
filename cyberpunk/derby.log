@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Mar 02 18:03:55 BRT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-0161-e887-46b5-00000ec52f90 
+on database directory memory:/Users/juanfelipevillalba/Documents/Ambiente/eclipse-workspace/desafio-cyberpunk/cyberpunk/testdb with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/Users/juanfelipevillalba/.m2/repository/org/apache/derby/derby/10.14.1.0/derby-10.14.1.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_131-b11
+user.dir=/Users/juanfelipevillalba/Documents/Ambiente/eclipse-workspace/desafio-cyberpunk/cyberpunk
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.13.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
