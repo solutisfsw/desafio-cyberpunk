@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Edit Clone</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="updateClones(clones._id)" #clonesForm="ngForm">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" class="form-control" [(ngModel)]="clones.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="idade">Idade</label>
+          <input type="text" class="form-control" [(ngModel)]="clones.idade" name="idade" required>
+        </div>
+        <div class="form-group">
+          <label for="adicionais">Adicionais</label><br>
+          <input type="checkbox" name="braco" [(ngModel)]="clones.braco" value="true"> Braço Mecânico<br>
+          <input type="checkbox" name="esqueleto" [(ngModel)]="clones.esqueleto" value="true"> Esqueleto Reforçado<br>
+          <input type="checkbox" name="sentidos" [(ngModel)]="clones.sentidos" value="true"> Sentidos Aguçados<br>
+          <input type="checkbox" name="pele" [(ngModel)]="clones.pele" value="true"> Pele Adaptativa<br>
+          <input type="checkbox" name="raio" [(ngModel)]="clones.raio" value="true"> Raio Lazer<br>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!clonesForm.form.valid">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Add new Clone</h1><br>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="saveClones()" #clonesForm="ngForm">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input type="text" [(ngModel)]="clones.name" name="name" pattern="[A-Z]{3}[0-9]{4}" placeholder="Example: AAA0000" required />
+        </div>
+        <div class="form-group">
+          <label for="idade">Idade:</label>
+          <input type="text" name="idade" [(ngModel)]="clones.idade" pattern="[1]{1}[1-9]{1}" placeholder="From 11 to 19" required />
+        </div>
+        <div class="form-group">
+          <label for="adicionais">Adicionais</label><br>
+          <input type="checkbox" name="braco" [(ngModel)]="clones.braco" value="true"> Braço Mecânico<br>
+          <input type="checkbox" name="esqueleto" [(ngModel)]="clones.esqueleto" value="true"> Esqueleto Reforçado<br>
+          <input type="checkbox" name="sentidos" [(ngModel)]="clones.sentidos" value="true"> Sentidos Aguçados<br>
+          <input type="checkbox" name="pele" [(ngModel)]="clones.pele" value="true"> Pele Adaptativa<br>
+          <input type="checkbox" name="raio" [(ngModel)]="clones.raio" value="true"> Raio Lazer<br>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!clonesForm.form.valid">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>{{ clones.name }}</h1>
+  <dl class="list">
+    <br><dt>Idade: {{ clones.idade }}</dt><br>
+    <dt>Adicionais:</dt>
+    <input type="checkbox" name="braco" [checked]="clones.braco" disabled="disabled"> Braço Mecânico<br>
+    <input type="checkbox" name="esqueleto" [checked]="clones.esqueleto" disabled="disabled"> Esqueleto Reforçado<br>
+    <input type="checkbox" name="sentidos" [checked]="clones.sentidos" disabled="disabled"> Sentidos Aguçados<br>
+    <input type="checkbox" name="pele" [checked]="clones.pele" disabled="disabled"> Pele Adaptativa<br>
+    <input type="checkbox" name="raio" [checked]="clones.raio" disabled="disabled"> Raio Lazer<br><br>
+  </dl>
+  <div class="row">
+    <div class="col-md-12">
+      <a [routerLink]="['/clones']" class="btn btn-secondary">HOME</a>
+      <a [routerLink]="['/clones-edit', clones._id]" class="btn btn-success">EDIT</a>
+      <button class="btn btn-danger" type="button" (click)="deleteClone(clones._id)">DELETE</button>
+    </div>
+  </div>
+</div>
