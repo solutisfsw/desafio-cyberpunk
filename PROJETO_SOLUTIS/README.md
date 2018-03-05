@@ -24,8 +24,7 @@ se arquivos como por exemplo mysql-connector-java-5.1.27-bin estiverem dando err
 Eu fiz questão de adicionar ao projeto o Apache Tomcat 9, para auxiliar quem for testar. Caso precise quebrar um galho :v.
 ```
 ```sh
-A próxima configuração é ir no caminho java Resources/src/dao. No dao, será encontrado um simples banco de dados, que será necessário
-para o funcionamento do banco e da aplicação, então é apenas necessário copiar o codigo, colar e executar no MySQL workbench.
+A próxima configuração é ir no caminho java Resources/src/dao. No dao, será encontrado um simples banco de dados(SOLUTIS.sql), que será necessário para o funcionamento do banco e da aplicação, então é apenas necessário copiar o codigo, colar e executar no MySQL workbench.
 ```
 ```sh
 Última instrução - Também dentro do dao tem um arquivo chamado "ConexaoSingleton", este está configurado com a senha e usuário do meu banco,
