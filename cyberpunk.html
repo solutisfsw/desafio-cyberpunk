@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="cyberpunk.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+</style>
+
+</head>
+<body style="background-image: url(https://media.giphy.com/media/xT0GqfaQFbMl7covle/giphy.gif);">
+
+      <!-- Modal "Novo Clone"-->
+      <div class="modal fade" id="myModal01" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content" style="background-color: black; border: 1px solid white; text-shadow: 0rem 0.2rem 1rem #0c7b46;">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+              <h4 class="modal-title" style="font-size: 27px;">NOVO CLONE</h4>
+            </div>
+            <form action="javascript:void(0);" method="POST" onsubmit="app.Add()">
+              <div class="modal-body">
+                <p>Informe os dados abaixo para cadastro.</p>
+                <div class="form-group">
+                  <label>Nome</label>
+                  <input type="text" class="form-control" id="add-name" placeholder="Nome">
+                </div>
+                <div class="form-group">
+                  <label>Idade</label>
+                  <input type="text" class="form-control" id="add-idade" placeholder="Idade">
+                </div>
+                <div class="form-group">
+                  <label>Data Criação</label>
+                  <output type="text" class="form-control" id="add-dtCriacao" style="text-shadow: none;"></output>
+                </div>
+                <div class="form-group">
+                  <label>Características</label>
+                  <div class="checkbox">
+                    <label><input type="checkbox" id="add-poder-braco">Braço Mecânico</label>
+                    <label><input type="checkbox" id="add-poder-esqueleto">Esqueleto Reforçado</label>
+                    <label><input type="checkbox" id="add-poder-sentido">Sentidos Aguçados</label>
+                    <label><input type="checkbox" id="add-poder-pele">Pele Adaptativa</label>
+                    <label><input type="checkbox" id="add-poder-laser">Raio Laser</label>
+                  </div>
+                </div>  
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="submit" value="Add" class="btn btn-primary" onclick="$('.close').click();">
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div> <!-- /Modal "Novo Clone"-->
+
+        <!-- Modal "Editar Clone"-->
+      <div class="modal fade" id="myModal02" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content" id="spoiler" role="aria-hidden" style="background-color: black; border: 1px solid white; text-shadow: 0rem 0.2rem 1rem #0c7b46;">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+              <h4 class="modal-title" style="font-size: 27px;">EDITAR CLONE</h4>
+            </div>
+            <form action="javascript:void(0);" method="POST" id="saveEdit">
+              <div class="modal-body">
+                <p>Informe os dados abaixo para atualização do clone.</p>
+                <div class="form-group">
+                  <label>Nome</label>
+                  <input type="text" class="form-control" id="edit-name">
+                </div>
+                <div class="form-group">
+                  <label>Idade</label>
+                  <input type="text" class="form-control" id="edit-idade">
+                </div>
+                <div class="form-group">
+                  <label>Data Criação</label>
+                  <output type="text" class="form-control" id="edit-dtCriacao" style="text-shadow: none;"></output>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-target="#myModal02">Close</button>
+                <input type="submit" value="Atualizar" class="btn btn-primary" onclick="app.update();" data-target="#myModal02">
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div> <!-- /Modal "Editar Clone"-->
+
+
+
+<body class="noisy"></body>
+<div class="emblem"><span class="icon-information"></span></div>
+<div class="frame" style="bottom: 0px; right: 0px; left: 0px; top: 0px; margin: auto; margin-top: 21px; margin-bottom: 21px;">
+  
+  <div class="piece output" style="overflow: unset; padding-top: 9px;">
+
+   <!--Navbar-->
+  <div class="row" style="margin: 0px;">
+    <div style="width: 100%; height: 48px; background-color: black;">
+      <h1 style="margin: 18px;">CLONES DASHBOARD</h1>
+    </div>  
+  </div>
+
+
+  <!-- areaDashboard -->
+  <div style="background-color: #354057;">
+      <!-- containerAreaDashboard -->
+     <div class="container">
+
+      <!-- Tabela, botão/indicadores e janela de perfil-->
+      <div class="container" style="display:; margin-top: 30px;">
+        <div class="row">
+
+
+       <!--Botão "Novo Clone", Indicadores e tabela painel-->
+        <div class="container col-md-7">
+
+          <div class="row" style="margin-bottom: 17px;">
+            <!--Botão "Novo Clone"--><!-- Trigger the modal with a button -->
+            <div class="col-md-4" style="">
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal01" onclick="app.getDataAtual()" style="width: 100%; height: 76px; background-image: url(https://media.giphy.com/media/l41YkEvjPXAABJfIQ/giphy.gif); background-position: center; font-size: 23px; font-weight: bold; text-shadow: 2px 2px black;">CRIAR CLONE</button>
+            </div> <!--/Botão Novo Clone-->
+            <!--Indicador 01-->
+            <div class="col-md-4" style="background-image: url(); font-weight: bold; text-shadow: 2px 2px black;">
+              <div style="background-color: #c700fd; height: 76px; border-radius: 8px; border: 1px solid #1b6d85; background-image: url(https://media.giphy.com/media/26gsqrqAY9Q0TjHFe/giphy.gif); background-position: center;">
+                <div style="padding-top: 8px; color: white;">
+                  <div style="font-size: 17px; font-weight: 600; text-align: center;">TOTAL CLONES</div>
+                  <div style="text-align: center; font-size: 29px; line-height: initial;">
+                    <!-- Counter-->
+                    <p id="counter"></p>
+                  </div>  
+                </div>
+                
+              </div>
+            </div><!--/Indicador 01-->
+            <!--Indicador 02-->
+            <div class="col-md-4" style="background-image: url(); font-weight: bold; text-shadow: 2px 2px black;">
+              <div style="background-color: #2196f3; height: 76px; border-radius: 8px; border: 1px solid #1b6d85; background-image: url(https://media.giphy.com/media/l4JyZRec8nIirc5GM/giphy.gif); background-position: center;">
+                <div style="padding-top: 8px; color: white;">
+                  <div style="font-size: 17px; font-weight: 600; text-align: center;">RECEITA</div>
+                  <div style="text-align: center; font-size: 29px; line-height: initial;">R$345 MI</div>  
+                </div>
+              </div>
+            </div><!--/Indicador 02-->
+
+          </div><!--/row-->
+
+          <div class="row">
+            <!--tabela painel-->
+            <div class="col-md-12">
+              <!-- Table -->
+              <div class="panel panel-default" style="background-color: black; border-radius: 5px; padding: 5px;">
+                  <table class="table table-responsive"> 
+                    <thead> 
+                      <tr style="color: #b84fca; text-shadow: 0rem 0.2rem 1rem #bb1e84;"> 
+                        <th>#</th> 
+                        <th>NOME</th> 
+                        <th>IDADE</th> 
+                        <th>CRIAÇÃO</th> 
+                        <th>PODERES</th>
+                        <th>AÇÕES</th> 
+                      </tr> 
+                    </thead> 
+                    <tbody id="listaClones"> 
+                    </tbody> 
+                  </table>
+              </div> <!-- /Table -->
+            </div> <!--tabela painel-->
+          </div><!--/row-->
+
+        </div><!--/Botão "Novo Clone", Indicadores e tabela painel-->
+
+
+          <!--Janela de perfil e janela de poderes-->
+          <div class="col-md-5"> <!--style="border-radius: 5px; border: 3px solid #bee6e0;"-->
+
+            <!--Janela de perfil e Descrição-->
+            <div class="col-md-9" style="padding-right: 0px;">
+
+              <!--Janela de perfil-->
+              <div class="panel panel-default" style="background-color: #d9edf7; border-radius: 5px; border: 3px solid #bee6e0; margin-bottom: 6px;">
+                  <img id="imgDetalhe" style="width: 100%; height: 100%;" src="skull.gif">
+               
+              </div><!--/Janela de perfil-->
+
+              <!--Descrição-->
+              <div class="panel panel-default" style="background-color: black; border-radius: 5px; border: 3px solid #bee6e0; padding-left: 11px; padding-bottom: 12px; margin-bottom: 5px;">
+                <div id="descricaoNome" style="font-size: 36px;">CLONE:</div>
+                <div style="font-size: smaller;">
+                  <div id="descricaoPeso">Peso:</div>
+                  <div id="descricaoFoco">Foco/Atenção:</div>
+                  <div id="descricaoPele">Cor de Pele:</div>
+                  <div id="descricaoOlho">Cor dos Olhos:</div>                 
+                </div>
+
+              </div><!--Descrição-->
+
+            </div> <!--/Janela de perfil e Descrição-->
+
+            <!--Janela de poderes-->
+            <div class="col-md-3" style="padding-left: 6px;">
+              <div class="panel panel-default" style="background-color: #d9edf7; border-radius: 5px; border: 3px solid #bee6e0; margin-bottom: 5px;">
+                <img id="imgPainelBraco" title="Braço Mecânico" style="width: 100%; height: 100%;" src="not_found_quadrado.gif">
+              </div>
+              <div class="panel panel-default" style="background-color: #d9edf7; border-radius: 5px; border: 3px solid #bee6e0; margin-bottom: 5px;">
+                <img id="imgPainelEsqueleto" title="Esqueleto Reforçado" style="width: 100%; height: 100%;" src="not_found_quadrado.gif">
+              </div>
+               <div class="panel panel-default" style="background-color: #d9edf7; border-radius: 5px; border: 3px solid #bee6e0; margin-bottom: 5px;">
+                <img id="imgPainelSentido" title="Sentidos Aguçados" style="width: 100%; height: 100%;" src="not_found_quadrado.gif">
+              </div>
+              <div class="panel panel-default" style="background-color: #d9edf7; border-radius: 5px; border: 3px solid #bee6e0; margin-bottom: 5px;">
+                <img id="imgPainelPele" title="Pele Adaptativa" style="width: 100%; height: 100%;" src="not_found_quadrado.gif">
+              </div>
+               <div class="panel panel-default" style="background-color: #d9edf7; border-radius: 5px; border: 3px solid #bee6e0;">
+                <img id="imgPainelRaio" title="Raio Laser" style="width: 100%; height: 100%;" src="not_found_quadrado.gif">
+              </div>
+            </div><!--/Janela de poderes-->
+            
+          </div><!--/Janela de perfil e janela de poderes-->
+
+
+      </div><!-- /Tabela, botão/indicadores e janela de perfil-->
+
+      <div style="height: 40px;"></div>
+
+    </div> 
+
+  </div><!--/areaDashboard -->
+
+
+  </div>
+  <div class="piece scanlines noclick" style="min-height: 100%; max-height: 1000%;"></div>
+  <div class="piece glow noclick"></div>
+
+</div>
+
+<script src="cyberpunk.js"></script>
+</body>
+</html>
