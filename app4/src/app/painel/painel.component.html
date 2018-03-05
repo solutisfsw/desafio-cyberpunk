@@ -1,0 +1,179 @@
+
+<div class="conteiner">
+    <div class="jumbotron">
+    <form novalidate #formulario="ngForm" (ngSubmit)="solicitarClone(formulario)">
+    <pre>{{formulario.value|json}}</pre>
+    <pre>{{formulario.valid|json}}</pre>
+    
+    
+    <div class="row">
+        <div class="col">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-lg" >Nome do clone</span>
+                </div>
+            <input type="text" 
+            class="form-control" 
+            id="nome" 
+            aria-label="Large" 
+            aria-describedby="inputGroup-sizing-sm"
+            name="nome"
+            ngModel
+            required
+            pattern="[A-Z ][{3}][0-9][{4}]"
+            maxlength="4"
+            minlength="4"
+            >
+            </div>
+        </div>
+    </div>
+
+        
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Idade</span>
+                </div>
+            <input type="text" 
+            class="form-control"  
+            aria-label="Small" 
+            aria-describedby="inputGroup-sizing-sm"
+            name="idade"
+            ngModel
+            required
+            maxlength="2"
+            minlength="2"
+            pattern="[{1}][0-9]|[{2}][0]" 
+            
+            >
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Data Criação</span>
+                </div>
+                  <input type="text" 
+                  class="form-control"  
+                  aria-label="Small" 
+                  aria-describedby="inputGroup-sizing-sm"
+                  name="data"
+                  ngModel
+                  required>
+            </div>
+        </div>
+    </div>
+
+
+   <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" 
+                            id="braco" aria-label="Checkbox for following text input"
+                            name="braco"
+                            ngModel>
+                        </div>
+                    </div>
+                        <span> Braço mecânico</span>
+            </div>
+
+        </div>
+
+   </div>
+
+   <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" 
+                            id="sentido" 
+                            aria-label="Checkbox for following text input"
+                            name="sentido"
+                            ngModel>
+                        </div>
+                    </div>
+                        <span>Sentido Aguçado</span>
+            </div>
+
+        </div>
+
+   </div>
+
+
+   <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" 
+                            id="esqueleto" 
+                            aria-label="Checkbox for following text input"
+                            name="esqueleto"
+                            ngModel>
+                        </div>
+                    </div>
+                        <span> Esqueleto Reforçado</span>
+            </div>
+
+        </div>
+
+   </div>
+
+
+   <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" 
+                            id="pele" 
+                            aria-label="Checkbox for following text input"
+                            name="pele"
+                            ngModel>
+                        </div>
+                    </div>
+                        <span> Pele adaptativa</span>
+            </div>
+
+        </div>
+
+   </div>
+   <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" 
+                            id="raio" 
+                            aria-label="Checkbox for following text input"
+                            name="raio"
+                            ngModel>
+                        </div>
+                    </div>
+                        <span> Raio laser</span>
+            </div>
+
+        </div>
+
+   </div>
+
+
+
+    <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary" >Solicitar Clone</button>
+        </div>
+    </div>
+    </form>
+    </div>
+</div>
+
+
+
