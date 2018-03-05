@@ -1,0 +1,27 @@
+<div class="container">
+<table class= "table table-striped">
+	<thead>
+		<th>Nome</th>
+		<th>Idade</th>
+		<th>Data de Cadastro</th>
+		<th>Adcionais</th>
+		<th>Operações</th>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let Clone of clones">
+		<td>{{Clone.nome}}</td>
+		<td>{{Clone.idade}}</td>
+		<td>{{Clone.dataCadastro}}</td>
+		<td>{{Clone.adcionais}}</td>
+		<td> <button class="btn btn-danger" (click)= 'deleteClone(Clone)'>Deletar Clone</button>
+			 <button class="btn btn-primary" (click) ='updateClone(Clone)'>Editar Clone</button>
+		</td>
+		</tr>
+	</tbody>
+	<br><br>
+		<button class="btn btn-primary" (click) ='novoClone()'>Novo Clone</button>
+
+</table>
+
+</div>
