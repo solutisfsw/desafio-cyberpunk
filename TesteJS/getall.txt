@@ -1,0 +1,15 @@
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://localhost:59520/api/clone/getall",
+  "method": "GET",
+  "headers": {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "1a9f8d5a-63e9-46d7-bfa4-64e88e47c36c"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

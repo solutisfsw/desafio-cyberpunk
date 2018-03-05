@@ -1,0 +1,17 @@
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://172.30.78.208/api/clone/add",
+  "method": "PUT",
+  "headers": {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "d4043469-ad26-4544-8975-8d81670cce15"
+  },
+  "processData": false,
+  "data": "{\n\t\"nome\":\"CDF0609\",\n\t\"idade\":\"20\",\n\t\"adicionais\": []\n}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

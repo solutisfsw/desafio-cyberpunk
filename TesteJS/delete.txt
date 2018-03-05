@@ -1,0 +1,17 @@
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://localhost:59520/api/clone/delete",
+  "method": "DELETE",
+  "headers": {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "b593d3ce-f18c-4ebb-9992-92f4d938d59b"
+  },
+  "processData": false,
+  "data": "{\n\t\"id\":\"-L6h6ydUCWd4GIQmzNNC\"\n}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

@@ -1,0 +1,17 @@
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://localhost:59520/api/clone/update",
+  "method": "PATCH",
+  "headers": {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "d10e0fa9-ae80-4a11-8886-682da1e4342c"
+  },
+  "processData": false,
+  "data": " {\n            \"datacriacao\": \"2018-03-03T15:54:28\",\n            \"idade\": 20,\n            \"adicionais\": [\n                \"braço mecânico\",\n                \"esqueleto reforçado\",\n                \"sentidos aguçados\",\n                \"pele adaptativa\",\n                \"raio laser\"\n            ],\n            \"id\": \"-L6hCm513S-ZIaGidEIC\",\n            \"nome\": \"CDF0608\"\n        }"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
