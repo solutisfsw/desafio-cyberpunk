@@ -8,7 +8,7 @@ Protótipo do app para o Desafio Cyberpunk Solutis
 npm install
 npm start
 
-Depois basta acessar http://localhost:3000 em seu browser
+Depois basta acessar http://localhost:4200 em seu browser
 ```
 
 ## Configuração
