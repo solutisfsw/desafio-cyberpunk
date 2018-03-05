@@ -1,6 +1,6 @@
 [![N|Solid](http://solutis.com.br/images/logo.png)](http://solutis.com.br)
 
-# NOSSO DESAFIO
+# NOSSO DESAFIo
 Bem vindo. Estamos interessados em ver como você desenvolve com as tecnologias que domina. Que jeito melhor do que apresentando um projeto feito por você?
 Queremos que você nos apresente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras.
 ## REGRAS GERAIS
