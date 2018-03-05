@@ -16,4 +16,4 @@ Descreva aqui as configurações necessárias para o seu projeto funcionar.
 ## Meta
 Victor dos Santos – [Victor M. G. Santos](https://www.linkedin.com/in/mgsvictor/) – mgsvictor@gmail.com
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+Distribuído sob a licença `MIT`. Veja `LICENSE` para mais informações.
