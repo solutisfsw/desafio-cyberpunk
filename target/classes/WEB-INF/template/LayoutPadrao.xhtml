@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">Cyber Punk</ui:insert></title>
+	<h:outputStylesheet library="css" name="sistema.css" />
+	<h:outputScript library="js" name="validadores.js" />
+</h:head>
+
+<h:body>	
+	<p:ajaxStatus styleClass="ajax-status">
+		<f:facet name="start">
+			<h:graphicImage library="images" name="loading.gif" />
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+
+	<header style="background-color: #000080; height: 60px">
+	
+	<div style="float: left;">
+		<h:link outcome="/Home">
+			<h:graphicImage height="60px" width="200px" library="images"  name="logo.png" />
+		</h:link>
+	</div>
+	
+	
+	<div style="float: left; margin-right: 110px; margin-top: 5px; margin-bottom: 5px">
+		<span
+			style="float: left; height: 30px; line-height: 30px; margin-right: 60px;">
+			 </span>
+		<h:form style="display: inline-block">
+			<p:menubar  styleClass="menu-sistema" style="font-size: 30px">
+				<p:menuitem value="Início" outcome="/Home" />
+				<p:menuitem value="Clones" outcome="/clones/PesquisaClones" />
+				<p:menuitem value="Ajuda" outcome="/clones/Ajuda" />
+			</p:menubar>
+		</h:form>
+	</div>
+	<div style="clear: both;"></div>
+
+	</header>
+
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+	<p:separator style="margin-top: 20px" />
+
+	<footer> 
+		Desenvolvido por Madson Silva - 
+		Email: maddytec@gmail.com / madsonnota10@hotmail.com
+	
+	</footer>
+</h:body>
+</html>

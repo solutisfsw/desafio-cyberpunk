@@ -1,0 +1,97 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">Pesquisa clones</ui:define>
+
+	<ui:define name="corpo">
+
+		<h:form id="frmPesquisa">
+			<p:focus context="frmPesquisa" />
+			<h1>Pesquisa clones</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Pesquisar"
+						action="#{pesquisaClonesBean.pesquisar}" update="clonesTable" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Novo" outcome="/clones/CadastroClone" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px; border-color: white;"
+				columnClasses="rotulo, campo ">
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" size="60" maxlength="80"
+					value="#{pesquisaClonesBean.filtro.nome}" />
+
+			</p:panelGrid>
+
+			<p:dataTable id="clonesTable"
+				value="#{pesquisaClonesBean.clonesFiltrados}" var="clone"
+				style="margin-top: 20px" emptyMessage="Nenhum Clone encontrado"
+				rows="10" paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+
+				<p:column headerText="Nome" style="text-align: left; width: 250px">
+					<h:outputText value="#{clone.nome}" />
+				</p:column>
+
+				<p:column headerText="Idade" style="text-align: center; width: 50px">
+					<h:outputText value="#{clone.idade}" />
+				</p:column>
+				
+				<p:column headerText="Data de Criação" style="text-align: center; width: 80px">
+					<h:outputText value="#{clone.dataCriacao}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+				
+				<p:column headerText="Adicionais" style="text-align: left; width: 400px">
+					<h:outputText value="#{clone.adicionaisConcatenado}" />
+				</p:column>
+			
+				<p:column style="text-align: center; width: 70px">
+					<p:button icon="ui-icon-pencil" title="Editar"
+						outcome="/clones/CadastroClone">
+						<f:param name="clone" value="#{clone.id}" />
+					</p:button>
+
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+						oncomplete="PF('confirmacaoExclusao').show()" process="@this"
+						update=":frmPesquisa:confirmacaoExclusaoDialog">
+						<f:setPropertyActionListener
+							target="#{pesquisaClonesBean.cloneSelecionado}"
+							value="#{clone}" />
+					</p:commandButton>
+
+
+				</p:column>
+
+			</p:dataTable>
+
+			<p:confirmDialog header="Exclusão de Clone"
+				message="Tem certeza que deseja excluir o Clone #{pesquisaClonesBean.cloneSelecionado.nome}?"
+				widgetVar="confirmacaoExclusao" id="confirmacaoExclusaoDialog">
+
+				<p:button value="Não"
+					ondblclick="PF('confirmacaoExclusao').hide(); return false;" />
+
+				<p:commandButton value="Sim"
+					oncomplete="PF('confirmacaoExclusao').hide(); return false;"
+					action="#{pesquisaClonesBean.excluir}" process="@this"
+					update=":frmPesquisa:clonesTable" />
+			</p:confirmDialog>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
