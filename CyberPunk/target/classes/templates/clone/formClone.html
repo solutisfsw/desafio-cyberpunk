@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout= "http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>CloneApp</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+    <body>
+	 	
+<header>
+	  <nav>
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo">Cadastrar Clones</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="/listaClones" class="waves-effect waves-light btn" > <i class="material-icons left">format_list_bulleted</i>Listar Clones</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+</header>
+	
+	   <form class="container" method="post">
+		
+				Nome:<input type="text" value=""  pattern="[A-Z]{3}[0-9]{4}" placeholder="Ex: CDZ7778" title="3 letras e 4 números" name="nome"
+				required="required" maxlength="7"/>
+		<div class="input-field col s3">
+				Idade:<input type="number" value="" min="10" max="20" name="idade" required="required" /> 
+		<div class="row"> 
+			<div class="input-field col s6">
+		  		Data: <input type="date" value="" name="data" required="required"/>
+		    </div>
+		</div>
+	 </div>		
+	<div>
+		<p>
+	      	<input type="checkbox"  class="filled-in" id="braco"  />
+	      	<label for="braco" >Braço Mecânico</label>
+	    </p>
+	  	 
+	  	 <p>
+	      	<input type="checkbox" class="filled-in" id="esqueleto"  />
+	      	<label for="esqueleto">Esqueleto Reforçado</label>
+	    </p>
+	
+	<p>
+      	<input type="checkbox" class="filled-in" id="pele"  />
+      	<label for="pele">Pele Adaptativa </label>
+    </p>	
+	
+	<p>
+      	<input type="checkbox" class="filled-in" id="raio" />
+      	<label for="raio">Raio Laser</label>
+    </p>	
+	
+	 <p>
+      	<input type="checkbox" class="filled-in" id="sentido"  />
+      	<label for="sentido">Sentidos Aguçados</label>
+    </p>
+	</div>
+	<p>
+	<button class="waves-effect waves-light btn" type="submit"><i class="material-icons right">save</i>Salvar</button>
+	</p>	
+	</form>
+			<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+</html>
