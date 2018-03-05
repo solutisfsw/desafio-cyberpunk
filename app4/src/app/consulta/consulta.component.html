@@ -1,0 +1,20 @@
+<div class="conteiner" >
+<ul class="list-group" *ngFor="let clone of cloneList " >
+  <li
+  (click)="onSelect(clone)">
+  {{clone.nome}}
+</li>
+</ul>
+
+
+<ul *ngIf="mostrarInformacao === true"  ng-controller="Controller">
+    <li >{{cloneSelecionado.nome}}</li>
+    <li>{{cloneSelecionado.idade}}</li>
+    <li>{{cloneSelecionado.data}}</li>  
+  </ul>
+
+</div>
+   
+ 
+
+ 

@@ -1,0 +1,4 @@
+npm -install bootstrap 
+npm -install firebase
+npm -install angularfire2
+
