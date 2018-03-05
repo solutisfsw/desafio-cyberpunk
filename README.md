@@ -6,9 +6,16 @@ Instalação
 
 Linux & Windows
 
+npm versão:  5.6.0
+Java versão: 
+Maven versão: 2.0
+SpringBoot versão: 2.0.0.RELEASE
 
+Eclipse EE utilizado para o desenvolvimento
 
 Configuração
+
+Usar comando ng serve na pasta \src\main\resources\static\Cliente
 
 
 Meta
