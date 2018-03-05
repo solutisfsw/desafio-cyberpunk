@@ -1,0 +1,46 @@
+@font-face{
+	font-size: 1em;
+}
+
+body{
+	background: #694790;
+	color: white;
+	height: 100vh;
+	width: 100vw;
+}
+/*
+header {
+	width: 100%;
+	height: 150px;
+}
+*/
+#braco, #pele, #sentidos, #raio, #esqueleto {
+	padding-right: 16px;
+	display:inline-block;
+}
+
+#voltar {
+    position: absolute;
+    right: 230px;
+    margin-top: 20px;
+}
+
+#voltar a{
+	color: white;
+}
+
+#clonar {
+    position: absolute;
+    right: 140px;
+    margin-top: 20px;
+}
+
+#editar {
+    position: absolute;
+    right: 140px;
+    margin-top: 20px;
+}
+
+li{
+	background-color: #5E299A !important;
+}
