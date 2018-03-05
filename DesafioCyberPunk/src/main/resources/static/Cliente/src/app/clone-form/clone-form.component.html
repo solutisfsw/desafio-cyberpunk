@@ -1,0 +1,58 @@
+<div class="container" >
+	
+	<form   (ngSubmit)="processForm()" >
+		<div class="form group">
+			<label for="Nome">Digite o Nome do seu Clone seguindo a expressão definida</label>
+			<input type="text" name="Nome" class="form-control"  [(ngModel)] = "clone.nome">
+		</div>
+		<div class="form group">
+			<label for="Idade">Digite a Idade do seu Clone</label>
+			<input type="number" name="Idade" class="form-control"  [(ngModel)] = "clone.idade">
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-12 col-md-4 form-group">
+				<label for="data">Digite a data atual</label>
+				<input type="text"
+				class="form-control"
+				#dp="bsDatepicker"
+				bsDatepicker [(bsValue)]="bsValue" name="data" [(ngModel)] = "clone.dataCadastro">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-6 col-md-5 col-lg-3" >
+				<label>Adcionais disponíveis</label>
+				<br>
+				<bs-sortable
+				class="form-control"
+				name="items1"
+				[(ngModel)]="itemStringsLeft"
+				itemClass="sortable-item"
+				itemActiveClass="sortable-item-active"
+				placeholderItem="Voltar"
+				placeholderClass="placeholderStyle"
+				wrapperClass="sortable-wrapper"
+				style="border:5px cyan-blue"
+				></bs-sortable>
+			</div>
+			<br><br>
+			<div class="col-xs-6 col-6 col-md-5 col-lg-3" >
+				<label>Adcionais escolhidos</label>
+				<br>
+				<bs-sortable
+				class="form-control"
+				name="items"
+				[(ngModel)]="itemStringsRight"
+				itemClass="sortable-item"
+				itemActiveClass="sortable-item-active"
+				placeholderItem="Jogue aqui para escolher"
+				placeholderClass="sortable-item"
+				wrapperClass="sortable-wrapper"
+				style="border:5px cyan-blue"
+				></bs-sortable>
+			</div>
+		</div>
+		<br>
+		<input type="submit" class="btn btn-success" value="Salvar Clone">
+	</form>
+
+</div>
