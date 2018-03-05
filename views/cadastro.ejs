@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	
+	<!--<link rel="stylesheet" href="../lib/Bootstrap/css/bootstrap.min.css"-->
+
+	<title>Fabrica de clonagem</title>
+
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/css.css">
+
+</head>
+<body>
+
+	<header class="header-area">
+
+		<div class="container">
+			<h1 style="">
+				<% if(locals._id){ %>
+					Edite seu clone!
+					<%}else{%>
+					Cadastre seu clone!
+					<%} %>
+			</h1>
+		</div>
+
+	</header> 
+
+	<main class="main-area">
+
+		<div class="container">
+
+			<form action="/clone" method="POST" id="edit-form">
+			  <div class="form-group">
+			    <input pattern="[A-Z]{3}[0-9]{4}" title="O nome de nossos clones devem ser compostos por 3 letras, seguidas de 4 numeros. Ex:ACB1234" type="text" class="form-control" id="inputNome" name="inputNome" aria-describedby="nome" placeholder="Digite o nome" value="<%=locals.nome%>" required>
+			  </div>
+			  <div class="form-group">
+			    <input type="number" min="10" max="20" class="form-control" id="inputIdade" name="inputIdade" aria-describedby="idade" placeholder="Digite a idade" value="<%=locals.idade%>" required>
+			  </div>
+
+				<p class="text-uppercase">Adicionais</p>
+				<% if(locals._id) { %>
+				<div class="btn-group-toggle" id="braco" data-toggle="buttons">
+					<% if(locals.acessorios.includes(1)){ %>
+				  		<label class="btn btn-outline-light btn-secondary active">
+						<input type="checkbox" name="acessorios" value="1" autocomplete="off" checked> Braço mecânico
+					<% } else{ %>
+				  		<label class="btn btn-outline-light btn-secondary">
+						<input type="checkbox" name="acessorios" value="1" autocomplete="off"> Braço mecânico				  		
+					<%}%>
+				  	</label>
+				</div>
+				<div class="btn-group-toggle" id="esqueleto" data-toggle="buttons">
+					<% if(locals.acessorios.includes(2)){ %>
+						<label class="btn btn-outline-light btn-secondary active">
+						<input type="checkbox" name="acessorios" value="2" autocomplete="off" checked> Esqueleto reforçado	
+					<%} else{ %>
+						<label class="btn btn-outline-light btn-secondary">
+						<input type="checkbox" name="acessorios" value="2" autocomplete="off"> Esqueleto reforçado	
+					<%}%>
+				  	</label>
+				</div>
+				<div class="btn-group-toggle" id="sentidos" data-toggle="buttons">
+					<% if(locals.acessorios.includes(3)){ %>
+						<label class="btn btn-outline-light btn-secondary active">
+				    	<input type="checkbox" name="acessorios" value="3" autocomplete="off" checked> Sentidos aguçados		
+					<%} else{ %>
+						<label class="btn btn-outline-light btn-secondary">
+				    	<input type="checkbox" name="acessorios" value="3" autocomplete="off"> Sentidos aguçados		
+					<%}%>
+				  </label>
+				</div>
+				<div class="btn-group-toggle" id="pele" data-toggle="buttons">
+					<% if(locals.acessorios.includes(4)){ %>
+						<label class="btn btn-outline-light btn-secondary active">
+				    	<input type="checkbox" name="acessorios" value="4" autocomplete="off" checked> Pele adaptativa							
+					<%} else{ %>
+						<label class="btn btn-outline-light btn-secondary">
+				    	<input type="checkbox" name="acessorios" value="4" autocomplete="off"> Pele adaptativa							
+					<%}%>
+				  </label>
+				</div>
+				<div class="btn-group-toggle" id="raio" data-toggle="buttons">
+					<% if(locals.acessorios.includes(5)){ %>
+						<label class="btn btn-outline-light btn-secondary active">
+				    	<input type="checkbox" name="acessorios" value="5" autocomplete="off" checked> Raio laser							
+					<%} else{ %>
+						<label class="btn btn-outline-light btn-secondary">
+				    	<input type="checkbox" name="acessorios" value="5" autocomplete="off"> Raio laser							
+					<%}%>
+				  </label>
+				</div>	
+				<% }else{ %>
+				<div class="btn-group-toggle" id="braco" data-toggle="buttons">
+				  		<label class="btn btn-outline-light btn-secondary">
+					<input type="checkbox" name="acessorios" value="1" autocomplete="off"> Braço mecânico
+				  	</label>
+				</div>
+				<div class="btn-group-toggle" id="esqueleto" data-toggle="buttons">
+						<label class="btn btn-outline-light btn-secondary">
+					<input type="checkbox" name="acessorios" value="2" autocomplete="off"> Esqueleto reforçado
+				  	</label>
+				</div>
+				<div class="btn-group-toggle" id="sentidos" data-toggle="buttons">
+						<label class="btn btn-outline-light btn-secondary">
+				    <input type="checkbox" name="acessorios" value="3" autocomplete="off"> Sentidos aguçados
+				  </label>
+				</div>
+				<div class="btn-group-toggle" id="pele" data-toggle="buttons">
+						<label class="btn btn-outline-light btn-secondary">
+				    <input type="checkbox" name="acessorios" value="4" autocomplete="off"> Pele adaptativa
+				  </label>
+				</div>
+				<div class="btn-group-toggle" id="raio" data-toggle="buttons">
+						<label class="btn btn-outline-light btn-secondary">
+				    <input type="checkbox" name="acessorios" value="5" autocomplete="off"> Raio laser
+				  </label>
+				</div>					
+				<% } %>
+				<div id="voltar">
+
+					<a class="btn btn-link" href="/"><i class="fas fa-angle-left"></i> Voltar</a>
+
+				</div>
+
+				<div id="clonar">
+					<% if(locals._id){ %>
+						<input class="btn btn-success edit" data-val="<%=locals._id%>" type="submit" value="Editar!">
+					<% }else{ %>
+						<input class="btn btn-success" type="submit" value="Clonar!">
+					<% } %>	
+
+				</div>
+
+		</div>
+
+
+	</main>
+	
+	<footer class="footer-area">
+
+		<div class="container">
+
+		</div>	
+
+	</footer>
+
+	<script src="/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/js/js.js" type="text/javascript"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+
+</body>
+</html>
