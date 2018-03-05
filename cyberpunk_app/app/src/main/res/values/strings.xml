@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">cyberpunk</string>
+    <string name="title_activity_details">detalhes</string>
+
+    <string name="text_campo_vazio">Este campo é obrigatório</string>
+    <string name="text_nome_invalido">Nome inválido, o padrão é 3 letras maiúsculas esguidas de 4 números</string>
+    <string name="text_idade_invalida">Idade incorreta, por favor insira uma idade entre 10 e 20 anos</string>
+</resources>
