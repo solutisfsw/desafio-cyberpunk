@@ -1,0 +1,104 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">#{cadastroCloneBean.editando ? 'Edição de Clone' : 'Novo Clone'}</ui:define>
+
+	<ui:define name="corpo">
+
+		<f:metadata>
+			<o:viewParam name="clone" value="#{cadastroCloneBean.clone}" />
+			<f:viewAction action="#{cadastroCloneBean.inicializar}" />
+		</f:metadata>
+
+
+		<h:form id="frmClone">
+			<p:focus context="frmClone" />
+			<h1>#{cadastroCloneBean.editando ? 'Edição de Clone' : 'Novo
+				Clone'}</h1>
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:button value="Novo" outcome="/clones/CadastroClone" />
+					<p:commandButton value="Salvar" id="botaosalvar"
+						action="#{cadastroCloneBean.salvar}" update="@form"
+						validateClient="true" />
+				</p:toolbarGroup>
+
+				<p:toolbarGroup align="right">
+					<p:button value="Pesquisar" outcome="/clones/PesquisaClones" />
+				</p:toolbarGroup>
+
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px; border-color: white;"
+				columnClasses="rotulo, campo ">
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputMask id="nome" mask="aaa9999"  size="40" maxlength="40"
+					value="#{cadastroCloneBean.clone.nome}" />
+
+				<p:outputLabel value="Idade" for="idade" />
+				<p:inputNumber decimalPlaces="0" id="idade" size="40" 
+					value="#{cadastroCloneBean.clone.idade}" />
+				
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<p:selectOneMenu style="width: 150px" id="selecao-adicional"
+					value="#{cadastroCloneBean.adicional}">
+					<f:selectItem itemLabel="Selecione o adicional" />
+					<f:selectItems value="#{cadastroCloneBean.adicionais}" var="adicional"
+						itemLabel="#{adicional.nome}" itemValue="#{adicional}" />
+					<p:ajax update=":frmClone:bt-add-adicional" />
+				</p:selectOneMenu>
+				
+				<p:commandButton value="Adicionar adicional" id="bt-add-adicional"
+					action="#{cadastroCloneBean.adicionarAdicional}"
+					process="@this :frmClone:selecao-adicional"
+					update=":frmClone:adicionaisTable :frmClone:selecao-adicional frmClone:bt-add-adicional"
+					disabled="#{cadastroCloneBean.botaoAddAdicionalDisabled}" />
+			</p:panelGrid>
+
+			<p:dataTable id="adicionaisTable"
+				value="#{cadastroCloneBean.clone.adicionais}"
+				style="margin-top: 20px" var="adicional"
+				emptyMessage="Nenhum adicional encontrado." rows="20" paginator="true"
+				paginatorAlwaysVisible="false" paginatorPosition="bottom">
+				<p:column headerText="Adicional" style="text-align: left">
+					<h:outputText value="#{adicional.nome}" />
+				</p:column>
+				
+
+				<p:column style="width: 50px; text-align: center">
+					<p:commandButton icon="ui-icon-trash" process="@this"
+						title="Excluir"
+						oncomplete="PF('excluirAdicionalCloneDialog').show()">
+						<f:setPropertyActionListener target="#{cadastroCloneBean.adicional}"
+							value="#{adicional}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+
+			<p:confirmDialog header="Exclusão de adicional de clone"
+				message="Tem certeza que deseja excluir o adicional de clone?"
+				widgetVar="excluirAdicionalCloneDialog">
+
+				<p:commandButton value="Sim"
+					oncomplete="PF('excluirAdicionalCloneDialog').hide()"
+					action="#{cadastroCloneBean.removerAdicional}" process="@this"
+					update=":frmClone:adicionaisTable :frmClone:selecao-adicional frmClone:bt-add-adicional" />
+				<p:button value="Não"
+					onclick="PF('excluirAdicionalCloneDialog').hide(); return false;" />
+
+			</p:confirmDialog>
+
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>

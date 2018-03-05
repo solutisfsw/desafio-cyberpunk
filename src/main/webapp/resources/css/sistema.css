@@ -1,0 +1,117 @@
+@CHARSET "utf-8";
+
+body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+	font-weight: normal;
+}
+
+header {
+	padding: 5px 0px;
+	margin-bottom: 20px;
+	height: 80px;
+	background-color: #000080; 
+}
+
+header.div {
+	margin-left: 8px;
+}
+
+#conteudo {
+	padding: 0px 8px;
+}
+
+footer {
+	padding: 0px 8px;
+	margin-bottom: 10px
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 500;
+	padding: 0px;
+	margin: 0px;
+}
+
+.rotulo {
+	width: 150px
+}
+
+.ui-panelgrid td.ui-panelgrid-cell {
+	height: 34px;
+	border-color: white;
+}
+
+.ui-selectoneradio label {
+	padding-right: 15px;
+}
+
+.ajax-status {
+	position: fixed;
+	top: 100px;
+	right: 10px;
+	width: 35px;
+	height: 35px
+}
+
+.ui-selectmanycheckbox td label {
+	padding-right: 10px;
+}
+
+/*Customiza TabView - inicio */
+.ui-tabs .ui-tabs-panel {
+	padding: 0.5em 0.2em !important;
+}
+
+.ui-tabs {
+	padding: 0px !important;
+}
+
+.ui-tabs .ui-tabs-nav {
+	margin: -1px !important;
+}
+
+.ui-tabs.ui-tabs-top>.ui-tabs-nav {
+	padding: 0px !important;
+}
+
+/* Customiza TabView - fim*/
+
+/* Menu sistema inicio */
+.menu-sistema {
+	border: 0px !important;
+	padding: 0px !important;
+	background: none !important;
+	font-size: 20px;
+}
+.menu-sistema .ui-menu-parent>a .ui-menuitem-text, .menu-sistema>.ui-menu-list>.ui-menuitem>a>.ui-menuitem-text
+	{
+	color: #ffffff !important;
+}
+
+.ui-menuitem-text
+	{
+	color: #CD1717 !important;
+}
+
+.menu-sistema .ui-menu-parent>a .ui-menuitem-text, .menu-sistema>.ui-menu-list>.ui-menuitem>a>.ui-menuitem-text> ui-submenu-link {
+    color: #CD1717 !important;
+}
+
+.menu-sistema .ui-icon-triangle-1-s {
+	background: url(#{ resource [ 'images:seta-para-baixo.png' ]}) no-repeat !important;
+}
+
+.ui-toolbar {
+    background-color: #F5D266 !important;
+}
+.ui-widget-header {
+    border: 1px solid #BB9E48 !important;
+    background: #F5D266 !important
+}
+
+/* Menu sistema fim */
+.ui-state-disabled {
+	opacity: .80 !important;
+}
