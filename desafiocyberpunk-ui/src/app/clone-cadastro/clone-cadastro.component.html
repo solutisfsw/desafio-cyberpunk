@@ -1,0 +1,145 @@
+<div style="text-align: center">
+    <p-dialog header="Cadastro de clones" [(visible)]="display" modal="modal" width="300" [responsive]="true">
+        <p class="ui-fluid">{{ erro }}</p>
+        <div style="text-align: center">
+            <button type="button" pButton icon="fa-check" (click)="display=false" label="OK"></button>
+        </div>
+    </p-dialog>
+</div>
+
+<form #frm="ngForm" (ngSubmit)="adicionar(frm)" autocomplete="off" id="ngForm">
+    <div class="ui-g">
+
+        <div class="ui-g-12">
+            <h1>Cadastro de Clone</h1>
+        </div>
+
+        <div>
+            <input type="hidden" name="clone.id_clone">
+        </div>
+
+        <div class="ui-g-6 ui-fluid">
+            <label>Nome</label>
+            <input pInputText [(ngModel)]="novoClone.nome" name="nome" #nome="ngModel" required pattern="[A-Z]{3}[0-9]{4}" maxlength="7">
+            <div [hidden]="nome.valid || nome.pristine">
+                O nome requerido deve ter 3 letras maiúsculas e 4 números
+            </div>
+        </div>
+
+        <div class="ui-g-6 ui-fluid">
+            <label>Data da criação</label>
+            <p-calendar [(ngModel)]="novoClone.data_criacao" name="data_criacao" #data_criacao="ngModel" dateFormat="dd/mm/yy" ngModel
+                [required]="true"></p-calendar>
+        </div>
+
+        <div class="ui-g-6 ui-fluid">
+            <label>Idade</label>
+            <input pInputText [(ngModel)]="novoClone.idade" name="idade" #idade="ngModel" ngModel [required]="true" required pattern="[0-9]+"
+                maxlength="2" id="idade">
+            <div [hidden]="idade.valid || idade.pristine">
+                Apenas números
+            </div>
+        </div>
+
+        <div class="ui-g-6 ui-fluid">
+            <label>Selecione os elementos</label>
+            <br/>
+            <p-multiSelect selectedItemsLabel="{0} elementos selecionados" [options]="elementos" [(ngModel)]="novoClone.elementos" optionLabel="descricao"
+                [ngModelOptions]="{standalone: true}" defaultLabel="selecione um elemento">
+            </p-multiSelect>
+        </div>
+
+        <div class="ui-g-12">
+            <button pButton type="submit" label="Adicionar" [disabled]="frm.invalid"></button>
+        </div>
+
+    </div>
+</form>
+<div class="ui-g">
+    <div class="ui-g-12">
+        <p-dataTable [value]="clones" selectionMode="single" [(selection)]="cloneSelecionado" (dblclick)="dBClick($event)" [paginator]="true"
+            rows="15">
+            <p-column field="nome" header="Nome" sortable="true"></p-column>
+            <p-column header="Data da criação" sortable="true">
+                <ng-template pTemplate="body" let-item="rowData">
+                    {{ item.data_criacao | date:'dd/MM/yyyy' }}
+                </ng-template>
+            </p-column>
+            <p-column field="idade" header="Idade" sortable="true"></p-column>
+            <p-column header="Elementos">
+                <ng-template pTemplate="body" let-item="rowData">
+                    <table *ngFor="let elemento of item.elementos">
+                        <tr>
+                            <td>{{ elemento.descricao }}</td>
+                        </tr>
+                    </table>
+                </ng-template>
+            </p-column>
+            <p-footerColumnGroup>
+                <p-row>
+                    <p-column footer="Clique duas vezes em um clone" colspan="4"></p-column>
+                </p-row>
+            </p-footerColumnGroup>
+        </p-dataTable>
+    </div>
+</div>
+
+
+<p-dialog header="Clone Detalhes" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="500">
+    <div class="ui-g ui-fluid" *ngIf="clone">
+        <div class="ui-g-6 ui-fluid">
+            <input type="hidden" pInputText name="clone.id_clone">
+        </div>
+        <div class="ui-g-12">
+            <div>
+                <label for="nome">Nome</label>
+            </div>
+            <div>
+                <input pInputText id="nome" [(ngModel)]="clone.nome" readonly="true"/>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div>
+                <label for="idade">Idade</label>
+            </div>
+            <div>
+                <p-inputMask id="idade" [(ngModel)]="clone.idade" pattern="[0-9]+"  mask="99"></p-inputMask>
+            </div>
+            
+        </div>
+        <div class="ui-g-12">
+            <div>
+                <label for="data">Data da criação</label>
+            </div>
+            <div>
+                <input pInputText type="date" id="data" [(ngModel)]="clone.data_criacao" dateFormat="dd/mm/yy" readonly="true" />
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-fluid">
+            <label>Selecione um membro</label>
+            <p-multiSelect selectedItemsLabel="{0} elementos selecionados" [options]="elementos" [(ngModel)]="clone.elementos" optionLabel="descricao"
+                [ngModelOptions]="{standalone: true}" defaultLabel="selecione um elemento">
+            </p-multiSelect>
+        </div>
+
+        <div class="ui-g-12 fluid">
+            <p-dataTable [value]="clone.elementos">
+                <p-column field="descricao" header="Elementos" sortable="true" item-width="200px"></p-column>
+            </p-dataTable>
+        </div>
+
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-6">
+                    <button type="button" pButton icon="fa-close" (click)="deletar(clone.id_clone)" label="Deletar"></button>
+                </div>
+                <div class="ui-g-6">
+                    <button type="button" pButton icon="fa-check" (click)="atualizar()" label="Salvar"></button>
+                </div>
+            </div>
+        </div>
+    </p-footer>
+</p-dialog>
