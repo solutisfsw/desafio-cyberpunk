@@ -9,6 +9,7 @@ import java.util.Map;
  */
 
 public class Clone {
+
     private String id;
     private String nome;
     private int idade;

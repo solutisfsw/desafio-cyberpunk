@@ -168,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if (direction == ItemTouchHelper.LEFT) {
                     recyclerAdapter.deleteClone(clonesList.get(position).getId(), position);
-                    recyclerAdapter.notifyDataSetChanged();
                 } else {
                     recyclerAdapter.notifyDataSetChanged();
                 }
