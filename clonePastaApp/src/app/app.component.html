@@ -1,0 +1,120 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#home">
+        <img src="/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">Clínica de Clonagem <b>Dr. Albieri</b>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto my-2 my-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="#equipe">Equipe</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#clones">Listar Clones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#criar">Criar Clone</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="home" class="jumbotron inicial jumbotron-fluid">
+    <div class="container">
+        <h1>Nós criamos milagres, todos os dias.</h1>
+        <h2>Clínica de Clonagem Dr. Albieri</h2>
+    </div>
+</div>
+<div class="jumbotron bg-light jumbotron-fluid" style="margin-bottom: 0;">
+    <div class="container">
+        <div class="primeiros-passos text-center">
+            <img src="/assets/images/arrow.png" width="30" height="30" class="d-inline-block align-top" alt="">Primeiros Passos
+        </div>
+
+        <div class="row lista text-center">
+            <div class="col-sm-4">
+                <a href="#equipe">
+                    <img src="/assets/images/dralbieri.jpg" class="albieri d-inline-block align-top" alt=""></a>
+                <h2>Equipe</h2>
+                <hr/>
+                <h4>Os estudos do Dr. Albieri serviram de pilar para a nossa maravilhosa equipe médica.</h4>
+            </div>
+            <div class="col-sm-4">
+                <a href="#clones">
+                    <img src="/assets/images/add.png" class="albieri d-inline-block align-top" alt="">
+                </a>
+                <h2>Crie o seu clone</h2>
+                <hr/>
+                <h4>Aqui você configura tudo o que precisa para que o seu clone seja gerado.</h4>
+            </div>
+            <div class="col-sm-4">
+                <a href="#criar">
+                    <img src="/assets/images/list.png" class="albieri d-inline-block align-top" alt="">
+                </a>
+                <h2>Lista de Clones</h2>
+                <hr/>
+                <h4>Veja e edite os nossos clones, admire a nossa coleção.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="equipe" class="jumbotron doutores jumbotron-fluid">
+    <div class="container">
+        <h1>Equipe</h1>
+        <h2>Nós somos uma clínica de clonagem com uma abordagem personalizada, e menções honrosas em diversos canais de comunicações. </h2>
+        <br/>
+        <div class="row">
+            <div class="col-sm-3"><img class="icone" src="assets/images/icon1.png" alt="icone"></div>
+            <div class="col-sm-3"><img class="icone" src="assets/images/icon2.png" alt="icone"></div>
+            <div class="col-sm-3"><img class="icone" src="assets/images/icon3.png" alt="icone"></div>
+            <div class="col-sm-3"><img class="icone" src="assets/images/icon4.png" alt="icone"></div>
+        </div>
+    </div>
+</div>
+<div id="clones" class="jumbotron clones jumbotron-fluid">
+    <div class="container">
+        <h2>Lista de Clones</h2>
+        <br/>
+        <div class="row">
+            <div style="width:100%" *ngIf="!(clones === undefined)">
+                <div *ngFor="let clone of clones; let i = index;" class="col-lg-4 clone">
+                    <img src="assets/images/clone.jpg" alt="icone">
+                    <hr/>
+                    <p class="titulo-card">clone #{{i+1}}</p>
+                    <p>Nome: {{clone.nome}}</p>
+                    <p>Idade: {{clone.idade}}</p>
+                    <p> - Equipamentos -</p>
+                    <p *ngFor="let e of clone.extraEquipSet">{{e.nome}}</p>
+                    <p>Data de Criação: {{clone.data_criacao | date:'dd/MM/yyy' }}</p>
+                    <button (click)="editarClone(clone)" type="button" class="btn btn-outline-success btn-sm">Editar</button>
+                    <button (click)="deleteClone(clone)" type="button" class="btn btn-outline-danger btn-sm">Deletar</button>
+                </div>
+            </div>
+            <div *ngIf="(clones === undefined)">
+                <h2>No momento não temos nenhum clone para exposição.</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="criar" class="jumbotron criar jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+            <div style="color:black" class="col-sm-4 clone">
+                <h2>Adicionar Clone</h2>
+                <img src="assets/images/clone.jpg" alt="icone">
+                <hr/>
+                <p class="titulo-card">clone</p>
+                <input style="margin:1em 0" [(ngModel)]="clone.nome" placeholder="Nome" name="nome" class="form-control" id="nome">
+                <input style="margin:1em 0" [(ngModel)]="clone.idade" placeholder="Idade - De 10 a 20 anos" name="idade" class="form-control" id="idade">
+                <mat-select style="    border: 1px solid #ced4da;
+                height: 29px;
+                margin-bottom: 2em;" [(ngModel)]="clone.extraEquipSet" placeholder="Equipamentos" multiple>
+                    <mat-option *ngFor="let equipamento of equipamentos" [value]="equipamento">{{equipamento.nome}}</mat-option>
+                </mat-select>
+                <button (click)="salvarClone()" type="button" class="btn btn-outline-success btn-sm">Salvar</button>
+                <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
