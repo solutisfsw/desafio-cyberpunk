@@ -34,23 +34,23 @@ $(document).ready(function(){
 </head>
 <body>
 <form id="contact" method="post" action="clonesControlador?action=port">
-<label>FILTRO DE PESQUISA DO SEU ROBÔ</label>
+<label>FILTRO DE PESQUISA DO SEU ROBÃ”</label>
 <p></p>
 <p></p>
 <label> Nome
 <input type="text" style='text-transform:uppercase' name="nome" value=""  class="nome" id="nome"></label><p></p>
 <label> Habilidade:<select name="skill">
-<option value="" >Não Selecionado</option>
-  <option value="Braço Mecânico" >Braço Mecânico</option>
-  <option value="Esqueleto Reforçado" >Esqueleto Reforçado</option>
-  <option value="Sentidos Aguçados" >Sentidos Aguçados</option>
+<option value="" >NÃ£o Selecionado</option>
+  <option value="BraÃ§o MecÃ¢nico" >BraÃ§o MecÃ¢nico</option>
+  <option value="Esqueleto ReforÃ§ado" >Esqueleto ReforÃ§ado</option>
+  <option value="Sentidos AguÃ§ados" >Sentidos AguÃ§ados</option>
    <option value="Hackeamento" >Hackeamento</option>
     <option value="Invisibilidade" >Invisibilidade</option>
      <option value="Velocidade" >Velocidade</option>
-      <option value="Visão Noturna" >Visão Noturna</option>
+      <option value="VisÃ£o Noturna" >VisÃ£o Noturna</option>
 </select> </label><p></p>
 <label> Idade:<select name="idade" >
-<option value="" >Não Selecionado</option>
+<option value="" >NÃ£o Selecionado</option>
   <option value="10" >10</option>
   <option value="11" >11</option>
   <option value="12" >12</option>
@@ -63,19 +63,19 @@ $(document).ready(function(){
       <option value="19" >19</option>
       <option value="20" >20</option>
 </select> </label><p></p>
-<label> Data de criação:<input type="date" name="criacao" value=""></label><p></p>
-<label> Gênero:<select name="genero" >
-<option value="" >Não Selecionado</option>
+<label> Data de criaÃ§Ã£o:<input type="date" name="criacao" value=""></label><p></p>
+<label> GÃªnero:<select name="genero" >
+<option value="" >NÃ£o Selecionado</option>
   <option value="Homem" >Homem</option>
   <option value="Mulher" >Mulher</option>
   <option value="Transsexual" >Transsexual</option>
-   <option value="Não Definido" >Não quero</option>
+   <option value="NÃ£o Definido" >NÃ£o quero</option>
 </select> </label><p></p>
 <label> Habilidade Especial:<select name="especial" >
-<option value="" >Não Selecionado</option>
+<option value="" >NÃ£o Selecionado</option>
 <option value="Raio Lazer" >Raio Lazer</option>
   <option value="Voar" >Voar</option>
-  <option value="Super Força" >Super Força</option>
+  <option value="Super ForÃ§a" >Super ForÃ§a</option>
    <option value="A prova de balas" >Prova de balas</option>
 </select> </label><p></p>
 <label>ID:<input type="text" name="idClone" value="" ></label>
