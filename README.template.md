@@ -1,18 +1,22 @@
-# Nome do projeto
+#Projeto CyberPunk
 
-Descrição resumida sobre o projeto.
+Projeto CRUD com Api Rest, apenas backend em java, com banco de dados MongoDB Atlas(DB na nuvem já configurado no arquivo CloneDAO).
 
 ## Instalação
 Linux & Windows
 
-```sh
-npm install
-npm buid
-```
+
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+Abra o projeto em uma IDE como maven, verifique se as dependencias foram instaladas, execute o projeto a partir do Api.java
+
+Utilize um REST client para fazer as requisições, postman por exemplo.
+URL - 127.0.0.1:4567
+Listar - 127.0.0.1:4567/
+Cadastrar - 127.0.0.1:4567/cadClone
+Atualizar - 127.0.0.1:4567/altClone
+Deletar - 127.0.0.1:4567/delClone
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
+Seu Nome – João Lucas Gonçalves da Silva – jlgf192013@gmail.com
 
 Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
