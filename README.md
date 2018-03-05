@@ -13,6 +13,6 @@ Configuração
 
 Meta
 
-Filipe da Cruz Ribeiro – email@host.com
+Filipe da Cruz Ribeiro – filipe.cruz.ribeiro@gmail.com
 
 Distribuído sob a licença Tipo da licença. Veja LICENSE para mais informações.
