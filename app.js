@@ -5,7 +5,8 @@ const path = require('path')
 const index = require('./routes/index');
 const bodyParser = require('body-parser')
 
-const mongoDB = 'mongodb://127.0.0.1/crones';
+//const mongoDB = 'mongodb://127.0.0.1/crones';
+const mongoDB = "mongodb://heroku_k3pmt2zh:rodomunfr47qb0lani3sk6v5m0@ds155268.mlab.com:55268/heroku_k3pmt2zh"
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
