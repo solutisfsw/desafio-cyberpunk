@@ -20,6 +20,17 @@
 <!--fonts-->
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 	<meta name="author" content="pixelhint.com">
+	
+	 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.maskedinput.js"></script>
+	
+	<script type="text/javascript">
+$(document).ready(function(){	
+        $("input.nome").mask("aaa 9999");
+});
+</script>
+	
+	
 </head>
 <body>
 <form id="contact" method="post" action="clonesControlador?action=port">
