@@ -1,0 +1,8 @@
+{
+  "name": "clone_app",
+  "app_id": "7124b6a8",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

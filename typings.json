@@ -1,0 +1,12 @@
+{
+  "globalDependencies": {
+    "pouchdb": "registry:dt/pouchdb#5.4.4+20160916155957",
+    "pouchdb-adapter-websql": "registry:dt/pouchdb-adapter-websql#5.4.4+20160916155957",
+    "pouchdb-browser": "registry:dt/pouchdb-browser#5.4.4+20160916155957",
+    "pouchdb-core": "registry:dt/pouchdb-core#6.0.7+20170203181939",
+    "pouchdb-http": "registry:dt/pouchdb-http#5.4.4+20160916155957",
+    "pouchdb-mapreduce": "registry:dt/pouchdb-mapreduce#5.4.4+20161228004223",
+    "pouchdb-node": "registry:dt/pouchdb-node#5.4.4+20160916155957",
+    "pouchdb-replication": "registry:dt/pouchdb-replication#6.0.7+20161125194004"
+  }
+}

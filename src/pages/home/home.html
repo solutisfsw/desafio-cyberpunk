@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sistema de Clones Solutis
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+   <ion-item>
+      <button
+         class="add"
+         ion-button
+         item-right
+         icon-right
+         margin-bottom
+         color="primary"
+         (click)="addClone()">
+            Adcionar Clone
+            <ion-icon name="add"></ion-icon>
+      </button>
+   </ion-item>
+
+
+
+   <div *ngIf="hasClone">
+      <ion-list>
+
+         <ion-item *ngFor="let clone of clones">
+            <ion-thumbnail item-left>
+               <img src="assets/imgs/clone.png" >
+            </ion-thumbnail>
+            <h2>{{ clone.name }}</h2>
+            <h3>{{ clone.id| date: 'd/m/y - h:m:ss' }}</h3>
+            <button
+               ion-button
+               clear
+               item-right
+               (click)="viewClone({'key':clone.id, 'rev':clone.rev })">
+                  Editar
+            </button>
+         </ion-item>
+
+      </ion-list>
+   </div>
+
+
+</ion-content>
