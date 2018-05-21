@@ -45,7 +45,7 @@ The app will automatically reload if you change any of the source files.
 
 ## Author
 
-**[Haeralis](mailto:gledson@haeralis.com) (aka GledsonMotta)** - [Linkedin](https://www.linkedin.com/in/gledson-motta-03a3312b/)
+**[Haeralis](mailto:gledson@haeralis.com) (aka GledsonMotta)** - [Linkedin](https://www.linkedin.com/in/gledsonivomotta/)
 
 **[Gmail](mailto:gledsonivomotta@gmail.com)**  - gledsonivomotta@gmail.com
 
