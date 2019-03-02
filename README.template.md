@@ -1,18 +1,17 @@
 # Nome do projeto
 
-Descrição resumida sobre o projeto.
+Aplicativo Android que utiliza o Firestore do Firebase para realizar o CRUD dos clones.
 
 ## Instalação
+
 Linux & Windows
 
-```sh
-npm install
-npm buid
-```
 ## Configuração
-Descreva aqui as configurações necessárias para o seu projeto funcionar.
+
+Fazer download do projetos e abri-lo na versão atual do Android Studio.
 
 ## Meta
-Seu Nome – [Nome Completo](https://www.linkedin.com/in/...) – email@host.com
 
-Distribuído sob a licença `Tipo da licença`. Veja `LICENSE` para mais informações.
+[Luis Roberto Borba Ferreira](https://www.linkedin.com/in/luisrbferreira/) – l.r.b.f@hotmail.com
+
+This project is licensed under the MIT License - see the [LICENSE](desafio-cyberpunk/LICENSE) file for details
