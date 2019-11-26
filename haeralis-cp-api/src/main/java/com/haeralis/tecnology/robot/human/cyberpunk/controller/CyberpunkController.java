@@ -182,7 +182,7 @@ public class CyberpunkController {
 				search = cyberpunkRepository.findByName(cyberpunkHR.getName());
 			}
 			if(search!=null && search.size()>0) {
-				throw new IllegalArgumentException("This clone name is already in use, choose another better");
+				throw new IllegalArgumentException("This clone name is already in use");
 			}
 		}
 		return true;
