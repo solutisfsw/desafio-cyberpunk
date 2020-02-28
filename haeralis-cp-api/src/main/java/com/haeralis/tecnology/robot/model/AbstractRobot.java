@@ -4,11 +4,14 @@ import javax.persistence.Inheritance;
 
 import com.haeralis.tecnology.robot.util.RobotConstants;
 
+import lombok.Data;
+
 /**
  * Abstract class for Robot
  * @author Haeralis (GledsonMotta)
  *
  */
+@Data
 @Inheritance
 public abstract class AbstractRobot {
 
@@ -31,32 +34,7 @@ public abstract class AbstractRobot {
 	 * @param energy a energia consumida
 	 */
 	public abstract void takeEnergy(Long energy);
-			
-	/**
-	 * @return Retorna o atributo totalEnergy
-	 */
-	public Long getTotalEnergy() {
-		return totalEnergy;
-	}
-	/**
-	 * @param totalEnergy O totalEnergy a ser setado.
-	 */
-	public void setTotalEnergy(Long totalEnergy) {		
-		this.totalEnergy = totalEnergy;
-	}
-	/**
-	 * @return Retorna o atributo totalDamage
-	 */
-	public Long getTotalDamage() {
-		return totalDamage;
-	}
-	/**
-	 * @param totalDamage O totalDamage a ser setado.
-	 */
-	public void setTotalDamage(Long totalDamage) {
-		this.totalDamage = totalDamage;
-	}	
-	
+		
 	/**
 	 * @param percentEnergy O percentEnergy a ser setado.
 	 */	
@@ -79,20 +57,5 @@ public abstract class AbstractRobot {
 		else{
 			throw new IllegalArgumentException(RobotConstants.INVALID_DAMAGE_ARGUMENT);
 		}
-	}
-	
-	/**
-	 * @return Retorna o atributo percentEnergy
-	 */	
-	public Double getPercentEnergy() {
-		return percentEnergy;		
-	}
-	
-
-	/**
-	 * @return Retorna o atributo percentDamage
-	 */
-	public Double getPercentDamage() {
-		return percentDamage;		
 	}	
 }

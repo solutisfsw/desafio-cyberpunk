@@ -16,11 +16,16 @@ import com.haeralis.tecnology.robot.human.model.AbstractHumanRobot;
 import com.haeralis.tecnology.robot.human.model.HumanRobotCloneable;
 import com.haeralis.tecnology.robot.util.RobotConstants;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 
  * @author Haeralis (GledsonMotta)
  *
  */
+@Getter
+@Setter
 @Entity
 public class CyberpunkHumanRobot extends AbstractHumanRobot implements HumanRobotCloneable{
 
@@ -69,77 +74,6 @@ public class CyberpunkHumanRobot extends AbstractHumanRobot implements HumanRobo
 		clone.addAdditional(extraAdditional);
 				
 		return clone;
-	}
-
-	/**
-	 * @return Retorna o atributo name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name O name a ser setado.
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @return Retorna o atributo age
-	 */
-	public int getAge() {
-		return age;
-	}
-
-	/**
-	 * @param age O age a ser setado.
-	 */
-	public void setAge(int age) {
-		this.age = age;		
-	}
-
-	/**
-	 * @return Retorna o atributo creationDate
-	 */
-	public LocalDate getCreationDate() {
-		return creationDate;
-	}
-
-	/**
-	 * @param creationDate O creationDate a ser setado.
-	 */
-	public void setCreationDate(LocalDate creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	/**
-	 * @return Retorna o atributo version
-	 */
-	@Override
-	public String getVersion() {
-		return version;
-	}
-
-	/**
-	 * @param version O version a ser setado.
-	 */
-	public void setVersion(String version) {
-		this.version = version;
-	}
-	
-	/**
-	 * @return Retorna o atributo additionals
-	 */
-	public List<CyberpunkAttribute> getAdditional() {
-		return additional;
-	}
-
-	/**
-	 * @param additional O additional a ser setado.
-	 */
-	public void setAdditional(List<CyberpunkAttribute> additional) {
-		this.additional = additional;
 	}
 
 	/**
