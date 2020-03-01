@@ -1,4 +1,4 @@
-package com.haeralis.tecnology.robot.util;
+package com.haeralis.technology.robot.util;
 
 /**
  * Class of constants for Robot

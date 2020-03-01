@@ -1,4 +1,4 @@
-package com.haeralis.tecnology.robot.human.model;
+package com.haeralis.technology.robot.human.model;
 
 /**
  * Interface to be implemented by classes that can be cloned

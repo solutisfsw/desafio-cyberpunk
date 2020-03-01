@@ -1,4 +1,4 @@
-package com.haeralis.tecnology.robot.human.cyberpunk.controller;
+package com.haeralis.technology.robot.human.cyberpunk.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.haeralis.tecnology.robot.human.cyberpunk.model.CyberpunkAttribute;
-import com.haeralis.tecnology.robot.human.cyberpunk.model.CyberpunkHumanRobot;
-import com.haeralis.tecnology.robot.human.cyberpunk.repository.CyberpunkRepository;
-import com.haeralis.tecnology.robot.human.cyberpunk.util.CyberpunkConstants;
+import com.haeralis.technology.robot.human.cyberpunk.model.CyberpunkAttribute;
+import com.haeralis.technology.robot.human.cyberpunk.model.CyberpunkHumanRobot;
+import com.haeralis.technology.robot.human.cyberpunk.repository.CyberpunkRepository;
+import com.haeralis.technology.robot.human.cyberpunk.util.CyberpunkConstants;
 
 /**
  * 

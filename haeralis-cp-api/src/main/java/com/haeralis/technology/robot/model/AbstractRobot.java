@@ -1,8 +1,8 @@
-package com.haeralis.tecnology.robot.model;
+package com.haeralis.technology.robot.model;
 
 import javax.persistence.Inheritance;
 
-import com.haeralis.tecnology.robot.util.RobotConstants;
+import com.haeralis.technology.robot.util.RobotConstants;
 
 import lombok.Data;
 

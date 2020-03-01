@@ -1,4 +1,4 @@
-package com.haeralis.tecnology.robot.human.cyberpunk.model;
+package com.haeralis.technology.robot.human.cyberpunk.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,10 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.haeralis.tecnology.robot.human.cyberpunk.util.CyberpunkConstants;
-import com.haeralis.tecnology.robot.human.model.AbstractHumanRobot;
-import com.haeralis.tecnology.robot.human.model.HumanRobotCloneable;
-import com.haeralis.tecnology.robot.util.RobotConstants;
+import com.haeralis.technology.robot.human.cyberpunk.util.CyberpunkConstants;
+import com.haeralis.technology.robot.human.model.AbstractHumanRobot;
+import com.haeralis.technology.robot.human.model.HumanRobotCloneable;
+import com.haeralis.technology.robot.util.RobotConstants;
 
 import lombok.Getter;
 import lombok.Setter;

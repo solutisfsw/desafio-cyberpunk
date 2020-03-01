@@ -1,9 +1,9 @@
-package com.haeralis.tecnology.robot.human.model;
+package com.haeralis.technology.robot.human.model;
 
 import javax.persistence.Inheritance;
 
-import com.haeralis.tecnology.robot.model.AbstractRobot;
-import com.haeralis.tecnology.robot.util.RobotConstants;
+import com.haeralis.technology.robot.model.AbstractRobot;
+import com.haeralis.technology.robot.util.RobotConstants;
 
 /**
  * Abstract class for HumanRobot

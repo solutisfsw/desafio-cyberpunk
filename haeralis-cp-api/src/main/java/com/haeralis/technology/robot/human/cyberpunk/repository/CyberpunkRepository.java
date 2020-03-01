@@ -1,10 +1,10 @@
-package com.haeralis.tecnology.robot.human.cyberpunk.repository;
+package com.haeralis.technology.robot.human.cyberpunk.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.haeralis.tecnology.robot.human.cyberpunk.model.CyberpunkHumanRobot;
+import com.haeralis.technology.robot.human.cyberpunk.model.CyberpunkHumanRobot;
 
 /**
  * Repository simulator for Cyberpunk Model

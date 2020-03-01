@@ -1,4 +1,4 @@
-package com.haeralis.tecnology.robot.human.cyberpunk.model;
+package com.haeralis.technology.robot.human.cyberpunk.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

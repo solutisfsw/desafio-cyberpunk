@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.haeralis.HaeralisCpApiApplicationTests;
-import com.haeralis.tecnology.robot.human.cyberpunk.controller.CyberpunkController;
-import com.haeralis.tecnology.robot.human.cyberpunk.model.CyberpunkHumanRobot;
+import com.haeralis.technology.robot.human.cyberpunk.controller.CyberpunkController;
+import com.haeralis.technology.robot.human.cyberpunk.model.CyberpunkHumanRobot;
 
 /**
  * Test class for CyberpunkController

@@ -1,4 +1,4 @@
-package com.haeralis.tecnology.robot.human.cyberpunk.util;
+package com.haeralis.technology.robot.human.cyberpunk.util;
 
 /**
  * Class of constants for Cyberpunk
