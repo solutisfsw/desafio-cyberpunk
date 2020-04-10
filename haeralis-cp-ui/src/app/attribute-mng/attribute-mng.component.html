@@ -21,9 +21,9 @@
         <label for="type">Attribute Type</label>
           <select class="form-control" id="type"
                 required
-                [(ngModel)]="attrModel.attributeType.code" name="type"
+                [(ngModel)]="attrModel.attributeType.id" name="type"
                 #type="ngModel">
-          <option *ngFor="let type of attributeTypes" [value]="type.code">{{type.name}}</option>
+          <option *ngFor="let type of attributeTypes" [value]="type.id">{{type.name}}</option>
         </select>
         <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
           Attribute Type is required
