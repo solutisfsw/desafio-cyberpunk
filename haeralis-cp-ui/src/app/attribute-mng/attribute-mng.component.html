@@ -1,0 +1,63 @@
+<div class="container myDiv">
+    <a data-toggle="collapse" data-parent="#acc" href="#newAttrb" aria-expanded="true" aria-controls="newAttrb" class="card card-header">
+        <h3> <i class="fa fa-list"></i> Create new Attribute</h3>
+        </a>
+        <div id="newAttrb" class="collapse show" role="tabcard" >   
+          <br> 
+    <form (ngSubmit)="adicionarAttr()" #attrForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="attrModel.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+       
+      <div class="form-group">
+        <label for="type">Attribute Type</label>
+          <select class="form-control" id="type"
+                required
+                [(ngModel)]="attrModel.attributeType.id" name="type"
+                #type="ngModel">
+          <option *ngFor="let type of attributeTypes" [value]="type.id">{{type.name}}</option>
+        </select>
+        <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+          Attribute Type is required
+        </div>
+      </div>
+ 
+      <button type="submit" class="btn btn-success" [disabled]="!attrForm.form.valid">Save</button>     
+    </form>
+        </div>
+</div>
+
+<div class="container myDiv">
+    <a data-toggle="collapse" data-parent="#acc" href="#listAttrb" aria-expanded="true" aria-controls="listAttrb" class="card card-header">
+        <h3> <i class="fa fa-list"></i> List of Existent Attributes</h3>
+        </a>
+        <div id="listAttrb" class="collapse show" role="tabcard" >   
+          <br> 
+  <table class="table table-striped">
+    <thead>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attribute of attributes">
+        <td>{{attribute.code}}</td>
+        <td>{{attribute.name}}</td>
+        <td>{{attribute.attributeType.name}}</td>
+        <td style="width: 10px; text-align: center">
+          <a class="btn fa fa-trash" (click)="delete(attribute)"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

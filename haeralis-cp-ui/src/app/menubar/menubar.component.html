@@ -1,0 +1,16 @@
+<nav class="navbar pageTop menubar">
+   
+  <a class="navbar-brand logo" routerLink="/"> 
+    <img src="\assets\img\logo-default-web.png">
+  </a>  
+  
+    <ul class="nav nav-pills">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Creation Tools</a>
+        <div class="dropdown-menu">
+            <a *ngFor="let menu of menuItens" class="dropdown-item" routerLink="{{menu.uiref}}">{{menu.name}}</a>
+          </div>
+      </li>      
+    </ul>
+  
+</nav>

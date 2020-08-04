@@ -1,0 +1,143 @@
+
+.block-web{
+	width: 120px;
+	height: 120px;
+	-ms-transform: rotate(-10deg) !important; /* IE 9 */
+    -webkit-transform: rotate(-10deg) !important; /* Chrome, Safari, Opera */
+    transform: rotate(-10deg) !important;
+}
+
+.bodyback {
+  /* can be treated like a fallback */
+ /* background-color: red;*/
+
+  /* will be "on top", if browser supports it */  
+  background-image: linear-gradient(#FF0066, #ffa500, #FF0066);
+   background-image: -webkit-linear-gradient(#FF0066, #ffa500, #FF0066);
+  background-image: -ms-linear-gradient(top, #FF0066, #ffa500, #FF0066);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF0066', endColorstr='#ffa500',GradientType=0 ); /* IE6-9 */
+}
+.pageContainer {
+
+	
+    /*max-width: 1689px;*/
+    width: 95%;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+	background-color: white;
+
+  /* will be "on top", if browser supports it */
+	background-image:white;
+}
+.pageTop{
+	 /*background-color: black;*/
+	background-image: linear-gradient(to right, black, #d3d3d3);
+	background-image: -webkit-linear-gradient(to right, black, #d3d3d3);
+	background-image: -ms-linear-gradient(right, black, #d3d3d3);  	
+}
+.device{
+	font-size: 24px;
+}
+
+.device.prd{
+	color: #339900;
+}
+
+.device.dsv{
+	color: #000;
+}
+
+.device-info{
+	font-size: 18px;
+}
+
+.featurette-heading>span{
+	font-size: 22px;
+    padding-left: 5px;
+}
+
+.featurette-heading.politica{
+	padding-left: 60px;
+}
+
+.statusText {
+	color: #FF6633;
+	
+	font-size: 100%; 
+	
+	font-family: 'Paytone One', sans;
+}
+
+.statusText.ok {
+	color: #339900;	
+}
+.statusText.soon {
+	color: #339900;	
+}
+.cheese-label{
+	font-size: 48px !important;
+	color: #ffff00 !important;
+	text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+.img-v-reverse{
+	-ms-transform: rotate(-180deg) !important; /* IE 9 */
+    -webkit-transform: rotate(-180deg) !important; /* Chrome, Safari, Opera */
+    transform: rotate(-180deg) !important;
+}
+.label-not-found,
+.label-not-found>h2{
+	text-align: center;	
+	text-shadow:none; 
+	text-shadow:0 0 1px #f6f6f6;
+	font-weight:normal !important; 
+	font-family: 'Paytone One', sans;
+	font-size: 28px;
+}
+
+.nav-link{
+    color: #8098ad;
+    font-weight: bold;    
+}
+
+.nav-link:hover {
+    color: #8098ad;      
+    background-color: #595d5b !important;
+}
+
+.nav-item.show .nav-link{
+    background-color: #595d5b !important;
+}
+
+.myDiv{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.myDiv h2, .myDiv h3{
+	color: #8098ad;
+}
+
+td .btn.fa{
+	color: green !important;
+	font-weight: bold;
+}
+
+[data-toggle="collapse"] i:before{   
+	content: "\f139";
+	color: #c8d5e0;
+}
+  
+[data-toggle="collapse"].collapsed i:before{	
+	content: "\f13a";
+	color: inherit;
+}
+
+a.card{
+	text-decoration: none;
+}
+
+.hint{
+	padding-left: 20px;
+	font-size: 14px;
+}

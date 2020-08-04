@@ -1,65 +1,57 @@
-[![N|Solid](http://solutis.com.br/images/logo.png)](http://solutis.com.br)
+<h1>
+  <img src="http://haeralis.com/includes/img/home/logo-default-web.png" alt="Haeralis">
+</h1>
 
-# NOSSO DESAFIO
-Bem vindo. Estamos interessados em ver como você desenvolve com as tecnologias que domina. Que jeito melhor do que apresentando um projeto feito por você?
-Queremos que você nos apresente uma aplicação que realize o CRUD de uma entidade. Aqui vão as regras.
-## REGRAS GERAIS
-- Faça a [cópia](https://help.github.com/articles/fork-a-repo/) do repositório (fork), desenvolva e submeta uma [solicitação de mudança](https://help.github.com/articles/creating-a-pull-request/) (pull request) no branch master.
-- A aplicação deve ser composta por Backend e/ou Frontend. Caso ache que so vai conseguir fazer um dos dois no tempo disponível, foque nele.
-- O Backend deve prover uma [API REST](https://pt.wikipedia.org/wiki/REST)
-- Você deve cumprir no mínimo os requisitos abaixo.
-- Items marcados com (+) não são obrigatórios, mas servem como diferencial.
-- Nas instruções para execução da aplicação é essêncial conter o seu nome e email utilizado no cadastro [Gupy](https://gupy.io/)
+# ### Archived (Old Project)
+# Cyberpunk Clone Tools App (Angular 5/Spring Boot)
 
-## REQUISITOS
+  This is a simple Angular/Spring Boot application created for the Solutis Talent Sprint 2018, city of Salvador, Brazil.
+  It provides a CRUD that's made with Angular 5 in the front-end, as well as Bootstrap 4 and other necessary tools.
+  In the back-end it has an api developed with Spring Boot and JPA frameworks using Java 8, it also saves and retrieve data from a H2 in memory database.
 
-Tempos desafiadores. A tecnologia avança em velocidade implacável. O mundo precisa de mais clones. Nossos clientes encomendam seus clones conosco e esperam um serviço de alta qualidade. Os atributos de um clone são:
+# Getting started
 
-- nome : Deve atender a seguinte expressão regular [A-Z]{3}[0-9]{4}. O nome de um clone deverá ser único no nosso sistema.
-- idade: Número inteiro entre 10 e 20.
-- data de criacao: Data na qual o clone foi cadastrado no sistema. 
-- adicionais: Lista contendo zero ou mais dos elementos a seguir: [ braço mecânico, esqueleto reforçado, sentidos aguçados, pele adaptativa, raio laser]
+## For [haeralis-cp-api](haeralis-cp-api) (Spring Boot - Java 8)
 
-A interface + backend da aplicação deverão permitir recuperação da lista de clones, remoção / atualização dos clones cadastrados e cadastro de clones.
-Considere que só um usuário vai usar a aplicação e que este usuário não precisa de login. Considere também que nós sabemos como relacionar um clone aos nossos clientes, não é preciso programar essa relação.
+Make sure you have [JDK 8 or higher](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed.
 
-## LINGUAGENS
-  - Java 8/9
-  - Kotlin (+)
-  - C#
-  - JavaScript/Typescript
-  - Swift 4
-  
-## FRAMEWORKS
+Make sure you have [Maven](https://maven.apache.org/download.cgi) installed.
 
-### BACKEND
-São válidos para o backend os seguintes frameworks:
+Download and unpack [Spring Tools Suit](https://spring.io/tools/sts/all).
 
-- JavaEE 7 ou superior
-- Node 8.9.4+ (+)
-- Springboot (+)
-- .NET WebApi
+Import the project [haeralis-cp-api](haeralis-cp-api) into STS.
 
-### FRONTEND
-O frontend pode ser Web ou Mobile. Sugerimos as seguintes tecnologias:
+Run Maven -> Update on STS to download all maven dependencies for the project.
 
-- Angular 5
-- Android (+)
-- iOS (+)
-
-### TESTES
-- Sua aplicaçao deve conter arquivos de testes unitários
-- Sua aplicação deve conter arquivos de testes de integração (+)
-
-### BANCO DE DADOS
-- Não é obrigatório o uso de um SGBD. Caso deseje, pode salvar os dados na memória.
-- Caso utilize um banco de dados (e.g. MySQL, PostgreSQL, MongoDB, Redis), você deve fornecer um Dockerfile que rode o ambiente já configurado com o seu banco. (+)
-- Caso utilize um banco de dados na nuvem (e.g. Firebase), a aplicação já deve ter o acesso ao banco configurado. (+)
-
-### BUILD E EXECUÇÃO
-- Envie as instruções para o build/execução da sua aplicação, disponibilizamos um [exemplo](README.template.md) para ajudar você. Cuidado com dependências externas que inviabilizem ou dificultem essas atividades.
-- De preferência utilize um ferramenta como Gradle, Maven, npm para realizar as tarefas necessárias de build.
-- Caso deseje, envie um Dockerfile que monte o ambiente já em execução da sua aplicação (+)
+After all, run the application on the STS Local Server.
+(Make sure the server is running on port :8080, because the app [haeralis-cp-ui](haeralis-cp-ui) will look for it. If not, you'll need to change the port number on the '...service.ts' files)
 
 
-# BOA SORTE!
+## For [haeralis-cp-ui](haeralis-cp-ui) (Angular 5)
+
+Make sure you have the [Angular CLI](https://github.com/angular/angular-cli#installation) installed globally, navigate to project folder then run `npm install` to resolve all dependencies (might take a minute).
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/` and enjoy!
+The app will automatically reload if you change any of the source files.
+
+
+## Functionality overview
+
+- Menu navigation with routes
+- List Attributes and Display on Table
+- Create new, and Delete existent Attributes
+- List Default Models that can be Cloned
+- CRUD existent Clones
+- Add additional Attributes to Clones
+
+## Author
+
+**[Haeralis](mailto:gledson@haeralis.com) (aka GledsonMotta)** - [Linkedin](https://www.linkedin.com/in/gledsonivomotta/)
+
+**[Gmail](mailto:gledsonivomotta@gmail.com)**  - gledsonivomotta@gmail.com
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
